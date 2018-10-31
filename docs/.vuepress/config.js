@@ -3,7 +3,7 @@ module.exports = {
   // 左上角标题
   title: '降临的文档库',
   // 描述
-  description: '前端工程师 壮壮 的文档库',
+  description: '前端工程师 降临 的文档库',
   // 头部部署，右上角小图标
   head: [
     // ico 配置
