@@ -7,15 +7,12 @@
 ## 管理系统
 管理系统：http://dev.icfo.cn:8080/login
 
-账号：admin
-密码：admin
-
 ## 测试
 ```js
-    function tianjia() {
-      console.log("1111");
-    }
-    jia()
+  function tianjia() {
+    console.log("1111");
+  }
+  jia()
 ```
 
 
