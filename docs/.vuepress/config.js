@@ -24,8 +24,8 @@ module.exports = {
         text: '导航',
         items: [
           {
-            text: 'work',
-            link: '/work/gitlib配置'
+            text: '工作',
+            link: '/work/account'
           },
         ]
       },
@@ -40,7 +40,7 @@ module.exports = {
         items: [
           {
             text: 'VuePress',
-            link: 'https://github.com/LiangJunrong/document-library/blob/master/other-library/GithubPages/GithubPages.md'
+            link: 'https://github.com'
           }
         ]
       },
@@ -60,14 +60,13 @@ module.exports = {
     sidebar: {
       // 侧边栏在 /index/ 目录上
       '/work/': [
-        ['git', '添加'],
-        ['gitlib', '测试'],
+        ['account','账号'],
       ],
       // 侧边栏在 /about/ 目录上
       '/about/': [
         ['GithubPages', 'GithubPages'],
       ]
     },
-    sidebarDepth:2 //标题深度
+    //sidebarDepth:2 //标题深度
   }
 }
