@@ -10,21 +10,13 @@
 账号：admin
 密码：admin
 
-前端网站：http://dev.icfo.cn:8080/website
-
-一样的，要在hosts文件里加上：
-在C:\ windows”→“System32”→“drivers”→“etc”\hosts 文件中加入：
-192.168.199.202  dev.icfo.cn
-
-## 账号
-账号：guanzhuangzhuang
-密码：guanzhzh123
-
-## 无线
-jincaijiaoyu@097A
-
-## 门卡
-0903
+## 测试
+```js
+    function tianjia() {
+      console.log("1111");
+    }
+    jia()
+```
 
 
 

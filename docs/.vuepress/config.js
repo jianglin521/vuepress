@@ -21,21 +21,14 @@ module.exports = {
      */
     nav: [
       {
-        text: '导航',
-        items: [
-          {
-            text: '工作',
-            link: '/work/account'
-          },
-        ]
+        text: '工作',
+        link: '/work/account'
       },
-      /**
-       * 多级菜单
-       * 开头 text 为一级标题
-       * 数组内 text 为二级标题
-       * link 为链接，注意带 /
-       */
       {
+        text: 'Vue',
+        link: '/vue/test'
+      },
+      /*{
         text: '博文',
         items: [
           {
@@ -43,11 +36,7 @@ module.exports = {
             link: 'https://github.com'
           }
         ]
-      },
-      {
-        text: '关于',
-        link: '/about/GithubPages'
-      },
+      },*/
       // 链接到网站
       {
         text: 'Github',
@@ -61,12 +50,12 @@ module.exports = {
       // 侧边栏在 /index/ 目录上
       '/work/': [
         ['account','账号'],
+        ['other','其它'],
       ],
-      // 侧边栏在 /about/ 目录上
-      '/about/': [
-        ['GithubPages', 'GithubPages'],
-      ]
+      '/vue/': [
+        ['test','测试'],
+      ],
     },
-    //sidebarDepth:2 //标题深度
+    sidebarDepth: 1 //标题深度
   }
 }
