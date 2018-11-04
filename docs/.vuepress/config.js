@@ -28,6 +28,10 @@ module.exports = {
         text: 'Vue',
         link: '/vue/test'
       },
+      {
+        text: '工具',
+        link: '/tools/nginx'
+      },
       /*{
         text: '博文',
         items: [
@@ -54,6 +58,9 @@ module.exports = {
       ],
       '/vue/': [
         ['test','测试'],
+      ],
+      '/tools/': [
+        ['nginx','nginx开机自启'],
       ],
     },
     sidebarDepth: 1 //标题深度
