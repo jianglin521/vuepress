@@ -29,6 +29,10 @@ module.exports = {
         link: '/vue/test'
       },
       {
+        text: 'js',
+        link: '/js/es6'
+      },
+      {
         text: '工具',
         link: '/tools/nginx'
       },
@@ -58,6 +62,9 @@ module.exports = {
       ],
       '/vue/': [
         ['test','测试'],
+      ],
+      '/js/': [
+        ['es6','es6语法'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
