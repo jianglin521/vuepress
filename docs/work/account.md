@@ -7,13 +7,7 @@
 ## 管理系统
 管理系统：http://dev.icfo.cn:8080/login
 
-## 测试
-```js
-  function tianjia() {
-    console.log("1111");
-  }
-  jia()
-```
+
 
 
 
