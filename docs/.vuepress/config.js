@@ -22,7 +22,7 @@ module.exports = {
     nav: [
       {
         text: '工作',
-        link: '/work/account'
+        link: '/work/task'
       },
       {
         text: 'Vue',
@@ -57,6 +57,7 @@ module.exports = {
     sidebar: {
       // 侧边栏在 /index/ 目录上
       '/work/': [
+        ['task','计划'],
         ['account','账号'],
         ['other','其它'],
       ],
