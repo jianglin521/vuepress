@@ -66,6 +66,7 @@ module.exports = {
       ],
       '/js/': [
         ['es6','es6语法'],
+        ['array','数组常用方法'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
