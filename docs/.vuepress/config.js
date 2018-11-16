@@ -33,6 +33,10 @@ module.exports = {
         link: '/js/es6'
       },
       {
+        text: 'css',
+        link: '/css/add'
+      },
+      {
         text: '工具',
         link: '/tools/nginx'
       },
@@ -68,6 +72,9 @@ module.exports = {
         ['es6','es6语法'],
         ['array','数组常用方法'],
         ['regex','正则表达式'],
+      ],
+      '/css/': [
+        ['add','css加号'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
