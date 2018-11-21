@@ -75,6 +75,7 @@ module.exports = {
       ],
       '/css/': [
         ['add','css加号'],
+        ['ellipsis','文本省略号'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
