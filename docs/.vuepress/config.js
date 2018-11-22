@@ -72,6 +72,7 @@ module.exports = {
         ['es6','es6语法'],
         ['array','数组常用方法'],
         ['regex','正则表达式'],
+        ['node','node使用'],
       ],
       '/css/': [
         ['add','css加号'],

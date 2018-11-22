@@ -1,6 +1,6 @@
 # css实现单行、多行文本超出显示省略号
 
-## 单行省略号
+## 单行文本超出...
 ![](https://i.imgur.com/MoY890M.png)
 ```css
   .ellipsis-line {
@@ -11,6 +11,7 @@
       text-overflow: ellipsis; //文本溢出显示省略号
       white-space: nowrap; //文本不会换行
   }
+  
 ```
 语法：
 text-overflow:clip/ellipsis;
@@ -21,7 +22,7 @@ ellipsis： 当对象内文本溢出时显示省略标记（...）。
 
 在使用的时候，有时候发现不会出现省略标记效果，经过测试发现，使用ellipsis的时候，必须配合overflow:hidden; white-space:nowrap; width:具体值;这三个样式共同使用才会有效果。
 
-## 多行文本省略
+## 多行文本超出...
 ![](https://i.imgur.com/fpL29ot.png)
 ```css
   .multi-line {
@@ -45,3 +46,13 @@ display: -webkit-box; 必须结合的属性 ，将对象作为弹性伸缩盒子
 text-overflow: ellipsis;，可以用来多行文本的情况下，用省略号“…”隐藏超出范围的文本。
 
 这个属性只合适WebKit浏览器或移动端（绝大部分是WebKit内核的）浏览器
+
+## 多行显示在`<a>`中问题
+现象是省略号不在文章末尾显示，而是在文章中间，就是文章开头提到的错误现象。这种现象出现在移动端，PC端测试了下，可以正常显示。可能跟浏览器内核有关。
+
+解决办法：将需要省略号的文本不直接用a标签包裹。或是在a标签内再嵌套一层。
+```html
+  <a href="">
+    <span>我是多行文本我是多行文本我是多行文本我是多行文本</span>
+  </a>
+```
