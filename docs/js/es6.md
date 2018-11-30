@@ -1,31 +1,61 @@
+## let 和 const
+在我们开发的时候，可能认为应该默认使用 let 而不是 var，这种情况下，对于需要写保护的变量要使用 const。
+
+然而另一种做法日益普及：默认使用 const，只有当确实需要改变变量的值的时候才使用 let。这是因为大部分的变量的值在初始化后不应再改变，而预料之外的变量的修改是很多 bug 的源头
+```js
+  // bad
+  var foo = 'bar';
+  
+  // good
+  let foo = 'bar';
+  
+  // better
+  const foo = 'bar';
+```
+## 模板字符串
+需要拼接字符串的时候尽量改成使用模板字符串:
+```js
+  // bad
+  const foo = 'this is a' + example;
+  
+  // good
+  const foo = `this is a ${example}`;
+```
+
 ## 箭头函数
+优先使用箭头函数，不过以下几种情况避免使用：
+
+1. 使用箭头函数定义对象的方法
 ```js
-  const foo = function foo() {
-  //...
+  // bad
+  let foo = {
+    value: 1,
+    getValue: () => console.log(this.value)
   }
+  
+  foo.getValue();  // undefined
 ```
-变化为：
+2. 定义原型方法
 ```js
-  const foo = () => {
-  //...
+  // bad
+  function Foo() {
+    this.value = 1
   }
+  
+  Foo.prototype.getValue = () => console.log(this.value)
+  
+  let foo = new Foo()
+  foo.getValue();  // undefined
 ```
-如果函数体内只有一行代码，只需：
+3. 作为事件的回调函数
 ```js
-  const foo = () => doSomething()
+  // bad
+  const button = document.getElementById('myButton');
+  button.addEventListener('click', () => {
+      console.log(this === window); // => true
+      this.innerHTML = 'Clicked button';
+  });
 ```
-此外，如果您只有一个参数，您可以写：
-```js
-  const foo = param => doSomething(param)
-```
-
-这不是一个破坏性的改变，因为常规函数可以继续像以前一样正常工作。
-
-### 新的`this`作用域
-
-箭头函数的 this 作用域继承自上下文。
-
-对于常规函数，这总是指最近的函数，而使用箭头函数时，这个问题就不存在了，你不需要再次写 `var that = this`。
 
 ## Promises
 Promise 允许我们消除 “回调地狱” ，虽然它们引入了更多的复杂性（ ES2017 已经带来了 async，用更高级别的概念解决了复杂性问题）。
@@ -51,18 +81,6 @@ Promise 允许我们消除 “回调地狱” ，虽然它们引入了更多的�
   })
   .then(() => console.log('I promised to run after 2s'))
 ```
-## let 和 const
-var 是传统上的函数作用域。
-
-let 是一个新的变量声明方式，它是块作用域。
-
-在 for 循环中、 if 中或普通块中声明 let 变量不会让该变量 “逃出” 该块，而 var 变量的作用域是函数定义中。
-
-const 就像 let，但是他是一个固定不变的值。
-
-在 JavaScript 向前发展中，你将很少，甚至不会看到 var 声明，只需要 let 和 const 。
-
-特别是 const，也许令人惊讶的是，它现在被广泛使用，其中不可变性非常受欢迎。
 
 ## Classes（类）
 传统上，JavaScript 是唯一一个基于原型继承的主流语言。 从基于类的语言切换到 JavaScript 的程序员，发现 JavaScript 很令人费解，但是 ES2015 引入了 Classes（类），这些类只是 JavaScript 内部工作的语法糖，但改变了我们构建 JavaScript 程序的方式。
@@ -118,25 +136,6 @@ ES2015 将这些标准化为通用格式。
 ```js
   export var foo = 2
   export function bar() { /* ... */ }
-```
-
-## 模板字面量
-Template Literals（模板字面量）是创建字符串的新语法：
-```js
-  const aString = `A string`
-```
-
-它提供了一种将表达式嵌入到字符串中的方法，通过使用 `${a_variable}` 语法有效地进行插值：
-
-```js
-  const a = 'test'
-  const string = `something ${a}` //something test
-```
-
-您还可以执行更复杂的表达式：
-```js
-  const string = `something ${1 + 2 + 3}`
-  const string2 = `something ${foo() ? 'x' : 'y' }`
 ```
 
 ## 默认参数

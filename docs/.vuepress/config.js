@@ -69,7 +69,7 @@ module.exports = {
         ['test','测试'],
       ],
       '/js/': [
-        ['es6','es6语法'],
+        ['es6','es6使用手册'],
         ['array','数组常用方法'],
         ['regex','正则表达式'],
         ['node','node使用'],
