@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         text: 'Vue',
-        link: '/vue/test'
+        link: '/vue/starting'
       },
       {
         text: 'js',
@@ -35,6 +35,10 @@ module.exports = {
       {
         text: 'css',
         link: '/css/add'
+      },
+      {
+        text: '移动端',
+        link: '/mobile/rem'
       },
       {
         text: '工具',
@@ -66,7 +70,9 @@ module.exports = {
         ['other','其它'],
       ],
       '/vue/': [
-        ['test','测试'],
+        ['starting','vue项目搭建'],
+        ['communication','vue组件通信'],
+        ['vuex','vuex使用'],
       ],
       '/js/': [
         ['es6','es6使用手册'],
@@ -77,6 +83,10 @@ module.exports = {
       '/css/': [
         ['add','css加号'],
         ['ellipsis','文本省略号'],
+        ['radio','radio和checkbox'],
+      ],
+      '/mobile/': [
+        ['rem','rem适配'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
