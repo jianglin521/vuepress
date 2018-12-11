@@ -87,6 +87,7 @@ module.exports = {
       ],
       '/mobile/': [
         ['rem','rem适配'],
+        ['meta','meta标签含义'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
