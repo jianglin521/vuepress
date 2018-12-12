@@ -81,62 +81,97 @@ Promise 允许我们消除 “回调地狱” ，虽然它们引入了更多的�
   })
   .then(() => console.log('I promised to run after 2s'))
 ```
+## ES6中的模块化
+注意：ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。
 
-## Classes（类）
-传统上，JavaScript 是唯一一个基于原型继承的主流语言。 从基于类的语言切换到 JavaScript 的程序员，发现 JavaScript 很令人费解，但是 ES2015 引入了 Classes（类），这些类只是 JavaScript 内部工作的语法糖，但改变了我们构建 JavaScript 程序的方式。
+模块功能主要由两个命令构成：export和import。export命令用于规定模块的对外接口，import命令用于输入其他模块提供的功能。
 
-现在，继承非常简单，类似于其他面向对象的编程语言：
+### export命令
+一个模块就是一个独立的文件。该文件内部的所有变量，外部无法获取。如果你希望外部能够读取模块内部的某个变量，就必须使用export关键字输出该变量。
+
+export可以输出变量、函数和类，切记不可直接输出值，否则会报错，因为export命令规定的是对外的接口，必须与模块内部的变量建立一一对应关系。
+
+看个例子
 ```js
-  class Person {
-    constructor(name) {
-       this.name = name
-    }
-    hello() {
-      return 'Hello, I am ' + this.name + '.'
-    }
+  export let name = 'leo';
+  export let age= 30;
+  //也可以按照下面的写法，两种写法都一样
+  let name= 'leo';
+  let age= 30;
+  export {name, age};
+```
+建议使用下面的方法，因为这样就可以在脚本尾部，一眼看清楚输出了哪些变量
+
+export命令除了输出变量，还可以输出函数或类（class）
+```js
+  export function sum(x, y) {
+    return x + y;
+  };
+  //也可以按照下面的方法
+  function sum(x, y) {
+    return x + y;
+  };
+  export {sum}
+```
+上面代码对外输出一个函数sum。
+
+通常情况下，export输出的变量就是本来的名字，但是可以使用as关键字重命名。
+
+```js
+  let name= 'leo';
+  let age= 30;
+  function sum(x,y){
+    return x+y;
   }
-  class Actor extends Person {
-    hello() {
-      return super.hello() + ' I am an actor.'
-    }
+  export {
+     name as  xm,
+     sum as  qh1,
+     sum  as  qh2
   }
-  var tomCruise = new Actor('Tom Cruise')
-  tomCruise.hello()
 ```
-以上代码将打印 ： “Hello, I am Tom Cruise. I am an actor.”
+上面代码使用as关键字，重命名了函数name和sum的对外接口。重命名后，sum可以用不同的名字输出两次。
 
-Classes(类) 没有显式的类变量声明，但必须在 构造函数(constructor) 中初始化所有变量。
+**注意**：export不能输出值，并且它输出的变量函数名或者类名要放在大括号中({})
 
-### 构造函数(constructor)
-Classes(类) 有一个叫做 `constructor` 的特殊方法，当通过 `new` 初始化一个 class(类) 时会调用它。
-
-### 超类(super)
-可以使用 super() 引用父类。
-
-## Modules（模块）
-在 ES2015 之前，至少有三个主要的模块标准竞争，这些标准使社区分散：
-  - AMD
-  - RequireJS
-  - CommonJS
-
-ES2015 将这些标准化为通用格式。
-
-
-### import modules（导入模块）
-导入模块是通过 `import ... from ...` 结构完成的：
+下面的几种写法是错误的
 ```js
-  import * from 'mymodule'
-  import React from 'react'
-  import { React, Component } from 'react'
-  import React as MyLibrary from 'react'
+  export 1;//报错，是个值，没有提供接口
+   
+  var m = 1;
+  export m;//报错,要放在大括号中
+   
+  function sum(x,y){
+    return  x+y;
+  }
+  export sum;//报错，要放在大括号中
+  //正确的写法，以函数为例
+  export {sum}
+  export {sum as qh}
 ```
+注意，export命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错，下一节的import命令也是如此。这是因为处于条件代码块之中，就没法做静态优化了，违背了 ES6 模块的设计初衷。
 
-### export modules（导出模块）
-您可以编写模块，并使用 export 关键字将任何内容导出给其他模块使用：
+### export default命令
+export default为模块指定默认输出。
+
+先看例子，了解一下它的使用方法
 ```js
-  export var foo = 2
-  export function bar() { /* ... */ }
+  export default function () {
+    console.log('foo');
+  }//第一种写法
+   
+  export default function foo() {
+    console.log('foo');
+  }//第二种写法
+   
+  //也可以是下面的写法
+  function foo() {
+    console.log('foo');
+  }
+   
+  export default foo;
 ```
+未完成---------
+
 
 ## 默认参数
 函数现在支持默认参数：
