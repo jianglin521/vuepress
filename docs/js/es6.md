@@ -170,7 +170,91 @@ export default为模块指定默认输出。
    
   export default foo;
 ```
-未完成---------
+export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应export default命令。
+
+本质上，export default就是输出一个叫做default的变量或方法，然后系统允许你为它取任意名字。
+
+另外export default命令的本质是将后面的值，赋给default变量，所以可以直接将一个值写在export default之后。正是因为export default命令其实只是输出一个叫做default的变量，所以它后面不能跟变量声明语句。
+
+所以看例子
+```js
+  // 正确
+  var a = 1;
+  export default a;
+   
+  // 错误
+  export default var a = 1;
+```
+上面错误的如果把export default改为export就正确了，看
+```js
+  // 正确
+  export var a = 1;
+```
+因为export default命令的本质是将后面的值，赋给default变量，所以可以直接将一个值写在export default之后
+
+```js
+  // 正确
+  export default 123;
+  // 报错
+  export 123;
+```
+上面代码中，后一句报错是因为没有指定对外的接口，而前一句指定外对接口为default。
+
+**注意**：同一个模块中可以有多个export导出语句，但是最多只能有一个export default默认导出语句，但是可以有一个export default和几个export导出语句同时存在。
+
+**注意**：
+
+export语句输出的接口，与其对应的值是动态绑定关系，即通过该接口，可以取到模块内部实时的值。这一点与 CommonJS 规范完全不同。CommonJS 模块输出的是值的缓存，不存在动态更新
+export命令可以出现在模块的任何位置，只要处于模块顶层就可以。如果处于块级作用域内，就会报错，下一节的import命令也是如此。这是因为处于条件代码块之中，就没法做静态优化了，违背了 ES6 模块的设计初衷。
+
+### import命令
+使用export命令定义了模块的对外接口以后，其他 JS 文件就可以通过import命令加载这个模块。
+
+并从中输入变量。import命令接受一对大括号，里面指定要从其他模块导入的变量名。大括号里面的变量名，必须与被导入模块对外接口的名称相同。如果想为输入的变量重新取一个名字，import命令要使用as关键字，将输入的变量重命名。
+
+看例子：
+
+```js
+  import {sum} from 'index.js';
+  import {sum,age,name} from 'index.js';
+  import {sum as hg, age as nl, name as xm} from 'index.js';
+```
+上面的几种都是正确的写法，export输出的变量或者函数，import接收的时候必须加{}，不加就会报错
+
+使用export default命令定义的模块的对外接口，import命令加载该模块的时候
+
+看个例子
+```js
+  export default function(){
+    console.log("leo");
+  }//第一个
+  export default function foo(){
+    console.log("leo");
+  }//第二个
+  let a = 1;
+  export default a;//第三个
+  //导入的时候
+  import foo  from 'index.js';
+
+```
+上面的例子中，导入的名字可以是foo，也可以是任意的名字，同时也无需把名字放在{}中，**但要注意的是，export default在一个模块中只能存在一个，多了会报错，上面我们只是举例方便**
+
+export default命令用于指定模块的默认输出。显然，一个模块只能有一个默认输出，因此export default命令只能使用一次。所以，import命令后面才不用加大括号，因为只可能唯一对应export default命令。
+
+如果想在一条import语句中，同时输入默认方法和其他接口，可以写成下面这样。
+```js
+  import foo, { age, name as xm,sum as qh} from 'index.js';
+```
+**总结一下：**
+- import只会导入一次，无论你引入多少次
+- 有提升效果，import会自动提升到顶部，首先执行
+- import命令输入的变量都是只读的，因为它的本质是输入接口。也就是说，不允许在加载模块的脚本里面，改写接口。如果脚本加载了变量，对其重新赋值就会报错，因为变量是一个只读的接口。但是，如果是一个对象，改写对象的属性是允许的。（对象只能改变值但不能改变引用）
+- 由于import是静态执行，所以不能使用表达式和变量，这些只有在运行时才能得到结果的语法结构。
+- import后面的from指定模块文件的位置，可以是相对路径，也可以是绝对路径，.js后缀可以省略。如果只是模块名，不带有路径，那么必须有配置文件，告诉 JavaScript 引擎该模块的位置。
+- 循环加载时，ES6模块是动态引用。只要两个模块之间存在某个引用，代码就能够执行。
+
+
+
 
 
 ## 默认参数
