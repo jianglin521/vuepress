@@ -81,6 +81,9 @@ Promise 允许我们消除 “回调地狱” ，虽然它们引入了更多的�
   })
   .then(() => console.log('I promised to run after 2s'))
 ```
+### promises.finally
+任何情况下都会执行的，一般写在 catch 之后
+
 ## ES6中的模块化
 注意：ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。
 

@@ -73,6 +73,7 @@ module.exports = {
         ['starting','vue项目搭建'],
         ['communication','vue组件通信'],
         ['vuex','vuex使用'],
+        ['WebSocket','WebSocket'],
       ],
       '/js/': [
         ['es6','es6使用手册'],
