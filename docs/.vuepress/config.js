@@ -34,7 +34,7 @@ module.exports = {
       },
       {
         text: 'css',
-        link: '/css/add'
+        link: '/css/often'
       },
       {
         text: '移动端',
@@ -82,6 +82,7 @@ module.exports = {
         ['node','node使用'],
       ],
       '/css/': [
+        ['often','常用样式'],
         ['add','css加号'],
         ['ellipsis','文本省略号'],
         ['radio','radio和checkbox'],
