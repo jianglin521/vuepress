@@ -83,13 +83,13 @@ module.exports = {
       ],
       '/css/': [
         ['often','常用样式'],
+        ['listLayout','列表布局'],
         ['add','css加号'],
         ['ellipsis','文本省略号'],
         ['radio','radio和checkbox'],
       ],
       '/mobile/': [
         ['rem','rem适配'],
-        ['meta','meta标签含义'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
