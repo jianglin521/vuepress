@@ -1,4 +1,4 @@
-[TOC]
+@[TOC]目录
 
 ## gitlib配置
 1、在C:\ windows”→“System32”→“drivers”→“etc”\hosts 文件中加入：
