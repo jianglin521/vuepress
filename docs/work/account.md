@@ -1,3 +1,5 @@
+[TOC]
+
 ## gitlib配置
 1、在C:\ windows”→“System32”→“drivers”→“etc”\hosts 文件中加入：
 192.168.199.201  gitlab.icfo.cn
