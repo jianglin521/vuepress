@@ -81,4 +81,5 @@ mockServer.js内容
 ```
 访问: http://localhost:9000
 
-
+## 去除.map
+`productionSourceMap: false` //去除.map文件
