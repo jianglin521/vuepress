@@ -90,6 +90,7 @@ module.exports = {
       ],
       '/mobile/': [
         ['rem','rem适配'],
+        ['reset','去除默认样式'],
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],

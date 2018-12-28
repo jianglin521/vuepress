@@ -81,5 +81,28 @@ mockServer.js内容
 ```
 访问: http://localhost:9000
 
+## dev环境跨域
+```js
+ proxyTable: {
+      //跨域请求
+      '/crmapi': {
+        target: 'http://192.168.199.202:8080/',//服务器
+        changeOrigin: true,
+        pathRewrite: {
+          '^/crmapi': ''
+        }
+      }
+```
+
+
+
 ## 去除.map
 `productionSourceMap: false` //去除.map文件
+
+## 打包路径错误
+**解决**：到config文件夹中打开index.js文件。
+
+文件里面有两个assetsPublicPath属性，更改build里面的assetsPublicPath属性变为：`assetsPublicPath: './'`
+
+**效果截图**
+![](https://i.imgur.com/hzVhRHx.png)
