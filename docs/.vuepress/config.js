@@ -26,7 +26,7 @@ module.exports = {
       },
       {
         text: 'Vue',
-        link: '/vue/starting'
+        link: '/vue/vue'
       },
       {
         text: 'js',
@@ -70,7 +70,7 @@ module.exports = {
         ['other','其它'],
       ],
       '/vue/': [
-        ['starting','vue项目搭建'],
+        ['vue','vue项目搭建'],
         ['communication','vue组件通信'],
         ['vuex','vuex使用'],
         ['WebSocket','WebSocket'],
@@ -80,6 +80,7 @@ module.exports = {
         ['array','数组常用方法'],
         ['regex','正则表达式'],
         ['node','node使用'],
+        ['npm','npm使用'],
       ],
       '/css/': [
         ['often','常用样式'],
