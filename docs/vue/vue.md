@@ -97,6 +97,18 @@ mockServer.js内容
 ## 去除.map
 `productionSourceMap: false` //去除.map文件
 
+## 去除打包后打印输出
+在webpack.prod.config.js中修改为如下：
+```js
+  uglifyOptions: {
+        compress: {
+          warnings: false,
+          drop_debugger: true,//去除注释
+          drop_console: true,//去除注释
+        }
+      }
+```
+
 ## 打包路径错误
 **解决**：到config文件夹中打开index.js文件。
 
