@@ -79,6 +79,7 @@ module.exports = {
         ['es6','es6使用手册'],
         ['array','数组常用方法'],
         ['regex','正则表达式'],
+        ['operator','js运算符'],
         ['node','node使用'],
         ['npm','npm使用'],
       ],
@@ -88,6 +89,7 @@ module.exports = {
         ['add','css加号'],
         ['ellipsis','文本省略号'],
         ['radio','radio和checkbox'],
+        ['bottomFixing','css实现底部固定'],
       ],
       '/mobile/': [
         ['rem','rem适配'],
