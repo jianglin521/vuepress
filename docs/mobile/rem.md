@@ -1,4 +1,5 @@
 ## rem适配
+### 方法一
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
@@ -18,6 +19,24 @@
       doc.addEventListener('DOMContentLoaded', recalc, false);
     })(document, window);
   </script>
+```
+
+### 方法二
+```html
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no">
+
+<script type="text/javascript">
+    var handleLoaded = function () {
+        var clientWidth = document.documentElement.clientWidth || document.body.clientWidth;
+        if (clientWidth >= 640) {
+          clientWidth = 640;
+        }
+        var fontSize = 20 / 375 * clientWidth;
+        document.documentElement.style.fontSize = fontSize + "px";
+     }
+    handleLoaded();
+    window.addEventListener("resize", handleLoaded);
+</script>
 ```
 ## meta标签
 ```html
