@@ -97,6 +97,7 @@ module.exports = {
       ],
       '/tools/': [
         ['nginx','nginx开机自启'],
+        ['VisualStudioCode','VisualStudioCode'],
       ],
     },
     sidebarDepth: 1 //标题深度
