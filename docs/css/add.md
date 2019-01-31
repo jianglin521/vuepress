@@ -200,3 +200,48 @@
   }
 
 ```
+
+## css实现表单验证
+
+**定义和使用**`:invalid` 选择器用于在表单元素中的值是非法时设置指定样式。
+
+**注意**： `:invalid` 选择器只作用于能指定区间值的元素，例如 input 元素中的 min 和 max 属性，及正确的 email 字段, 合法的数字字段等。
+
+实现效果:
+
+![](https://i.imgur.com/YjjUmnu.png)
+
+实现代码：
+
+```html
+  <form class="form" id="form" method="get" action="/api/form">
+      账号：
+      <input data-title="账号" pattern="[\w]{6,10}" name="account" type="text" required />
+      <span class="f-tips">请输入正确的账号</span>
+      <br />
+      密码：
+      <input data-title="密码" pattern="[\w]{6,10}" name="password" type="password" required />
+      <span class="f-tips">请输入正确的密码</span>
+      <br />
+      <input name="button" type="submit" value="提交" />
+  </form>
+```
+```css
+  :root {
+    --error-color: red;
+  }
+  .form > input {
+    margin-bottom: 10px;
+  }
+  .form > .f-tips {
+    display: none;
+  }
+  input[type="text"]:invalid ~ input[type="submit"],
+  input[type="password"]:invalid ~ input[type="submit"] {
+    display: none;
+  }
+  input[required]:invalid + span {
+    display: inline;
+    color: var(--error-color);
+  }
+```
