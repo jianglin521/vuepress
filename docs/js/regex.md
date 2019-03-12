@@ -30,6 +30,16 @@
 
 **匹配非正浮点数（负浮点数 + 0）** /^(-([1-9]\d*\.\d*|0\.\d*[1-9]\d*))|0?\.0+|0$/    
 
+## 正则对金额处理
+```js
+  function strFilter (n) {
+    let s = String(n)
+    let re = /\d{1,3}(?=(\d{3})+$)/g
+    let n1 = s.replace(/^(\d+)((\.\d+)?)$/, function (s, s1, s2) { return s1.replace(re, '$&,') + s2 })
+    return n1
+  }
+```
+
 ## .test()和.match()方法的异同
 test() 方法用于检测一个字符串是否匹配某个模式.
 
