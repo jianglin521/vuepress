@@ -67,7 +67,7 @@ module.exports = {
       '/work/': [
         ['task','计划'],
         ['account','账号'],
-        ['other','其它'],
+        ['travel','旅行'],
       ],
       '/vue/': [
         ['vue','vue项目搭建'],
