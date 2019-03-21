@@ -78,7 +78,7 @@ module.exports = {
       ],
       '/js/': [
         ['es6','es6使用手册'],
-        ['array','数组常用方法'],
+        ['prototype','原型与原型链'],
         ['regex','正则表达式'],
         ['operator','js运算符'],
         ['node','node使用'],
