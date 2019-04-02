@@ -119,4 +119,5 @@ mockServer.js内容
 文件里面有两个assetsPublicPath属性，更改build里面的assetsPublicPath属性变为：`assetsPublicPath: './'`
 
 **效果截图**
-![](https://i.imgur.com/hzVhRHx.png)
+![](https://i.loli.net/2019/04/02/5ca324988ce79.png)
+

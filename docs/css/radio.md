@@ -2,8 +2,7 @@
 
 ## reset-radio
 实现效果
-
-![](https://i.imgur.com/9Hsztk6.png)
+![](https://i.loli.net/2019/04/02/5ca322047a638.png)
 
 ```html
   <!--radio-->
@@ -80,6 +79,7 @@
 ```
 ## reset-checkbox
 实现效果
+![](https://i.loli.net/2019/04/02/5ca32212e9a4c.png)
 
 ![](https://i.imgur.com/mAEuXtI.png)
 ```html

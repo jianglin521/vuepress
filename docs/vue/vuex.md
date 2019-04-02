@@ -5,7 +5,7 @@ Vuex 是一个专为 Vue.js 应用程序开发的状态管理模式
 [https://vuex.vuejs.org/zh-cn/api.html](https://vuex.vuejs.org/zh-cn/api.html)
 
 ## vuex原理
-![](https://i.imgur.com/Z81hKSZ.png)
+![](https://i.loli.net/2019/04/02/5ca324cd96e92.png)
 
 - dispatch可以是view视图中触发，也可以是程序业务逻辑来触发
 - actions通过commit方法发出一个改变事件

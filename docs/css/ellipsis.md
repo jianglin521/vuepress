@@ -1,7 +1,8 @@
 # css实现单行、多行文本超出显示省略号
 
 ## 单行文本超出...
-![](https://i.imgur.com/MoY890M.png)
+![](https://i.loli.net/2019/04/02/5ca320a554d31.png)
+
 ```css
   .ellipsis-line {
       border: 1px solid #f70505;
@@ -23,7 +24,8 @@ ellipsis： 当对象内文本溢出时显示省略标记（...）。
 在使用的时候，有时候发现不会出现省略标记效果，经过测试发现，使用ellipsis的时候，必须配合overflow:hidden; white-space:nowrap; width:具体值;这三个样式共同使用才会有效果。
 
 ## 多行文本超出...
-![](https://i.imgur.com/fpL29ot.png)
+![](https://i.loli.net/2019/04/02/5ca320ba278fa.png)
+
 ```css
   .multi-line {
       border: 1px solid #f70505;
