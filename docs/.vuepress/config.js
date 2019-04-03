@@ -3,6 +3,11 @@ const navConf = require('../../config/navConf.js');
 const sidebarConf = require('../../config/sidebarConf.js');
 
 module.exports = {
+  locales: {
+    '/': {
+      lang: 'zh-CN', 
+    }
+  },
   // 左上角标题
   title: '降临的文档库',
   // 描述
@@ -17,6 +22,7 @@ module.exports = {
   ],
   // 主题部署
   themeConfig: {
+    lastUpdated: '上次更新',
     /* 右侧导航条 */
     nav: navConf,
     /* 侧边栏配置：侧边栏组 */
