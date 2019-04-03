@@ -2,7 +2,6 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "getname": "node utils/getFilenames.js",
     "deploy": "bash deploy.sh"
   },
   "devDependencies": {
