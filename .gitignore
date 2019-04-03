@@ -5,7 +5,7 @@ yarn-debug.log*
 yarn-error.log*
 *.orig
 docs/.vuepress/dist
-utils/filenamee.js
+utils/filenames.js
 
 
 # Editor directories and files
