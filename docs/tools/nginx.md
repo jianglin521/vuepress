@@ -1,6 +1,6 @@
 ## 1、创建批处理文件nginx.bat
 ```
-  cd /d D:\nginx\nginx-1.10.2
+  cd /d D:\nginx\nginx-1.14.0
   start nginx
   nginx -s reload
 ```
