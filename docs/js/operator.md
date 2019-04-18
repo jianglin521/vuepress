@@ -23,3 +23,11 @@
 && (逻辑与) 和 ||（逻辑或）混合使用的时候要注意他们的优先级：
 
 && (逻辑与) 优先级高于 ||（逻辑或）
+
+## 获取时间
+**获取下一年时间戳**
+```js
+	let time = new Date();
+	time.setYear(time.getFullYear() + 1);
+	time.getTime();
+```
