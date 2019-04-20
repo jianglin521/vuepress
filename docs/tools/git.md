@@ -2,8 +2,8 @@
 ## gitHub创建秘钥
 ### 配置用户名和邮箱（如果已经配置，就跳过）
 ```bash
-  git config –global user.name 'xxx' 
-　git config –global user.email 'xxx@xx.xxx'
+  git config --global user.name 'xxx' 
+　git config --global user.email 'xxx@xx.xxx'
 ```
 　　　
 ### 检查下自己之前有没有已经生成shh
