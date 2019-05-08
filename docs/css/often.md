@@ -4,6 +4,14 @@
 ## 段落缩进
 `text-indent:20px;`将段落的第一行缩进
 
+## 添加必填
+```css
+ div:before {
+    content: '*';
+    color: red;
+ }
+```
+
 ## 1px方案
 ### 使用伪类 + transform
 ```css
