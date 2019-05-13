@@ -1,20 +1,28 @@
 ## vue安装
-### 全局安装 vue-cli
+### 查看vue-cli版本
+`vue --version 或者 vue -V`
+
+### 全局安装创建 vue-cli 2.0
 `npm install --global vue-cli` // 2.0安装
+
+`vue init webpack my-project` // 2.0创建
+
+### 全局安装创建 vue-cli 3.0
+::: warning 注意
+Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall vue-cli -g 或 yarn global remove vue-cli 卸载它。
+:::
 
 `npm install -g @vue/cli` // 3.0安装
 
-### 创建一个基于 webpack 模板的新项目
- `vue init webpack my-project` // 2.0创建
- 
- `vue create hello-world` // 3.0创建
+`vue create my-project` // 3.0创建
+
 
 ## stylus安装
 `npm install stylus stylus-loader --save-dev`
 
 **stylus编写样式**
 ```html
-<style lang="stylus" rel="stylesheet/stylus">
+<style lang="stylus" rel="stylesheet/stylus" type="text/stylus">
 
 </style>
 ```
