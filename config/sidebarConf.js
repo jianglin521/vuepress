@@ -19,6 +19,7 @@ module.exports = {
     ['prototype','原型与原型链'],
     ['regex','正则表达式'],
     ['operator','js运算符'],
+    ['array','数组'],
     ['node','node使用'],
     ['npm','npm使用'],
   ],
