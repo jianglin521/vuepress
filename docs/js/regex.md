@@ -32,12 +32,40 @@
     
 ## 正则对金额处理
 ```js
-  function strFilter (n) {
-    let s = String(n)
-    let re = /\d{1,3}(?=(\d{3})+$)/g
-    let n1 = s.replace(/^(\d+)((\.\d+)?)$/, function (s, s1, s2) { return s1.replace(re, '$&,') + s2 })
-    return n1
+function strFilter (n) {
+  let s = String(n)
+  let re = /\d{1,3}(?=(\d{3})+$)/g
+  let n1 = s.replace(/^(\d+)((\.\d+)?)$/, function (s, s1, s2) { return s1.replace(re, '$&,') + s2 })
+  return n1
+}
+```
+## 替换手机字符
+```js
+// 替换手机字符
+export function regMobile(mobile) {
+  if (mobile.length > 7) {
+    var new_mobile = mobile.substr(0, 3) + '****' + mobile.substr(7)
   }
+  return new_mobile
+}
+```
+
+## 替换邮箱字符
+```js
+// 替换邮箱字符
+export function regEmail(email) {
+  if (String(email).indexOf('@') > 0) {
+    const str = email.split('@')
+    let _s = ''
+    if (str[0].length > 3) {
+      for (var i = 0; i < str[0].length - 3; i++) {
+        _s += '*'
+      }
+    }
+    var new_email = str[0].substr(0, 3) + _s + '@' + str[1]
+  }
+  return new_email
+}
 ```
 
 ## .test()和.match()方法的异同
@@ -56,12 +84,12 @@ match方法返回的是字符串
 **使用**
 ```js
 // test()
-  var regex = /hello/;
-  console.log( regex.test("hello") ); 
+var regex = /hello/;
+console.log( regex.test("hello") ); 
 // match()
-  var regex = /ab{2,5}c/g;
-  var string = "abc abbc abbbc abbbbc abbbbbc abbbbbbc";
-  console.log( string.match(regex) );
+var regex = /ab{2,5}c/g;
+var string = "abc abbc abbbc abbbbc abbbbbc abbbbbbc";
+console.log( string.match(regex) );
 ```
 ## 正则表达式字符匹配攻略
 ### 1 两种模糊匹配
@@ -74,10 +102,10 @@ match方法返回的是字符串
 比如`/ab{2,5}c/`表示匹配这样一个字符串：第一个字符是“a”，接下来是2到5个字符“b”，最后是字符“c”。测试如下：
 
 ```js
-  var regex = /ab{2,5}c/g;
-  var string = "abc abbc abbbc abbbbc abbbbbc abbbbbbc";
-  console.log( string.match(regex) ); 
-  // => ["abbc", "abbbc", "abbbbc", "abbbbbc"]
+var regex = /ab{2,5}c/g;
+var string = "abc abbc abbbc abbbbc abbbbbc abbbbbbc";
+console.log( string.match(regex) ); 
+// => ["abbc", "abbbc", "abbbbc", "abbbbbc"]
 ```
 **注意**：案例中用的正则是`/ab{2,5}c/g`，后面多了g，它是正则的一个修饰符。表示全局匹配，即在目标字符串中按顺序找到满足匹配模式的所有子串，强调的是“所有”，而不只是“第一个”。g是单词global的首字母。
 
@@ -89,10 +117,10 @@ match方法返回的是字符串
 比如`/a[123]b/`可以匹配如下三种字符串："a1b"、"a2b"、"a3b"。测试如下：
 
 ```js
-  var regex = /a[123]b/g;
-  var string = "a0b a1b a2b a3b a4b";
-  console.log( string.match(regex) ); 
-  // => ["a1b", "a2b", "a3b"]
+var regex = /a[123]b/g;
+var string = "a0b a1b a2b a3b a4b";
+console.log( string.match(regex) ); 
+// => ["a1b", "a2b", "a3b"]
 ```
 
 ### 2. 字符组
@@ -150,10 +178,10 @@ match方法返回的是字符串
 #### 3.2 贪婪匹配和惰性匹配
 看如下的例子：
 ```js
-  var regex = /\d{2,5}/g;
-  var string = "123 1234 12345 123456";
-  console.log( string.match(regex) ); 
-  // => ["123", "1234", "12345", "12345"]
+var regex = /\d{2,5}/g;
+var string = "123 1234 12345 123456";
+console.log( string.match(regex) ); 
+// => ["123", "1234", "12345", "12345"]
 ```
 其中正则`/\d{2,5}/`，表示数字连续出现2到5次。会匹配2位、3位、4位、5位连续数字。
 
@@ -162,10 +190,10 @@ match方法返回的是字符串
 我们知道有时贪婪不是一件好事（请看文章最后一个例子）。而惰性匹配，就是尽可能少的匹配：
 
 ```js
-  var regex = /\d{2,5}?/g;
-  var string = "123 1234 12345 123456";
-  console.log( string.match(regex) ); 
-  // => ["12", "12", "34", "12", "34", "12", "34", "56"]
+var regex = /\d{2,5}?/g;
+var string = "123 1234 12345 123456";
+console.log( string.match(regex) ); 
+// => ["12", "12", "34", "12", "34", "12", "34", "56"]
 ```
 其中`/\d{2,5}?/`表示，虽然2到5次都行，当2个就够的时候，就不在往下尝试了。
 

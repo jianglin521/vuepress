@@ -34,6 +34,42 @@ vue add 的设计意图是为了安装和调用 Vue CLI 插件。这不意味着
 
 </style>
 ```
+## vue动态切换组件
+登陆用户是 **管理员** 或者 **普通用户** ，需要根据登陆的用户角色切换页面展示的内容.则需要使用 `:is` 属性进行绑定切换
+```vue
+<template>
+  <div class="dashboard-container">
+    <component :is="currentRole"/>
+  </div>
+</template>
+
+<script>
+import { mapGetters } from 'vuex'
+import adminDashboard from './admin'
+import editorDashboard from './editor'
+
+export default {
+  name: 'Dashboard',
+  components: { adminDashboard, editorDashboard },
+  data() {
+    return {
+      currentRole: 'adminDashboard'
+    }
+  },
+  computed: {
+    ...mapGetters([
+      'roles'
+    ])
+  },
+  created() {
+    if (!this.roles.includes('admin')) {
+      this.currentRole = 'editorDashboard'
+    }
+  }
+}
+</script>
+```
+
 ## 自定义指令
 ```js
 	// 注册一个全局自定义指令 `v-focus`
