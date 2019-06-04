@@ -1,5 +1,4 @@
 ## JS运算符`&&`和`||`
-
 ### && (逻辑与)
 `&&`运算遇到false就返回。
 ```js
@@ -25,9 +24,13 @@
 && (逻辑与) 优先级高于 ||（逻辑或）
 
 ## 获取时间
-**获取下一年时间戳**
+### 获取下一年时间戳
 ```js
-	let time = new Date();
-	time.setYear(time.getFullYear() + 1);
-	time.getTime();
+let time = new Date();
+time.setYear(time.getFullYear() + 1);
+time.getTime(); // 转时间戳
+```
+### 将时间转换成时间戳
+```js
+let time = new Date().getTime();
 ```
