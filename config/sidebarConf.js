@@ -10,6 +10,8 @@ module.exports = {
     ['vue','vue项目搭建'],
     ['communication','vue组件通信'],
     ['vuex','vuex使用'],
+    ['vueSlot','vue插槽'],
+    ['customDirectives','自定义指令和插件'],
     ['eslint','eslint'],
     ['element','element-ui'],
     ['WebSocket','WebSocket'],
