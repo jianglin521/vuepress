@@ -58,7 +58,6 @@
 ```
 
 ## Promise
-
 ES6新增Promise对象的支持，Promise提供统一的接口来获取异步操作的状态信息，添加不能的处理方法。
 Promise对象只有三种状态：
 
@@ -91,32 +90,6 @@ Promise对象只有三种状态：
 ```
 ### promises.finally
 任何情况下都会执行的，一般写在 catch 之后
-
-## Async/await
-有一种特殊的语法可以更舒适地与promise协同工作，它叫做async/await，它是非常的容易理解和使用。
-### Async functions
-```js
-  async function f() {
-      return 1
-  }
-  f()
-```
-函数前面的async一词意味着一个简单的事情：这个函数总是返回一个promise，如果代码中有return <非promise>语句，JavaScript会自动把返回的这个value值包装成promise的resolved值。
-
-### Await
-关键词await可以让JavaScript进行等待，直到一个promise执行并返回它的结果，JavaScript才会继续往下执行。
-
-以下是一个promise在1s之后resolve的例子：
-```js
-  async function f() {
-      let promise = new Promise((resolve, reject) => {
-          setTimeout(() => resolve('done!'), 1000)
-      })
-      let result = await promise // 直到promise返回一个resolve值（*）
-      alert(result) // 'done!' 
-  }
-  f()
-```
 
 ## ES6中的模块化
 注意：ES6 的模块自动采用严格模式，不管你有没有在模块头部加上"use strict";。
