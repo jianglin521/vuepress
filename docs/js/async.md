@@ -79,6 +79,7 @@ parallelFn()
 JavaScript异步请求肯定会有请求失败的情况，上面也说到了async返回的是一个Promise对象。既然是返回一个Promise对象的话那处理当异步请求发生错误的时候我们就要处理reject的状态了。
 
 在Promise中当请求reject的时候我们可以使用catch。为了保持代码的健壮性使用async、await的时候我们使用try catch来处理错误。
+
 ```js
 async function catchErr() {
   try {
