@@ -40,6 +40,7 @@ module.exports = {
   ],
   '/tools/': [
     ['nginx','nginx开机自启'],
+    ['WMware','WMware'],
     ['git','git使用'],
     ['Webstorm','Webstorm'],
     ['VisualStudioCode','VisualStudioCode'],
