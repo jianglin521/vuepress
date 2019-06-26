@@ -3,8 +3,22 @@
 
 JS引擎一旦执行栈中的所有同步任务执行完毕（此时JS引擎空闲），系统就会读取任务队列，将可运行的异步任务添加到可执行栈中，开始执行。
 
-![](https://i.loli.net/2019/06/12/5d00c12316f8139363.png)
+![js事件循环](https://i.loli.net/2019/06/12/5d00c12316f8139363.png)
 
+## 回调函数
+```js
+function A (data) { // 函数A
+  console.log(data,'结束了')
+}
+function B (callback) { // 函数B
+  setTimeout(function () {
+    let data = 100
+    callback(data)
+  }, 3000)
+  console.log('开始了')
+}
+B(A)
+```
 
 ## Async/await
 async顾名思义是“异步”的意思，async用于声明一个函数是异步的。而await从字面意思上是“等待”的意思，就是用于等待异步完成。并且await只能在async函数中使用
