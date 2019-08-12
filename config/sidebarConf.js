@@ -39,6 +39,7 @@ module.exports = {
     ['reset','去除默认样式'],
   ],
   '/tools/': [
+    ['MongoDB','MongoDB'],
     ['nginx','nginx开机自启'],
     ['WMware','WMware'],
     ['git','git使用'],
