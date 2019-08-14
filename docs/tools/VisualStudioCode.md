@@ -16,6 +16,12 @@
 
 [同步配置教程2](https://github.com/nonoroazoro/vscode-syncing/blob/master/README.zh-CN.md)
 
+## token
+```json
+  "id": "6d834890d90e572c0988ee7359804837",
+  "token": "51b29dae306d38855b7196d2c3202daf5ed7d7bd"
+```
+  
 
 
 
