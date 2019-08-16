@@ -16,3 +16,9 @@ ZF582-0NW5N-H8D2P-0XZEE-Z22VA
 
 YA18K-0WY8P-H85DY-L4NZG-X7RAD
 ```
+
+## 安装CentOS7
+[安装教程](https://blog.csdn.net/babyxue/article/details/80970526)
+
+[CentOS镜像地址](https://www.centos.org/download)
+
