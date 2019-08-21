@@ -55,6 +55,20 @@
 
 运行 `json-server --watch db.jsons`
 
+## exports 与 module.exports 区别
+在一个 node 执行一个文件时，会给这个文件内生成一个 exports 和 module 对象， 而module又有一个 exports 属性。他们之间的关系如下图，都指向一块{}内存区域。
+```js
+  exports = module.exports = {}
+  // 上面的代码等价于:
+  module.exports = {}
+  exports = module.exports
+```
+看一张图理解这里更清楚：
+
+![](https://i.loli.net/2019/08/20/DJTfjXrWAGRhp91.png)
+
+原理很简单，即 module.exports 指向新的对象时，exports 断开了与 module.exports 的引用，那么通过 exports = module.exports 让 exports 重新指向 module.exports 即可。
+
 
 
 
