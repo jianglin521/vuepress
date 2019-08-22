@@ -6,7 +6,7 @@ module.exports = [
   },
   {
     text: 'Vue',
-    link: '/vue/vue'
+    link: '/vue/vueCreate'
   },
   {
     text: 'js',
