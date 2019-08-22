@@ -7,7 +7,8 @@ module.exports = {
     ['travel','旅行'],
   ],
   '/vue/': [
-    ['vue','vue项目搭建'],
+    ['vueCreate','vue项目搭建'],
+    ['vueSummary','vue总结'],
     ['communication','vue组件通信'],
     ['vuex','vuex使用'],
     ['vueSlot','vue插槽'],

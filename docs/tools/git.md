@@ -30,3 +30,25 @@
 ```bash
   ssh git@github.com
 ```
+
+## git上传项目指令
+1. 先进去到项目文件夹，通过命令 git init把这个项目编程git可以管理的仓库
+   `git init`
+
+2. 把文件添加到版本库中，使用命令 git add .添加到暂存区里面（不要忘记后面的 . ，意为添加文件夹下的所有把文件）
+   `git add .`
+
+3. 用命令 git commit告诉git，把文件提交到仓库。引号内为提交说明
+   `git commit -m 'commit'`
+
+4. 关联到远程库
+   `git remote add origin https://xxx/xxx/xx.git`
+
+5. 上传代码之前，要先 pull一下，拉取代码
+   `git pull origin master`
+
+6. 把本地的内容推送到远程仓库，使用 git push命令，实际上是把当前分支master推送到远程。执行此命令狗要求输入用户名、密码，验证通过后即开始上传。
+   `git push -u origin master`
+   
+7. 状态查询命令
+   `git status`
