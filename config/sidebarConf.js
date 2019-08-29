@@ -21,6 +21,7 @@ module.exports = {
     ['es6','es6使用手册'],
     ['async','js异步'],
     ['prototype','原型与原型链'],
+    ['json','json使用'],
     ['regex','正则表达式'],
     ['operator','js运算符'],
     ['array','数组'],
