@@ -1,7 +1,7 @@
 ## npm简介
 npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm 下载各种各样的包。
 在我们安装 Node 的时候，它默认会顺带给你安装 npm。
-```
+```sh
   npm -v：查看 npm 版本。
   npm list：查看当前目录下都安装了哪些 npm 包。
   npm info 模块：查看该模块的版本及内容。
@@ -26,4 +26,19 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
   npm init：按步骤创建 package.json
   npm init --yes：快速创建 package.json
 ```
+
+## 查看包所有版本
+### 查看npmjs服务器上包的版本信息
+`npm view jquery versions` 查看npm服务器上所有的jquery版本信息
+
+`npm view jquery version` 只能查看jquery的最新的版本是哪一个
+
+`npm info jquery` 这种方式和第一种类似，也可以查看jquery所有的版本，但是能查出更多的关于jquery的信息
+
+### 查看本地已经安装的包的版本信息：
+`npm ls jquery` （查看某个项目安装的jQuery），命令必须在某个项目下执行
+
+`npm ls jquery -g`    (查看全局安装的jquery)
+
+
 
