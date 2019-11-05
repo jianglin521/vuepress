@@ -150,3 +150,33 @@ const result = arr.filter((item) => {
 console.log(result)
 // expected output: Array ["exuberant", "destruction", "present"]
 ```
+
+## array.reduce()
+reduce() 方法对数组中的每个元素执行一个由您提供的reducer函数(升序执行)，将其结果汇总为单个返回值。
+
+**参数**: 接收两个参数，一个为回调函数，另一个为初始值。回调函数中四个默认参数，依次为积累值、当前值、数组、整个数组。
+
+```js
+let nums = [1, 2, 3];
+// 多个数的加和
+let newNums = nums.reduce(function(preSum, curVal, index, array) {
+  return preSum + curVal 
+}, 0)
+console.log(newNums) // 6
+```
+
+### 高级用法
+计算数组中每个元素出现的次数
+```js
+let names = ['Alice', 'Bob', 'Tiff', 'Bruce', 'Alice'];
+
+let nameNum = names.reduce((pre,cur) => {
+  if(cur in pre){ //（变量 in 对象）判断对象是否为数组/对象的元素/属性,返回true或false
+    pre[cur]++
+  }else{
+    pre[cur] = 1 
+  }
+  return pre
+},{})
+console.log(nameNum); // {Alice: 2, Bob: 1, Tiff: 1, Bruce: 1}
+```
