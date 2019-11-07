@@ -47,5 +47,6 @@ module.exports = {
     ['git','git使用'],
     ['Webstorm','Webstorm'],
     ['VisualStudioCode','VisualStudioCode'],
+    ['linux','linux']
   ],
 }
