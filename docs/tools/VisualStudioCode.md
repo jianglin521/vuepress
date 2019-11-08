@@ -10,7 +10,6 @@
 - syncing - 同步配置
 - minapp - 微信小程序
 - Python - Python
-
 ## 同步配置
 [同步配置教程1](https://www.cnblogs.com/chengfeng6/p/10567200.html)
 
@@ -18,8 +17,8 @@
 
 ## token
 ```json
-  "id": "6d834890d90e572c0988ee7359804837",
-  "token": "51b29dae306d38855b7196d2c3202daf5ed7d7bd"
+   "id": "6d834890d90e572c0988ee7359804837",
+   "token": "e697a1efd5ae680d5917262347b9cd632efd3abd",
 ```
   
 
