@@ -20,7 +20,15 @@
    "id": "6d834890d90e572c0988ee7359804837",
    "token": "e697a1efd5ae680d5917262347b9cd632efd3abd",
 ```
-  
+## markdown快捷键
+| Key              | Command         |
+| ---------------- | --------------- |
+| Ctrl + B         | 粗体            |
+| Ctrl + I         | 斜体            |
+| Alt + S          | 删除线          |
+| Ctrl + Shift + ] | 标题(uplevel)   |
+| Ctrl + Shift + [ | 标题(downlevel) |
+| Alt + Shift + F  | 格式化table     |
 
 
 
