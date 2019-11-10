@@ -47,6 +47,7 @@ module.exports = {
     ['git','git使用'],
     ['Webstorm','Webstorm'],
     ['VisualStudioCode','VisualStudioCode'],
+    ['MySQL5.7','MySQL5.7'],
     ['linux','linux']
   ],
 }
