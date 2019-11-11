@@ -17,18 +17,17 @@
 
 ## token
 ```json
-   "id": "6d834890d90e572c0988ee7359804837",
-   "token": "666d9dc0a26854c8538809856bd208cf1ce06ddb",
+   "id": "b082df340e165d980438cdeddc2c5182",
+   "token": "3ee81f637ff03c3c4111a591a486d35017d2970b",
 ```
 ## markdown快捷键
 | Key              | Command         |
 | ---------------- | --------------- |
 | Ctrl + B         | 粗体            |
 | Ctrl + I         | 斜体            |
-| Alt + S          | 删除线          |
-| Ctrl + Shift + ] | 标题(uplevel)   |
-| Ctrl + Shift + [ | 标题(downlevel) |
+| Alt + S          | 删除线          ||
 | Alt + Shift + F  | 格式化table     |
+| Ctrl + Alt + S | 上传图片        |
 
 
 

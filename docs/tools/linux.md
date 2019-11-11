@@ -13,3 +13,6 @@
 
 ~~设置临时ip `ifconfig ens33 192.168.199.112`~~
 
+## MySQL5.7
+[MySQL5.7安装](https://blog.csdn.net/WYA1993/article/details//88890883)
+
