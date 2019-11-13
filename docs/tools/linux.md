@@ -11,8 +11,21 @@
 ### 配置
 切换用户 `su root`
 
+编辑网卡信息 `vi /etc/sysconfig/network-scripts/ifcfg-ens33`
+
+重启网络服务 `systemctl restart network`
+
+[设置静态ip](https://blog.csdn.net/zhaoyoulin2016/article/details/80441353)
+
 ~~设置临时ip `ifconfig ens33 192.168.199.112`~~
 
 ## MySQL5.7
 [MySQL5.7安装](https://blog.csdn.net/WYA1993/article/details//88890883)
+
+## 常用命令
+`ls -l` 查看目录文件
+
+
+
+
 
