@@ -76,6 +76,19 @@
      - `-iname` 不区分大小写
    * `find / -size +204800` 在根目录查找大于100MB文件
      - `+n` 大于 `-n` 小于 `n` 等于
+   * `find /home -user guan` 在根目录查找所有者为guan的文件
+     - `-group` 根据所属组查找
+   * `find /etc cmin -5` 在etc下查找5分钟之内修改过属性的文件或目录
+     - `amin` 访问时间 access
+     - `cmin` 文件属性 change
+     - `mmin` 文件内容 modify
+   * `find /etc -size +163840 -a -size -204800` 在etc下查找大于80MB小于100MB的文件
+     - `-a` 两个条件同时满足
+     - `-r` 两个条件满足一个即可
+     - `-type` 文件类型查找 `f`文件 `d` 目录 `l` 软链接文件+
+   * `find /etc -name inittab -exec ls -l {} \` 在etc下查找
+      
+
    
 
 
