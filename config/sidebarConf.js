@@ -27,6 +27,7 @@ module.exports = {
     ['array','数组'],
     ['node','node使用'],
     ['npm','npm使用'],
+    ['typescript','typescript'],
   ],
   '/css/': [
     ['often','常用样式'],
