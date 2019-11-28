@@ -50,3 +50,16 @@ vue内部通过`object.defineProperty`方法属性拦截的方式，把data对�
   <!-- 即事件不是从内部元素触发的 -->
   <div v-on:click.self="doThat">...</div>
 ```
+## vue上传图片
+```js
+ <input type="file" ref="fileInput" accept="image/*" @change="uploadFile"/>
+
+ async uploadFile() { // 上传图片
+    const file = this.$refs.fileInput.files[0]
+    this.formData = new FormData()
+    this.formData.append('file', file)
+    this.formData.append('maxwidth', 2000) // 额外参数
+    const { data } = await apiUploadFiles(this.formData)
+    console.log(data, '我是返回数据')
+ }
+```
