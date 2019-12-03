@@ -54,12 +54,12 @@ vue内部通过`object.defineProperty`方法属性拦截的方式，把data对�
 ```js
  <input type="file" ref="fileInput" accept="image/*" @change="uploadFile"/>
 
- async uploadFile() { // 上传图片
+  async uploadFile() {
     const file = this.$refs.fileInput.files[0]
-    this.formData = new FormData()
-    this.formData.append('file', file)
-    this.formData.append('maxwidth', 2000) // 额外参数
-    const { data } = await apiUploadFiles(this.formData)
+    let formData = new FormData()
+    formData.append('file', file)
+    formData.append('maxwidth', 2000) // 额外参数
+    const { data } = await apiUploadFiles(formData)
     console.log(data, '我是返回数据')
- }
+  }
 ```
