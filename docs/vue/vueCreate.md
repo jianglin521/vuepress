@@ -2,8 +2,16 @@
 ### 查看vue-cli版本
 `vue --version 或者 vue -V`
 
+`npm view @vue/cli versions` 查看npm服务器上所有的@vue/cli版本信息
+
+`npm ls @vue/cli -g` (查看全局安装的@vue/cli)
+
+::: tip 提示
+以前安装@vue/cli3.8.4，现已安装@vue/cli@4.1.1
+:::
+
 ### 全局安装创建 vue-cli 2.0
-`npm install --global vue-cli` // 2.0安装
+`npm install vue-cli -g` // 2.0安装
 
 `vue init webpack my-project` // 2.0创建
 
@@ -12,7 +20,7 @@
 Vue CLI 的包名称由 vue-cli 改成了 @vue/cli。 如果你已经全局安装了旧版本的 vue-cli (1.x 或 2.x)，你需要先通过 npm uninstall vue-cli -g 或 yarn global remove vue-cli 卸载它。
 :::
 
-`npm install -g @vue/cli` // 3.0安装
+`npm install @vue/cli -g` // 3.0安装
 
 `vue create my-project` // 3.0创建
 
