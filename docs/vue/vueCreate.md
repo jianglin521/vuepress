@@ -7,7 +7,7 @@
 `npm ls @vue/cli -g` (查看全局安装的@vue/cli)
 
 ::: tip 提示
-以前安装@vue/cli3.8.4，现已安装@vue/cli@4.1.1
+现在安装@vue/cli3.8.4
 :::
 
 ### 全局安装创建 vue-cli 2.0

@@ -14,7 +14,7 @@ module.exports = {
     ['vueSlot','vue插槽'],
     ['customDirectives','自定义指令和插件'],
     ['eslint','eslint'],
-    ['element','element-ui'],
+    ['element_ui','element-ui'],
     ['WebSocket','WebSocket'],
   ],
   '/js/': [
