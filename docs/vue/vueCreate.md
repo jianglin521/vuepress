@@ -33,6 +33,11 @@ vue add @vue/eslint
 vue add 的设计意图是为了安装和调用 Vue CLI 插件。这不意味着替换掉普通的 npm 包。对于这些普通的 npm 包，你仍然需要选用包管理器。
 :::
 
+## webstom识别@
+vue-cli 3.0的文档中有说明，我们打开webstorm->setting->webpack配置中修改路径：
+
+`\node_modules\@vue\cli-service\webpack.config.js`
+
 ## stylus安装
 `npm install stylus stylus-loader --save-dev`
 
@@ -127,22 +132,6 @@ mockServer.js内容
 - funtion(options)表示用于生成响应数据的函数。
 在main.js中添加
 `import './mock/mockServer'`
-
-## 编码测试与发布
-### 编码测试
-```
-  npm run dev
-```
-访问: http://localhost:8080
-编码, 自动编译打包(HMR), 查看效果
-
-### 打包发布
-```
-  npm run build
-  npm install -g pushstate-server
-  pushstate-server dist
-```
-访问: http://localhost:9000
 
 ## dev环境跨域
 ```js

@@ -31,8 +31,17 @@ et -i 文件名称 [可以自定义变量文件，默认为element-variables.scs
 ```scss
 $--color-primary: red !default;
 ```
-4. 生成新的主题样式包
+4. 编译生成新的主题样式包
 ```sh
 et
 ```
 ![2019-12-11_173547.png](https://i.loli.net/2019/12/11/z7oWkPsV6UJvrSH.png)
+
+编译完成之后在项目根目录生成**theme**文件夹
+
+5. 引入主题样式
+```js
+import ElementUI from 'element-ui'
+import '../theme/index.css'
+Vue.use(ElementUI)
+```
