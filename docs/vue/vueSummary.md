@@ -63,3 +63,73 @@ vue内部通过`object.defineProperty`方法属性拦截的方式，把data对�
     console.log(data, '我是返回数据')
   }
 ```
+
+## vue动画
+```html
+<!-- 一个命名为fade的<transition>标签包裹着类名为h的<div> -->
+<transition name="fade">
+    <div class="test" v-if="show">hello world</div>
+</transition>
+
+<style>
+/* div的初始状态*/
+.test {
+    width:100px;
+    height: 200px;
+    background-color: aqua;
+}
+
+/**
+* 定义进入动画和退出动画的过程
+* 代表关注的是height的变化，动画的时间是5
+*/
+.fade-enter-active, .fade-leave-active {
+    transition: height 5s;
+}
+
+/* 定义进入动画的初始状态*/
+.fade-enter {
+    height: 0;
+}
+
+/* 定义进入动画的结束状态*/
+.fade-enter-to {
+    height: 200px;
+}
+
+/* 定义离开动画的初始状态*/
+.fade-leave {
+    height: 200px;
+}
+
+/* 定义离开动画的结束状态*/
+.fade-leave-to {
+    height: 0;
+}
+</style>
+```
+
+## 电话加密
+```js
+/* 电话加密 */
+Vue.filter('tel-encryption', function(value) {
+  if (!value) {
+    return ''
+  }
+  return value.substr(0, 3) + '****' + value.substr(7)
+})
+```
+**注意**
+`substr()` 方法返回一个字符串中从指定位置开始到指定字符数的字符。
+
+语法：`str.substr(start[, length])`
+
+参数:
+
+  1. `start`
+  开始提取字符的位置。如果为负值，则被看作 strLength + start，其中 strLength 为字符串的长度（例如，如果 start 为 -3，则被看作 strLength + (-3)）。
+
+  2. `length`
+  可选。提取的字符数。
+
+
