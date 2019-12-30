@@ -24,6 +24,24 @@
 && (逻辑与) 优先级高于 ||（逻辑或）
 
 ## 获取时间
+### moment获取时间
+```js
+/* 获取当天  */
+moment().format('YYYY-MM-DD')
+
+/* 获取本周 */
+moment().week(moment().week()).startOf('week').format('YYYY-MM-DD')   // 这样是年月日的格式
+moment().week(moment().week()).endOf('week').valueOf() // 这样是时间戳的格式
+
+/* 获取本月 */
+moment().month(moment().month()).startOf('month').valueOf()
+moment().month(moment().month()).endOf('month').valueOf()
+
+/* 获取本年 */
+moment().year(moment().year()).startOf('year').valueOf()
+moment().year(moment().year()).endOf('year').valueOf()
+```
+
 ### 获取下一年时间戳
 ```js
 let time = new Date();
