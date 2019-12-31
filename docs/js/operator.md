@@ -37,6 +37,10 @@ moment().week(moment().week()).endOf('week').valueOf() // 这样是时间戳的�
 moment().month(moment().month()).startOf('month').valueOf()
 moment().month(moment().month()).endOf('month').valueOf()
 
+/* 获取下月 */
+moment().month(moment().month() + 1).startOf('month').valueOf()
+moment().month(moment().month() + 1).endOf('month').valueOf()
+
 /* 获取本年 */
 moment().year(moment().year()).startOf('year').valueOf()
 moment().year(moment().year()).endOf('year').valueOf()
