@@ -36,6 +36,8 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
 `npm info jquery` 这种方式和第一种类似，也可以查看jquery所有的版本，但是能查出更多的关于jquery的信息
 
 ### 查看本地已经安装的包的版本信息：
+`npm list -g --depth 0` 查看全局安装的npm包
+
 `npm ls jquery` （查看某个项目安装的jQuery），命令必须在某个项目下执行
 
 `npm ls jquery -g`    (查看全局安装的jquery)
