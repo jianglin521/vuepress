@@ -45,6 +45,7 @@ module.exports = {
   ],
   '/tools/': [
     ['MongoDB','MongoDB'],
+    ['mysql','mysql入门'],
     ['nginx','nginx开机自启'],
     ['WMware','WMware'],
     ['git','git使用'],
