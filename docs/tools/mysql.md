@@ -89,4 +89,31 @@ select stuname, stubirth from tb_student where stusex=0;
 -- 查询所有80后学生的姓名、性别和出生日期（筛选）
 select stuname, stusex, stubirth from tb_student where stubirth>='1980-1-1' and stubirth<='1989-12-31'
 select stuname, stusex, stubirth from tb_student where stubirth between '1980-1-1' and '1989-12-31'
+-- 查询姓‘林’的学生姓名和性别（模糊）
+select stuname, stusex from tb_student where stuname like '林%';
+-- 查询姓‘杨’名字两个字的学生姓名和性别（模糊）
+select stuname, stusex from tb_student where stuname like '杨_';
+-- 查询姓‘杨’名字三个字的学生姓名和性别（模糊）
+select stuname, stusex from tb_student where stuname like '杨__';
+-- 查询名字中有‘不’字或‘嫣’字的学生的姓名（模糊）
+select stuname, stusex from tb_student where stuname like '%不%' or stuname like '%嫣';
+-- 查询没有录入家庭住址的学生姓名（空值）
+select stuname from tb_student where stuaddr is null;
+-- 查询录入家庭住址的学生姓名（空值）
+select stuname from tb_student where stuaddr is not null;
+-- 查询学生选课的所有日期（去重）
+select distinct scdate from tb_score
+-- 查询学生的家庭住址（去重）
+select distinct stuaddr from tb_student where stuaddr is not null;
+-- 查询男学生的姓名和生日按年龄从大到小排序（排序）
+-- asc - ascending - 升序（从小到大）
+-- desc - descending - 降序（从大到小）
+select stuname, stubirth from tb_student where stusex=1 order by stubirth desc;
+select stuname, year(now()) - year(stubirth) as 年龄  from tb_student where stusex=1 order by 年龄 desc;
+-- 查询年龄最大的学生出生日期（聚合函数）
+select min(stubirth) from tb_student;
+-- 查询年龄最小的学生出生日期（聚合函数）
+select max(stubirth) from tb_student;
+-- 查询男女学生的人数（分组和聚合函数）
+select count(stuid) from tb_student;
 ```
