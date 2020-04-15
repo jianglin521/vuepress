@@ -10,6 +10,9 @@
 
 切换到清华源 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
 
+## 查看pip安装的所有包
+`pip list`
+
 ## Scrapy框架
 [Scrapy介绍](https://www.jianshu.com/p/02cecfad9ef0)
 
@@ -18,7 +21,7 @@
 ## scrapy项目
 ### 创建项目
 1. 创建项目`scrapy startproject [项目名称]`
-2. 创建爬虫：进入项目所在的路径,执行`scrapy genspider [爬虫名称]`
+2. 创建爬虫：进入项目所在的路径,执行`scrapy genspider [爬虫名称] [域名]`
 3. 运行爬虫：执行`scrapy crawl [爬虫名称]`
 
 ### 项目结构
