@@ -63,6 +63,18 @@ vue内部通过`object.defineProperty`方法属性拦截的方式，把data对�
     console.log(data, '我是返回数据')
   }
 ```
+## vue下载文件
+```js
+  let blob = new Blob([data])
+  let downloadElement = document.createElement('a')
+  let href = window.URL.createObjectURL(blob) //创建下载的链接
+  downloadElement.href = href
+  downloadElement.download = 'xxx.txt' //下载后文件名
+  document.body.appendChild(downloadElement)
+  downloadElement.click() //点击下载
+  document.body.removeChild(downloadElement) //下载完成移除元素
+  window.URL.revokeObjectURL(href) //释放blob对象
+```
 
 ## vue动画
 ```html
