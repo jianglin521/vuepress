@@ -35,6 +35,9 @@
 2. 什么情况下使用fllow：如果在爬取页面的时候，需要将满足条件的url再进行跟进，就设置为True,否则设置为False
 3. 什么情况下指定callback：如果这个url对应的页面，只是为了获取跟多页面的数据，可以不指定callback
 
+### 模拟登陆
+1. 想要发送post请求，那么推荐使用`scrapy.FormRequest`,可以方便的指定表单数据
+2. 如果想在爬虫一开始的时候就发送post请求，那么应该重写`start_request`方法，在方法中发送post请求
 
 
 
