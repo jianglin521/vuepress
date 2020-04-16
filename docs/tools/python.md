@@ -13,6 +13,45 @@
 ## 查看pip安装的所有包
 `pip list`
 
+## 自动拼接url
+```py
+  url = response.urljoin(url)
+```
+
+## 保存到数据库
+```py
+import pymysql
+
+class MysqlPipeline(object):
+    def __init__(self):
+        # 使用pymysql连接上mysql数据库服务器，创建了一个数据库对象；
+        self.db = pymysql.connect(
+            host='localhost',
+            user='root',
+            password='123456',
+            port=3306,
+            db='py_test',
+            charset='utf8mb4'
+        )
+
+        # 开启mysql的游标功能，创建一个游标对象；              
+        self.cursor = self.db.cursor()
+
+    def process_item(self, item, spider):
+        sql = 'insert into jianshu(title,h1,num) values(%s,%s,%s)'
+        try:
+            self.cursor.execute(sql,(item['title'], item['h1'], item['index']))
+            self.db.commit()
+            print("插入成功")
+        except:
+            print("插入失败")
+            self.db.rollback()
+
+    def close_spider(self, spider):
+        self.db.close()
+        self.cursor.close()
+```
+
 ## Scrapy框架
 [Scrapy介绍](https://www.jianshu.com/p/02cecfad9ef0)
 
