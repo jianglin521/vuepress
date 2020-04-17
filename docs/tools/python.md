@@ -18,6 +18,31 @@
 url = response.urljoin(url)
 ```
 
+## 拼接字符串
+### 1、来自C语言的%方式
+```py
+print('%s %s' % ('Hello', 'world'))
+>>> Hello world
+
+# 类似的占位符还有：%d（代表一个整数）、%f（代表一个浮点数）
+```
+### 2、format()拼接方式
+```py
+# 简洁版
+s1 = 'Hello {}! My name is {}.'.format('World', 'Python猫')
+print(s1)
+>>>Hello World! My name is Python猫.
+ 
+# 对号入座版
+s2 = 'Hello {0}! My name is {1}.'.format('World', 'Python猫')
+s3 = 'Hello {name1}! My name is {name2}.'.format(name1='World', name2='Python猫')
+print(s2)
+>>>Hello World! My name is Python猫.
+print(s3)
+>>>Hello World! My name is Python猫.
+```
+
+
 ## 保存到数据库
 ```py
 import pymysql
