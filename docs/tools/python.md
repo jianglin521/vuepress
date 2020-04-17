@@ -15,7 +15,7 @@
 
 ## 自动拼接url
 ```py
-  url = response.urljoin(url)
+url = response.urljoin(url)
 ```
 
 ## 保存到数据库
