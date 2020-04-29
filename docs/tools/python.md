@@ -110,6 +110,20 @@ class MysqlPipeline(object):
 1. 想要发送post请求，那么推荐使用`scrapy.FormRequest`,可以方便的指定表单数据
 2. 如果想在爬虫一开始的时候就发送post请求，那么应该重写`start_request`方法，在方法中发送post请求
 
+### 内置工具导出文件
+```sh
+scrapy crawl myspider -o data.json 
+scrapy crawl myspider -o data.csv 
+scrapy crawl myspider -o data.xml
+```
+
+**注意**
+
+导出是中文乱码在settings添加`FEED_EXPORT_ENCODING = 'utf-8'`
+
+
+
+
 
 
 
