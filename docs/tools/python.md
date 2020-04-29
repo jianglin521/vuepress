@@ -17,6 +17,10 @@
 ```py
 url = response.urljoin(url)
 ```
+## 获取动态网页
+安装  `pip install selenium`
+
+[chromedriver地址](http://chromedriver.storage.googleapis.com/index.html)
 
 ## 拼接字符串
 ### 1、来自C语言的%方式
