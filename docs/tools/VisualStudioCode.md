@@ -17,9 +17,10 @@
 
 ## token
 ```json
-    "id": "4df97aca1a1cc0328e894035463b14ee",
-    "token": "bab2b0d1bba8684430b102fd1e8518af2717cea3",
+    "id": "b45cabb63b499bca87f994d60e0c03bc",
+    "token": "4f74bd0d78ba927c7b58cf37adc346d78d9e93b3",
 ```
+
 ## markdown快捷键
 | Key              | Command         |
 | ---------------- | --------------- |
