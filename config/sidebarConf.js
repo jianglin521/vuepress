@@ -31,6 +31,7 @@ module.exports = {
   ],
   '/css/': [
     ['often','常用样式'],
+    ['flex','flex布局'],
     ['button','按钮'],
     ['listLayout','列表布局'],
     ['add','css加号'],
