@@ -38,6 +38,39 @@
     window.addEventListener("resize", handleLoaded);
 </script>
 ```
+## vue-cli3.0中适配rem
+1. 安装依赖
+`npm install px2rem-loader --save-dev`
+
+2. 在 vue.config.js 进行如下配置
+```js
+  css: {
+    // css预设器配置项
+    loaderOptions: {
+      postcss: {
+        plugins: [
+          require('postcss-px2rem')({
+            remUnit: 100
+          })
+        ]
+      }
+    }
+  },
+```
+
+3. 在 main.js 设置 html 跟字体大小
+```js
+function initRem() {
+  let cale = window.screen.availWidth > 750 ? 2 : window.screen.availWidth / 375
+  window.document.documentElement.style.fontSize = `${100 * cale}px`
+}
+
+window.addEventListener('resize', function() {
+  initRem()
+})
+```
+
+
 ## meta标签
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
