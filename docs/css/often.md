@@ -42,7 +42,7 @@
   }
 ```
 
-### 鼠标悬浮向上移
+## 鼠标悬浮向上移
 实现效果：
 
 ![视频_2019-12-31_134747.gif](https://i.loli.net/2019/12/31/wDxcXzIVaZKABMJ.gif)
@@ -82,5 +82,56 @@
 }
 ```
 
+## 粘性定位 sticky
+```html
+<div id="app">
+  <h1>sticky-demo</h1>
+  <nav>我是导航</nav>
+  <article>
+    <p>我是内容区域</p>
+    <p>我是内容区域</p>
+  </article>
+</div>
+```
+```css
+ body {
+    margin: 0px;
+    height: 2000px;
+  }
+  nav {
+    width: 100%;
+    position: sticky;
+    top: 0;
+  }
+```
+
+## 滚动视差
+```html
+<div id="app">
+  <section class="gImg gImg1">IMG1</section>
+  <section class="gImg gImg2">IMG2</section>
+  <section class="gImg gImg3">IMG3</section>
+</div>
+```
+```css
+ section {
+    height: 100vh;
+  }
+ .gImg {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center center;
+    width: 100%;
+  }
+  .gImg1 {
+    background-image: url('./test/01 (1).jpg');
+  }
+  .gImg2 {
+    background-image: url('./test/01 (2).jpg');
+  }
+  .gImg3 {
+    background-image: url('./test/01 (3).jpg');
+  }
+```
  
 
