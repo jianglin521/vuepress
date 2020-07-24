@@ -12,4 +12,10 @@
 ## 无线密码
 jincaijiaoyu@097A
 
+## 百度网盘IDM下载
+设置用户代理 `netdisk;P2SP;2.2.60.26`
+
+设置服务器连接 `*.baidupcs.com`
+
+Tampermonkey安装-百度网盘直链提取（多选）
 

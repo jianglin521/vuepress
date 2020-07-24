@@ -41,18 +41,34 @@ function strFilter (n) {
   return n1
 }
 ```
-## 替换手机字符
+## 手机号加密
+### 方法一
 ```js
-// 替换手机字符
+// 字符串截取
 export function regMobile(mobile) {
   if (mobile.length > 7) {
-    var new_mobile = mobile.substr(0, 3) + '****' + mobile.substr(7)
+    const new_mobile = `${mobile.substr(0, 3)}****${mobile.substr(7)}`
   }
   return new_mobile
 }
 ```
+### 方法二
+```js
+// 使用正则
+const phone = '13701134148';
+const resultPhone = phone.replace(/^(\d{3})\d{4}(\d+)/, '$1****$2');
+console.log(resultPhone); // 137****4148
+```
 
-## 替换邮箱字符
+## 加密姓名
+```js
+const str = '王小明';
+const reg = /(?<=.)./g;
+result = str.replace(reg, '*');
+console.log(result); // 王**
+```
+
+## 邮箱加密
 ```js
 // 替换邮箱字符
 export function regEmail(email) {

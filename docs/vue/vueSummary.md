@@ -50,6 +50,46 @@ vue内部通过`object.defineProperty`方法属性拦截的方式，把data对�
   <!-- 即事件不是从内部元素触发的 -->
   <div v-on:click.self="doThat">...</div>
 ```
+
+## 子组件单独修改父组件值
+```vue
+<!-- parent.vue -->
+<child :title.sync="title"></child>
+
+<!-- child.vue -->
+export defalut {
+    props: {
+        title: String  
+    },
+    methods: {
+        changeTitle(){
+            this.$emit('update:title', 'hello')
+        }
+    }
+}
+```
+
+## provide/inject
+```vue
+<!-- 父组件向子组件传入依赖 -->
+<!-- App.vue -->
+export default {
+    provide() {
+        return {
+            app: this
+        }
+    } 
+}
+<!-- child.vue -->
+export default {
+    inject: ['app'],
+    created() {
+        console.log(this.app) // App.vue实例
+    }
+}
+```
+
+
 ## vue上传图片
 ```js
  <input type="file" ref="fileInput" accept="image/*" @change="uploadFile"/>
@@ -64,7 +104,9 @@ vue内部通过`object.defineProperty`方法属性拦截的方式，把data对�
   }
 ```
 ## vue下载文件
+
 ```js
+  // 注意：axios请求中添加 {responseType: 'blob'}
   let blob = new Blob([data])
   let downloadElement = document.createElement('a')
   let href = window.URL.createObjectURL(blob) //创建下载的链接

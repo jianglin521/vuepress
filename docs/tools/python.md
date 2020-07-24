@@ -10,6 +10,13 @@
 
 切换到清华源 `pip config set global.index-url https://pypi.tuna.tsinghua.edu.cn/simple`
 
+pip包本地下载 `https://www.lfd.uci.edu/~gohlke/pythonlibs/`
+
+## python转exe
+安装pyinstaller `pip install pyinstaller`
+
+打包 `pyinstaller -F ./test.py`
+
 ## 查看pip安装的所有包
 `pip list`
 
