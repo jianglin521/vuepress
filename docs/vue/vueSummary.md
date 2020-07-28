@@ -118,6 +118,9 @@ export default {
   window.URL.revokeObjectURL(href) //释放blob对象
 ```
 
+## mockjs影响文件下载
+在mockjs版本为`1.1.0'`时候影响文件流下载,将版本降为`0.1.10`可解决
+
 ## vue动画
 ```html
 <!-- 一个命名为fade的<transition>标签包裹着类名为h的<div> -->

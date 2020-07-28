@@ -27,6 +27,9 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
   npm init --yes：快速创建 package.json
 ```
 
+## 查看npm本地连接地址
+`npm config get registry`
+
 ## 查看包所有版本
 ### 查看npmjs服务器上包的版本信息
 `npm view jquery versions` 查看npm服务器上所有的jquery版本信息
@@ -38,9 +41,9 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
 ### 查看本地已经安装的包的版本信息：
 `npm list -g --depth 0` 查看全局安装的npm包
 
-`npm ls jquery` （查看某个项目安装的jQuery），命令必须在某个项目下执行
+`npm ls jquery` (查看某个项目安装的jQuery)，命令必须在某个项目下执行
 
-`npm ls jquery -g`    (查看全局安装的jquery)
+`npm ls jquery -g` (查看全局安装的jquery)
 
 
 
