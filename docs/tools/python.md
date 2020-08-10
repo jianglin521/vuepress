@@ -15,7 +15,9 @@ pip包本地下载 `https://www.lfd.uci.edu/~gohlke/pythonlibs/`
 ## python转exe
 安装pyinstaller `pip install pyinstaller`
 
-打包 `pyinstaller -F ./test.py`
+打包 `pyinstaller -F ./main.py`
+
+打包动态加载 `pyinstaller -F ./main.py  --hidden-import 【模块名】`
 
 ## 查看pip安装的所有包
 `pip list`
