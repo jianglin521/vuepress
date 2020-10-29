@@ -118,6 +118,18 @@ export default {
   window.URL.revokeObjectURL(href) //释放blob对象
 ```
 
+## 通过hook销毁事件
+```js
+  mounted() {
+    // 监听窗口发生变化，resize组件
+    window.addEventListener('resize', xxxx)
+    // 通过hook监听组件销毁钩子函数，并取消监听事件
+    this.$once('hook:beforeDestroy', () => {
+      window.removeEventListener('resize', this.$_handleResizeChart)
+    })
+  }
+```
+
 ## mockjs影响文件下载
 在mockjs版本为`1.1.0`时候影响文件流下载,将版本降为`0.1.10`可解决
 
