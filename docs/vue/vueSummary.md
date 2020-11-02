@@ -129,6 +129,18 @@ export default {
     })
   }
 ```
+## 数组去重
+```js
+  let checkedList = [] // 去重
+  for (let i = 0; i < checkedNodes.length; i++) {
+    for (let j = i + 1; j < checkedNodes.length; j++) {
+      if (checkedNodes[i].id === checkedNodes[j].id) {
+        j = ++i
+      }
+    }
+    checkedList.push(checkedNodes[i])
+  }
+```
 
 ## mockjs影响文件下载
 在mockjs版本为`1.1.0`时候影响文件流下载,将版本降为`0.1.10`可解决
