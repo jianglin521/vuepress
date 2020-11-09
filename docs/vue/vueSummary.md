@@ -121,14 +121,42 @@ export default {
 ## 通过hook销毁事件
 ```js
   mounted() {
-    // 监听窗口发生变化，resize组件
-    window.addEventListener('resize', xxxx)
-    // 通过hook监听组件销毁钩子函数，并取消监听事件
+    // 添加定时器
+    const timer = setInterval(() => {
+      console.log('我是定时器')
+    }, 1000 * 60 * 5)
+    // 通过hook监听组件销毁钩子函数，并取消定时器
     this.$once('hook:beforeDestroy', () => {
-      window.removeEventListener('resize', this.$_handleResizeChart)
-    })
+      clearInterval(timer) //清除定时器
+    })  
   }
 ```
+## 输入框光标处添加模板
+```js
+  /* 光标处添加模板 */
+  addTemplate() {
+    const item = '【客户名称】'
+    const elInput = document.getElementById('textarea') // 根据id选择器选中对象
+    const startPos = elInput.selectionStart // input 第0个字符到选中的字符
+    const endPos = elInput.selectionEnd // 选中的字符到最后的字符
+    console.log(startPos, endPos)
+    if (startPos === undefined || endPos === undefined) return
+    var txt = elInput.value
+    // 将表情添加到选中的光标位置
+    var result = txt.substring(0, startPos) + item + txt.substring(endPos)
+    elInput.value = result // 赋值给input的value
+    // 重新定义光标位置
+    elInput.focus()
+    elInput.selectionStart = startPos + item.length
+    elInput.selectionEnd = startPos + item.length
+    this.remark = result // 赋值给表单中的的字段
+  },
+  /* 消息替换 */
+  replaceMessage() {
+     const msg = this.remark.replace(/【客户名称】/g, '测试')
+  }
+```
+
 ## 数组去重
 ```js
   let checkedList = [] // 去重
