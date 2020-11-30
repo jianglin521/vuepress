@@ -18,3 +18,6 @@ jincaijiaoyu@097A
 设置服务器连接 `*.baidupcs.com`
 
 Tampermonkey安装-百度网盘直链提取（多选）
+
+## 模板
+1. 导出excel以我的客户导出为准
