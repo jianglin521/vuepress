@@ -6,7 +6,7 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
   npm list：查看当前目录下都安装了哪些 npm 包。
   npm info 模块：查看该模块的版本及内容。
   npm i 模块@版本号：安装该模块的指定版本。
-  npm root -g 查看全局安装包
+  npm root -g 查看全局安装包位置
 ```
 
 在平时使用 npm 安装包的过程中，你可能需要知道一些 npm 基本知识：
@@ -40,7 +40,7 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
 `npm info jquery` 这种方式和第一种类似，也可以查看jquery所有的版本，但是能查出更多的关于jquery的信息
 
 ### 查看本地已经安装的包的版本信息：
-`npm list -g --depth 0` 查看全局安装的npm包
+`npm list -g --depth=0` 查看全局安装的npm包
 
 `npm ls jquery` (查看某个项目安装的jQuery)，命令必须在某个项目下执行
 

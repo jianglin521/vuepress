@@ -1,4 +1,8 @@
 ## vue安装
+## 使用vue3.0项目
+`npm install -g @vue/cli@next` 安装最新的脚手架版本-Vue CLI v4.5
+`vue create vue3_test` // 创建vue3.0项目
+
 ### 查看vue-cli版本
 `vue --version 或者 vue -V`
 
