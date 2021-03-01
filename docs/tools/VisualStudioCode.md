@@ -15,6 +15,9 @@
 
 [同步配置教程2](https://github.com/nonoroazoro/vscode-syncing/blob/master/README.zh-CN.md)
 
+## win10清屏
+cmd下清屏命令cls
+
 ## token
 ```json
     "id": "b45cabb63b499bca87f994d60e0c03bc",

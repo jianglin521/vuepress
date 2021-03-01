@@ -11,6 +11,33 @@
     color: red;
  }
 ```
+## 安卓画圆
+```css
+.round {
+    border-radius: 50%;
+    width: 20px;
+    height: 20px;
+    transform: scale(.5);
+}
+```
+
+##  ios屏幕上拉下滑出现空白
+分析原因: 在 iOS 中，手指按住屏幕上下拖动，会触发 touchmove 事件。这个事件触发的对象是整个 webview 容器，容器自然会被拖动，剩下的部分会成空白。
+
+```html
+<div id="root" >
+   <!-- 此处省略很多内容  -->
+</div>
+```
+```css
+#root{
+    position: fixed;
+    left:0;
+    top:0;
+    bottom: 0;
+    right: 0;
+}
+```
 
 ## 1px方案
 ### 使用伪类 + transform
