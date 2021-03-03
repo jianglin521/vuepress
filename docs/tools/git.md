@@ -30,6 +30,15 @@
 ```bash
   ssh git@github.com
 ```
+### github.com代理
+```bash
+# 设置代理
+git config --global http.https://github.com.proxy http://127.0.0.1:7890
+# 查看代理
+git config --global --get http.https://github.com.proxy
+# 取消代理
+git config --global --unset http.https://github.com.proxy
+```
 
 ## git上传项目指令
 1. 先进去到项目文件夹，通过命令 git init把这个项目编程git可以管理的仓库
