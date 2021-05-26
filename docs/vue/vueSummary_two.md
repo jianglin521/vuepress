@@ -47,4 +47,20 @@
     })
   }
 ```
+## 获取指定月份开始时间和结束时间
+```js
+/* 搜索时间处理 */
+export function dateYearMonth(date = {}, format) {
+  let time = {
+    stime: '',
+    etime: ''
+  }
+  if (date.year && date.month) {
+    const value = new Date(date.year, date.month, 0)
+    time.stime = moment(value).startOf('month').format(format || 'YYYYMMDD')
+    time.etime = moment(value).endOf('month').format(format || 'YYYYMMDD')
+  }
+  return time
+}
+```
 

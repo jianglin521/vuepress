@@ -32,6 +32,12 @@ docker-compose down # 停止并删除容器；
 ## MySQL5.7
 [MySQL5.7安装](https://blog.csdn.net/WYA1993/article/details//88890883)
 
+## java相关
+```sh
+tail -f nohup.out  # 查看java日志
+jps # 查看java进程
+```
+
 
 
 
