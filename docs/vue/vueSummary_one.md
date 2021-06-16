@@ -221,6 +221,15 @@ export default {
 }
 </style>
 ```
+## 计算时间相差月份
+```js
+/* 计算时间相差月份 */
+export function timeDifference(date) {
+  const t1 = moment(date[0])
+  const t2 = moment(date[1])
+  return t2.diff(t1, 'month')
+}
+```
 
 ## 电话加密
 ```js
