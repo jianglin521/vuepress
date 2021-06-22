@@ -15,6 +15,18 @@
 5. 前端组件化,前端代码拆分，公共组件
 6. 其它的一些规范
 
+## css规范
+声明应该按照下表的顺序-左到右，从上到下  
+|  显示属性  | 自身属性  | 文本属性和其他修饰 |
+| :--------: | :-------: | :----------------: |
+|  display   |   width   |        font        |
+| visibility |  height   |     text-align     |
+|  position  |  margin   |  text-decoration   |
+|   float    |  padding  |   vertical-align   |
+|   clear    |  border   |    white-space     |
+| list-style | overflow  |       color        |
+|    top     | min-width |     background     |
+
 ### 普通库客户转移
 各位好：客户"xxx" 原归属于"xx公司"C类库下, 根据渠道与渠道撞单，看谁先收款的原则, 现已将"xxx有限公司"转移到渠道
 "xx公司", 请各位知晓.各方如有异议，请邮件回复并提供相关证明，谢谢。
