@@ -64,3 +64,21 @@ export function dateYearMonth(date = {}, format) {
 }
 ```
 
+## vue复制文本
+```js
+copyUrl(item) {
+  const url = '测试文本\n测试文本'
+  // 创建一个textarea标签
+  let oInput = document.createElement('textarea')
+  oInput.value = url
+  document.body.appendChild(oInput)
+  oInput.select() // 选择对象;
+  console.log(oInput.value)
+  document.execCommand('Copy')
+  ///复制成功后再将构造的标签 移除
+  oInput.remove()
+}
+```
+
+
+
