@@ -23,32 +23,32 @@
 先来把邮箱和名称配置一下
 
 ```javascript
-git config user.name 'sy-records'
-git config user.email '52o@qq52o.cn'
+git config user.name 'jianglin'
+git config user.email 'xxx@163.com'
 ```
 
 这时候就可以用下面的脚本代码了
 
-在项目根目录下创建 `email.sh` 写入下面这段代码
+在项目根目录下创建 `name.sh` 写入下面这段代码
 
-```javascript
+```shell
 #!/bin/sh
 
 git filter-branch --env-filter '
 
-OLD_EMAIL="fphd_xian_lufei@fphd"
-CORRECT_NAME="sy-records"
-CORRECT_EMAIL="52o@qq52o.cn"
+OLD_NAME="jianglin"
+CORRECT_NAME="zhuang"
+CORRECT_EMAIL="XXX@163.com"
 
-if [ "$GIT_COMMITTER_EMAIL" = "$OLD_EMAIL" ]
-then
-    export GIT_COMMITTER_NAME="$CORRECT_NAME"
-    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
-fi
-if [ "$GIT_AUTHOR_EMAIL" = "$OLD_EMAIL" ]
+if [ "$GIT_AUTHOR_NAME" = "$OLD_NAME" ]
 then
     export GIT_AUTHOR_NAME="$CORRECT_NAME"
     export GIT_AUTHOR_EMAIL="$CORRECT_EMAIL"
+fi
+if [ "$GIT_COMMITTER_NAME" = "$OLD_NAME" ]
+then
+    export GIT_COMMITTER_NAME="$CORRECT_NAME"
+    export GIT_COMMITTER_EMAIL="$CORRECT_EMAIL"
 fi
 ' --tag-name-filter cat -- --branches --tags
 ```
@@ -57,8 +57,8 @@ fi
 
 然后我们来执行一下这个`.sh`文件
 
-```javascript
-./email.sh
+```shell
+./name.sh
 ```
 
 如果`commit`记录比较多的话执行的时间会比较长
