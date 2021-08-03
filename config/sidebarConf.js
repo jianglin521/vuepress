@@ -2,11 +2,12 @@
 module.exports = {
   // 侧边栏在 /index/ 目录上
   '/work/': [
-    ['task','计划'],
-    ['account','账号'],
-    ['travel','旅行'],
+    '计划',
+    '账号',
+    '旅行',
   ],
   '/vue/': [
+    // ['vueCreate','vue项目搭建'],
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],

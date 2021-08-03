@@ -2,7 +2,7 @@
 module.exports = [
   {
     text: '工作',
-    link: '/work/task'
+    link: '/work/计划'
   },
   {
     text: 'Vue',
