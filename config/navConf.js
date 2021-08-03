@@ -24,6 +24,10 @@ module.exports = [
     text: '工具',
     link: '/tools/MongoDB'
   },
+  {
+    text: '文档',
+    link: '/other/修改Git提交记录'
+  },
   /*{
     text: '博文',
     items: [

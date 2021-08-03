@@ -61,4 +61,11 @@ module.exports = {
     ['linux','linux'],
     ['linux_common','linux常用命令']
   ],
+  '/other/': [
+    '修改Git提交记录',
+    'typescript基础类型',
+    'vue项目自动部署',
+    'webpack教程',
+    'webpack起步'
+  ]
 }
