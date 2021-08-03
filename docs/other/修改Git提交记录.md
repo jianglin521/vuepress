@@ -71,7 +71,7 @@ fi
 
 如果执行失败的话，执行一下这段命令
 
-```sh
+```shell
 git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch Rakefile' HEAD
 ```
 
@@ -81,7 +81,7 @@ git filter-branch -f --index-filter 'git rm --cached --ignore-unmatch Rakefile' 
 
 所以再执行一下命令
 
-```sh
+```shell
 git push origin --force --all
 ```
 
