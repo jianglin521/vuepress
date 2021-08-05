@@ -55,6 +55,26 @@ $ sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.r
 $ sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
+### 建立 docker 用户组
+
+默认情况下，`docker` 命令会使用 [Unix socket](https://en.wikipedia.org/wiki/Unix_domain_socket) 与 Docker 引擎通讯。而只有 `root` 用户和 `docker` 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 `root` 用户。因此，更好地做法是将需要使用 `docker` 的用户加入 `docker` 用户组。
+
+建立 `docker` 组：
+
+```
+$ sudo groupadd docker
+```
+
+将当前用户加入 `docker` 组：
+
+```
+$ sudo usermod -aG docker $USER
+```
+
+退出当前终端并重新登录，进行如下测试。
+
+
+
 ## jenkins安装
 
 [jenkins安装教程](https://www.cnblogs.com/fuzongle/p/12834080.html)
@@ -68,8 +88,8 @@ docker pull jenkins/jenkins
  2.创建Jenkins挂载目录并授权权限
 
 ```
-mkdir -p /var/jenkins_mount
-chmod 777 /var/jenkins_mount
+mkdir -p /jenkins_home
+chmod 777 /jenkins_home
 ```
 
 3.创建并启动Jenkins容器
@@ -80,14 +100,20 @@ chmod 777 /var/jenkins_mount
 
 　　**-p 10241:50000 将镜像的50000端口映射到服务器的10241端口**
 
-　　**-v /var/jenkins_\**mount\**:/var/jenkins_mount /var/jenkins_home目录为容器jenkins工作目录，我们将硬盘上的一个目录挂载到这个位置，方便后续更新镜像后继续使用原来的工作目录。这里我们设置的就是上面我们创建的 /var/jenkins_mount目录**
+　　**-v  /jenkins_home:/var/jenkins_home 目录为容器jenkins工作目录，我们将硬盘上的一个目录挂载到这个位置，方便后续更新镜像后继续使用原来的工作目录。这里我们设置的就是上面我们创建的 /jenkins_home目录**
 
 　　**-v /etc/localtime:/etc/localtime让容器使用和服务器同样的时间设置。**
 
 　　**--name myjenkins 给容器起一个别名**
 
-```sh
-docker run -d -p 8001:8080 -p 50000:50000 -v /var/jenkins_mount:/var/jenkins_home -v /etc/localtime:/etc/localtime --name myjenkins jenkins/jenkins
+```shell
+docker run --restart=always \
+  -d --name myjenkins \
+  -p 10240:8080 \
+  -p 10241:50000 \
+  -v /jenkins_home:/var/jenkins_home \
+  -v /etc/localtime:/etc/localtime \
+  jenkins/jenkins
 ```
 
  4.查看jenkins是否启动成功，如下图出现端口号，就为启动成功了
@@ -102,9 +128,5 @@ docker ps -l
 docker logs myjenkins
 ```
 
- 6.配置镜像加速，进入 cd /var/jenkins_mount/ 目录。
-
-```
-cd /var/jenkins_mount/
-```
+ 
 
