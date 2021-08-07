@@ -1,4 +1,4 @@
-#  vue项目自动部署
+#  vue自动部署
 
 ## docker安装
 
@@ -10,7 +10,7 @@
 
 
 
-```sh
+```shell
 $ sudo yum remove docker \
                   docker-client \
                   docker-client-latest \
@@ -29,7 +29,7 @@ $ sudo yum remove docker \
 
 
 
-```sh
+```shell
 $ sudo yum install -y yum-utils
 ```
 
@@ -39,7 +39,7 @@ $ sudo yum install -y yum-utils
 
 
 
-```sh
+```shell
 $ sudo yum-config-manager \
     --add-repo \
     https://mirrors.aliyun.com/docker-ce/linux/centos/docker-ce.repo
@@ -53,6 +53,13 @@ $ sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.r
 
 ```
 $ sudo yum install docker-ce docker-ce-cli containerd.io
+```
+
+### 启动 Docker
+
+```shell
+$ sudo systemctl enable docker
+$ sudo systemctl start docker
 ```
 
 ### 建立 docker 用户组
@@ -128,5 +135,50 @@ docker ps -l
 docker logs myjenkins
 ```
 
- 
+## vue项目打包docker
+
+Dockerfile文件
+
+```shell
+FROM node:lts-alpine as build-stage
+WORKDIR /build
+RUN npm config set registry https://registry.npm.taobao.org
+COPY package.json /build/package.json
+RUN npm install
+COPY ./ /build
+RUN npm run build
+
+FROM nginx:stable-alpine as production-stage
+COPY --from=build-stage /build/dist /usr/share/nginx/html
+LABEL maintainer="zhuangzhuang"
+EXPOSE 80
+CMD ["nginx", "-g", "daemon off;"]
+```
+
+生成镜像
+
+ ```shell
+ docker build -t vue-dome .
+ ```
+
+创建实例
+
+```shell
+docker run --restart=always \
+  -d --name vue-dome1 \
+  -e TZ=Asia/Shanghai \
+  -p 3500:80 \
+  vue-dome
+```
+
+## Node.js实现热加载
+
+```shell
+npm install -g nodemon 
+nodemon index.js
+```
+
+
+
+
 
