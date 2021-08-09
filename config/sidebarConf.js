@@ -65,7 +65,8 @@ module.exports = {
   '/other/': [
     '修改Git提交记录',
     'typescript基础类型',
-    'vue项目自动部署',
+    'vue自动部署',
+    'vue自动部署使用',
     'webpack教程',
     'webpack起步'
   ]
