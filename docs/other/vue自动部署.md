@@ -103,9 +103,9 @@ chmod 777 /jenkins_home
 
 　　**-d 后台运行镜像**
 
-　　**-p 10240:8080 将镜像的8080端口映射到服务器的10240端口。**
+　　**-p 10000:8080 将镜像的8080端口映射到服务器的10240端口。**
 
-　　**-p 10241:50000 将镜像的50000端口映射到服务器的10241端口**
+　　**-p 10001:50000 将镜像的50000端口映射到服务器的10241端口**
 
 　　**-v  /jenkins_home:/var/jenkins_home 目录为容器jenkins工作目录，我们将硬盘上的一个目录挂载到这个位置，方便后续更新镜像后继续使用原来的工作目录。这里我们设置的就是上面我们创建的 /jenkins_home目录**
 
@@ -116,8 +116,8 @@ chmod 777 /jenkins_home
 ```shell
 docker run --restart=always \
   -d --name myjenkins \
-  -p 10240:8080 \
-  -p 10241:50000 \
+  -p 10000:8080 \
+  -p 10001:50000 \
   -v /jenkins_home:/var/jenkins_home \
   -v /etc/localtime:/etc/localtime \
   jenkins/jenkins
