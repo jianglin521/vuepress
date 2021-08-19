@@ -67,6 +67,7 @@ module.exports = {
     'typescript基础类型',
     'vue自动部署',
     'vue自动部署使用',
+    'jenkins自动部署',
     'webpack教程',
     'webpack起步'
   ]

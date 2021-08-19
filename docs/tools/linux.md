@@ -9,15 +9,18 @@
 起码有如上两个分区才可以安装linux系统。建议再增加一个/boot分区，200M左右即可。
 
 ### 配置
+
+[设置静态ip](https://blog.csdn.net/zhaoyoulin2016/article/details/80441353)
+
 切换用户 `su root`
 
 编辑网卡信息 `vi /etc/sysconfig/network-scripts/ifcfg-ens33`
 
 重启网络服务 `systemctl restart network`
 
-[设置静态ip](https://blog.csdn.net/zhaoyoulin2016/article/details/80441353)
-
 ~~设置临时ip `ifconfig ens33 192.168.199.112`~~
+
+查看网关   `netstat -rn`
 
 ### docker-compose常用命令
 ```sh
@@ -43,7 +46,6 @@ jps # 查看java进程
 
 
   
-   
 
 
 
