@@ -1,4 +1,4 @@
-# jenkins + docker + vue自动部署使用
+# jenkins自动部署
 
 ## 账号
 
