@@ -324,3 +324,38 @@ spread operator（展开操作符）也适用于对象。用以下方法克隆�
     something
   }
 ```
+
+## class类
+
+你不再需要这么做：
+
+```js
+function Point(x, y) {
+  this.x = x;
+  this.y = y;
+}
+
+Point.prototype.toString = function () {
+  return '(' + this.x + ', ' + this.y + ')';
+};
+
+var p = new Point(1, 2);
+```
+
+你只需：
+
+```js
+class Point {
+    constructor(x, y) {
+        this.x = x
+        this.y = y
+    }
+
+    toString() {
+        return '(' + this.x + ', ' + this.y + ')'
+    }
+}
+const point = new Point(1, 2)
+console.log(point.toString(), '我是class输出')
+```
+
