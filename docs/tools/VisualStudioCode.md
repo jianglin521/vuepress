@@ -37,3 +37,8 @@ cmd下清屏命令cls
 | Key              | Command         |
 | ---------------- | --------------- |
 | Alt + Z |  切换自动换行  |
+
+## 设置打开新tab
+
+在设置文件里设置 `workbench.editor.enablePreview` 为 false 即可，这是全局设置的，每次都是打开新 tab。
+
