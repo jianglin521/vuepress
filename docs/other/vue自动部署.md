@@ -135,21 +135,67 @@ docker ps -l
 docker logs myjenkins
 ```
 
+## jenkins项目配置
+
+**用到的插件**
+
+1. Git Parameter - git参数化构建
+2. Publish Over SSH - 连接远程服务器
+
+
+
+**项目配置**
+
+1. 执行shell文件
+
+```sh
+cd $WORKSPACE
+pwd
+node -v
+npm -v
+npm install cnpm -g --registry=https://registry.npm.taobao.org
+cnpm install
+npm run build
+```
+
+2. SSH Publishers配置
+
+```sh
+cd ./dockerWeb/jenkins
+cp ./config/docker-deploy.sh  docker-deploy.sh
+chmod 777 ./docker-deploy.sh
+./docker-deploy.sh 6001
+```
+
+
+
+**示例图片**
+
+![图片1](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210922162057.png)
+
+![图片2](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210922162057.png)
+
+![图片2](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210922162307.png)
+
+
+
 ## vue项目打包docker
 
 Dockerfile文件
 
 ```shell
-FROM node:lts-alpine as build-stage
-WORKDIR /build
-RUN npm config set registry https://registry.npm.taobao.org
-COPY package.json /build/package.json
-RUN npm install
-COPY ./ /build
-RUN npm run build
-
+#FROM node:12-alpine as build-stage
+#WORKDIR /build
+#RUN npm config set registry https://registry.npm.taobao.org
+#COPY package.json /build/package.json
+#RUN npm install
+#COPY ./ /build
+#RUN npm run build
+#
 FROM nginx:stable-alpine as production-stage
-COPY --from=build-stage /build/dist /usr/share/nginx/html
+#COPY --from=build-stage /build/dist /usr/share/nginx/html
+COPY /dist /usr/share/nginx/html
+COPY /config/nginx/default.conf /etc/nginx/conf.d/default.conf
 LABEL maintainer="zhuangzhuang"
 EXPOSE 80
 CMD ["nginx", "-g", "daemon off;"]
@@ -158,18 +204,32 @@ CMD ["nginx", "-g", "daemon off;"]
 生成镜像
 
  ```shell
- docker build -t vue-dome .
+ sudo docker build -t vue-dome .  #vue-dome是打包镜像名称
  ```
 
 创建实例
 
 ```shell
-docker run --restart=always \
+sudo docker run --restart=always \
   -d --name vue-dome1 \
   -e TZ=Asia/Shanghai \
+  -v $PWD/config/nginx/default.conf:/etc/nginx/conf.d/default.conf \
   -p 3500:80 \
   vue-dome
 ```
+
+常用的命令
+
+```shell
+sudo docker restart vue-dome1 #重启容器
+sudo docker stop [容器id] #停止容器
+sudo docker rm [容器id] #删除容器
+sudo docker rmi [镜像id] #删除镜像
+sudo docker ps -a #查看所有容器
+sudo docker images #查看所有镜像
+```
+
+
 
 ## Node.js实现热加载
 
