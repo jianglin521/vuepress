@@ -64,11 +64,12 @@ module.exports = {
   ],
   '/other/': [
     '修改Git提交记录',
-    'typescript基础类型',
-    'vue自动部署',
-    'vue自动部署使用',
     'jenkins自动部署',
+    'typescript基础类型', 
+    'typescript快速入门',
+    'vue3项目搭建',
+    'vue自动部署',
     'webpack教程',
-    'webpack起步'
+    'webpack起步'    
   ]
 }
