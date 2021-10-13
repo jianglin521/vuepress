@@ -7,20 +7,17 @@ set -e
 # git pull
 # echo '------代码拉取完成-------'
 
-# 生成静态文件
-# npm run build
-# echo '------构建完成--------'
+生成静态文件
+npm run build
+echo '------构建完成--------'
 
-# # 进入生成的文件夹
-# rm -rf /nginx/dist
-# cp -r docs/.vuepress/dist /nginx
-# echo '-----复制文件完成------'
+# 进入生成的文件夹
+rm -rf /nginx/dist
+cp -r docs/.vuepress/dist /nginx
+echo '-----复制文件完成------'
 
-# # 重启容器
-# docker restart nginx-dome
-# docker ps
-# echo '-------部署完成--------'
-# echo '访问地址: http://jiagnlin521.top'
-echo -e '\e]8;;http://example.com\测试地址\e]8;;\a'
-
-
+# 重启容器
+docker restart nginx-dome
+docker ps
+echo '-------部署完成--------'
+echo '访问地址: http://jiagnlin521.top'
