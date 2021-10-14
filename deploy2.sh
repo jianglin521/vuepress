@@ -4,8 +4,8 @@
 set -e
 
 # 获取最新代码
-# git pull
-# echo '------代码拉取完成-------'
+git pull
+echo '----代码拉取完成------'
 
 # 生成静态文件
 npm run build

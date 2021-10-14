@@ -1,6 +1,6 @@
 # clash
 ## 安装clash
-```sh
+```shell
 docker run --restart=unless-stopped \
 -d --name clash \
 -p 7890:7890 -p 9090:9090 \
@@ -9,7 +9,7 @@ dreamacro/clash
 ```
 
 ## clash-ui
-```sh
+```shell
 docker run --restart=always \
 -d --name clash-ui \
 -p 1234:80 \
@@ -36,7 +36,7 @@ export no_proxy="127.0.0.1, localhost, 49.233.115.121"
 ```
 
 ## 安装Aria2+AriaNg+Filebrowser
-```sh
+```shell
 #由于我们可以直接在Filebrowser里进行删减文件，所以这里就暂时不把下载目录映射出来了
 docker run --restart=always \
 -d --name ccaa \
