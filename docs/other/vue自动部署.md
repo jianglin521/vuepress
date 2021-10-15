@@ -148,7 +148,7 @@ docker logs myjenkins
 
 1. 执行shell文件
 
-```sh
+```shell
 cd $WORKSPACE
 pwd
 node -v
@@ -160,7 +160,7 @@ npm run build
 
 2. SSH Publishers配置
 
-```sh
+```shell
 cd ./dockerWeb/jenkins
 cp ./config/docker-deploy.sh  docker-deploy.sh
 chmod 777 ./docker-deploy.sh
