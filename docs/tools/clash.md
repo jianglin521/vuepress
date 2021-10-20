@@ -57,11 +57,20 @@ Filebrowser访问地址：http://ip:6080/admin，也可以通过AriaNg界面上�
 如果我们Web界面进不去，就需要开启防火墙
 ```
 
-## frp
+## frps
 ```shell
 docker run -d --restart always \
 -d --name frps \
 --network host \
 -v /docker/frp/frps.ini:/etc/frp/frps.ini \
 snowdreamtech/frps
+```
+## frpc
+```shell
+docker run -d \
+--restart=unless-stopped \
+-v /home/appdev/docker/frp/frpc.ini:/etc/frp/frpc.ini \
+--network host \
+--name frpc \
+snowdreamtech/frpc
 ```
