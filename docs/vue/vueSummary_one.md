@@ -158,20 +158,40 @@ export default {
   }
 ```
 
-## 数组去重
+## 数组去重1
 ```js
-  let checkedList = [] // 去重
-  for (let i = 0; i < checkedNodes.length; i++) {
+let checkedList = [] // 去重
+for (let i = 0; i < checkedNodes.length; i++) {
     for (let j = i + 1; j < checkedNodes.length; j++) {
-      if (checkedNodes[i].id === checkedNodes[j].id) {
-        j = ++i
-      }
+        if (checkedNodes[i].id === checkedNodes[j].id) {
+            j = ++i
+        }
     }
     checkedList.push(checkedNodes[i])
-  }
+}
+
+vueSummary_one
+
+```
+
+## 数组去重,数组对象去重2
+
+```js
+//数组
+const arr = [2,7,5,7,2,8,9];
+console.log([...new Set(arr)]); // [2,7,5,8,9];
+//对象
+const list = [{age:18,name:'张三'},{age:18,name:'李四'},{age:18,name:'王五'}]
+let hash = {};
+const newArr = list.reduce((item, next) => {
+    hash[next.age] ? '' : hash[next.age] = true && item.push(next);
+    return item;
+}, []);
+console.log(list);
 ```
 
 ## mockjs影响文件下载
+
 在mockjs版本为`1.1.0`时候影响文件流下载,将版本降为`0.1.10`可解决
 
 ## vue项目自动部署
@@ -249,9 +269,10 @@ Vue.filter('tel-encryption', function(value) {
 参数:
 
   1. `start`
-  开始提取字符的位置。如果为负值，则被看作 strLength + start，其中 strLength 为字符串的长度（例如，如果 start 为 -3，则被看作 strLength + (-3)）。
+
+    开始提取字符的位置。如果为负值，则被看作 strLength + start，其中 strLength 为字符串的长度（例如，如果 start 为 -3，则被看作 strLength + (-3)）。
 
   2. `length`
-  可选。提取的字符数。
 
+    可选。提取的字符数。
 
