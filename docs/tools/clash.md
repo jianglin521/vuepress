@@ -1,4 +1,7 @@
+
+
 # clash
+
 ## 安装clash
 ```shell
 docker run --restart=unless-stopped \
@@ -61,6 +64,7 @@ docker run --restart=always \
 -p 8010:80 \
 nextcloud
 ```
+
 ## 安装aliyundrive
 ```shell
 docker run -d --name=aliyundrive --restart=unless-stopped -p 8060:8080 \
@@ -69,4 +73,23 @@ docker run -d --name=aliyundrive --restart=unless-stopped -p 8060:8080 \
   -e WEBDAV_AUTH_USER=guan \
   -e WEBDAV_AUTH_PASSWORD=gzz925366 \
   messense/aliyundrive-webdav
+```
+
+## frps
+```shell
+docker run -d --restart always \
+-d --name frps \
+--network host \
+-v /docker/frp/frps.ini:/etc/frp/frps.ini \
+snowdreamtech/frps
+```
+
+## frpc
+```shell
+docker run -d \
+--restart=unless-stopped \
+-v /home/appdev/docker/frp/frpc.ini:/etc/frp/frpc.ini \
+--network host \
+--name frpc \
+snowdreamtech/frpc
 ```

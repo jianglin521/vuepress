@@ -2,7 +2,7 @@
 
 [教程地址](https://juejin.im/post/6869519303864123399)
 
-## gitHub创建秘钥
+## 配置单个github
 ### 配置用户名和邮箱（如果已经配置，就跳过）
 ```bash
   git config --global user.name 'xxx' 
@@ -33,7 +33,46 @@
 ```bash
   ssh git@github.com
 ```
+## 配置多个github
+
+### 生成两个新的SSH key
+
+```shell
+ ssh-keygen -t rsa -C '176xxx@xx.xxx' // 账号一的注册邮箱
+ ssh-keygen -t rsa -C '925xxx@xx.xxx' // 账号二的注册邮箱
+```
+
+**注意**：重点的是**第二次**生成的文件到**第二步的时候不要回车-》要修改名字**，比如第一次时id_rsa第二次就是id_rsa_two，命名随意，但是要区分开，不然第二次生成的文件会覆盖第一次生成的文件。 
+文件存放地址要注意，第一次和第二次存放地址要一致。
+
+### 配置~/.ssh/config文件 
+
+创建`config`文件
+
+```shell
+# 该文件用于配置私钥对应的服务器
+# jianglin521
+Host git@github.com
+HostName github.com
+User jianglin521
+IdentityFile ~/.ssh/id_rsa
+
+# jianglin2020
+Host jianglin2020.github.com
+HostName github.com
+User jianglin2020
+IdentityFile ~/.ssh/id_rsatwo
+```
+
+### 测试 ssh 链接
+
+```shell
+ssh -T git@github.com
+ssh -T git@jianglin2020.github.com
+```
+
 ### github.com代理
+
 ```bash
 # 设置代理
 git config --global http.https://github.com.proxy http://127.0.0.1:7890
