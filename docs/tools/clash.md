@@ -53,3 +53,20 @@ Aria2密匙：moerats
 Filebrowser访问地址：http://ip:6080/admin，也可以通过AriaNg界面上方的文件管理按钮进入
 如果我们Web界面进不去，就需要开启防火墙
 ```
+
+## 安装nextcloud
+```shell
+docker run --restart=always \
+-d --name nextcloud \
+-p 8010:80 \
+nextcloud
+```
+## 安装aliyundrive
+```shell
+docker run -d --name=aliyundrive --restart=unless-stopped -p 8060:8080 \
+  -v /docker/aliyundrive/:/etc/aliyundrive-webdav/ \
+  -e REFRESH_TOKEN='your refresh token' \
+  -e WEBDAV_AUTH_USER=guan \
+  -e WEBDAV_AUTH_PASSWORD=gzz925366 \
+  messense/aliyundrive-webdav
+```
