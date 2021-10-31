@@ -93,3 +93,30 @@ docker run -d \
 --name frpc \
 snowdreamtech/frpc
 ```
+
+## qbittorrent
+```shell
+docker run -d \
+--name=qbittorrent  \
+-e WEBUIPORT=8080  \
+-e PUID=0 \
+-e PGID=0 \
+-e TZ=Asia/Shanghai \
+-p 6881:6881  \
+-p 6881:6881/udp  \
+-p 8050:8080  \
+-v /docker/qbittorrent/config:/config  \
+-v /docker/qbittorrent/downloads:/downloads  \
+--restart unless-stopped  \
+superng6/qbittorrent:latest
+```
+
+## musicPlayer
+```shell
+docker run -d \
+--name musicPlayer \
+-p 8040:264 \
+-v /docker/musicPlayer:/var/www/html/cache \
+oldiy/music-player-docker
+```
+
