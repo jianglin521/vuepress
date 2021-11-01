@@ -1,6 +1,10 @@
 
 
 # clash
+## 进入容器操作
+```shell
+  docker exec -it qinglong bash
+```
 
 ## 安装clash
 ```shell
@@ -28,7 +32,6 @@ echo $http_proxy
 /etc/profile文件追加内容
 
 ```text
-
 #IP为要连接的代理服务器B，端口是要代理的端口，如下的意思该服务器要通过49.233.115.121服务器的端口7890的代理来访问外网
 export http_proxy=http://49.233.115.121:7890
 #如果要设置https代理，应该添加如下配置，暂未尝试过#
@@ -44,16 +47,17 @@ export no_proxy="127.0.0.1, localhost, 49.233.115.121"
 docker run --restart=always \
 -d --name ccaa \
 -p 6800:6800 \
--p 6080:6080 \
+-p 8030:6080 \
+-v /docker/ccaa/download:/Down \
 moerats/ccaa:latest
 ```
 
 ## 大致信息如下
 ```text
-AriaNg界面：http://ip:6080
+AriaNg界面：http://ip:8030
 访问界面用户名密码分别为：admin、moerats
 Aria2密匙：moerats
-Filebrowser访问地址：http://ip:6080/admin，也可以通过AriaNg界面上方的文件管理按钮进入
+Filebrowser访问地址：http://ip:8030/admin，也可以通过AriaNg界面上方的文件管理按钮进入
 如果我们Web界面进不去，就需要开启防火墙
 ```
 
