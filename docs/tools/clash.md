@@ -124,3 +124,16 @@ docker run -d \
 oldiy/music-player-docker
 ```
 
+## sillygirl
+```shell
+docker run -d -t \
+--name sillygirl \
+--hostname sillygirl \
+-p 8020:8080 \
+-v /docker/sillyGirl:/sillyGirl \
+-e ENABLE_GOPROXY=true \
+-e ENABLE_GITHUBPROXY=true \
+-e ENABLE_APKPROXY=true \
+--restart unless-stopped  \
+1687219868/sillygirl:2.0
+```
