@@ -65,6 +65,7 @@ Filebrowser访问地址：http://ip:8030/admin，也可以通过AriaNg界面上�
 ```shell
 docker run --restart=always \
 -d --name nextcloud \
+-v /docker/nextcloud:/var/www/html/data \
 -p 8010:80 \
 nextcloud
 ```
