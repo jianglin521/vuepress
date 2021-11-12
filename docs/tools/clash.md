@@ -6,6 +6,17 @@
   docker exec -it qinglong bash
 ```
 
+## nginx
+```shell
+docker run --restart=always \
+-d --name nginx-dome \
+-e TZ=Asia/Shanghai \
+-v /nginx/default.conf:/etc/nginx/conf.d/default.conf \
+-v /nginx/dist:/usr/share/nginx/html \
+-p 80:80 \
+nginx
+```
+
 ## 安装clash
 ```shell
 docker run --restart=unless-stopped \
