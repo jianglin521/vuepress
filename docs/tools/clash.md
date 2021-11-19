@@ -22,7 +22,7 @@ nginx
 docker run --restart=unless-stopped \
 -d --name clash \
 -p 7890:7890 -p 9090:9090 \
--v /clash/config.yaml:/root/.config/clash/config.yaml \
+-v /docker/clash/config.yaml:/root/.config/clash/config.yaml \
 dreamacro/clash
 ```
 
@@ -30,7 +30,7 @@ dreamacro/clash
 ```shell
 docker run --restart=always \
 -d --name clash-ui \
--p 1234:80 \
+-p 9999:80 \
 haishanh/yacd
 ```
 
