@@ -44,9 +44,9 @@ echo $http_proxy
 
 ```text
 #IP为要连接的代理服务器B，端口是要代理的端口，如下的意思该服务器要通过49.233.115.121服务器的端口7890的代理来访问外网
-export http_proxy=http://49.233.115.121:7890
+export http_proxy=http://49.233.0.120:7890
 #如果要设置https代理，应该添加如下配置，暂未尝试过#
-export https_proxy=http://49.233.115.121:7890
+export https_proxy=http://49.233.0.120:7890
 #设置不代理的IP或者网址，如下配置，这些请求不会被代理，不支持模糊匹配
 export no_proxy="127.0.0.1, localhost, 49.233.115.121"
 
