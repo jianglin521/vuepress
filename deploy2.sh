@@ -20,4 +20,4 @@ echo '-----复制文件完成------'
 docker restart nginx-dome
 docker ps
 echo '-------部署完成--------'
-echo '访问地址: http://jiagnlin521.top'
+echo '访问地址: http://jianglin521.top'
