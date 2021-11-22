@@ -5,12 +5,34 @@
 ```shell
   docker exec -it qinglong bash
 ```
+## nginx权限验证
+```shell
+#安装 `httpd-tools`
+yum install -y  httpd-tools 
+#生成新的用户名和密码
+#password是你的密码 admin是你的帐号
+htpasswd -bc /etc/nginx/htpasswd.users admin password
+htpasswd -bc /etc/nginx/htpasswd.users root password
+
+#查看用户名
+cat /etc/nginx/htpasswd.users 
+# admin:$apr1$9c2/hWtI$0CSGPb8xGTxbZ4CLOx2N3.
+# root:$apr1$9c2/fsadfasf1213xGTxbZ4fas12311.
+
+#应用到nginx配置上
+#添加以下二行代码在server节点上
+auth_basic "Restricted Access";      # 验证
+auth_basic_user_file /etc/nginx/htpasswd.users;
+#也可以关闭
+auth_basic off; # 关闭验证
+``` 
 
 ## nginx
 ```shell
 docker run --restart=always \
 -d --name nginx-dome \
 -e TZ=Asia/Shanghai \
+-v /nginx/htpasswd.users:/etc/nginx/htpasswd.users \
 -v /nginx/default.conf:/etc/nginx/conf.d/default.conf \
 -v /nginx/dist:/usr/share/nginx/html \
 -p 80:80 \
