@@ -21,7 +21,7 @@ cat /etc/nginx/htpasswd.users
 
 #应用到nginx配置上
 #添加以下二行代码在server节点上
-auth_basic "Restricted Access";      # 验证
+auth_basic "Restricted Access"; # 验证
 auth_basic_user_file /etc/nginx/htpasswd.users;
 #也可以关闭
 auth_basic off; # 关闭验证
