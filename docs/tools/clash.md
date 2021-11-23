@@ -30,11 +30,11 @@ auth_basic off; # 关闭验证
 ## nginx
 ```shell
 docker run --restart=always \
--d --name nginx-dome \
+-d --name nginx \
 -e TZ=Asia/Shanghai \
 -v /nginx/htpasswd.users:/etc/nginx/htpasswd.users \
 -v /nginx/default.conf:/etc/nginx/conf.d/default.conf \
--v /nginx/dist:/usr/share/nginx/html \
+-v /nginx:/usr/share/nginx \
 -p 80:80 \
 nginx
 ```
