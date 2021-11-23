@@ -38,6 +38,10 @@ docker run --restart=always \
 -p 80:80 \
 nginx
 ```
+## 查看所有容器ip
+```shell
+docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
+```
 
 ## 安装clash
 ```shell
