@@ -153,13 +153,12 @@ docker run -d \
 superng6/qbittorrent:latest
 ```
 
-## musicPlayer
+## cloudMusic
 ```shell
-docker run -d \
---name musicPlayer \
--p 8040:264 \
--v /docker/musicPlayer:/var/www/html/cache \
-oldiy/music-player-docker
+docker run -d  \
+--name cloudMusic \
+-p 8040:8080 \
+nondanee/unblockneteasemusic
 ```
 
 ## sillygirl
