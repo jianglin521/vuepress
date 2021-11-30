@@ -60,6 +60,17 @@ docker-compose down # 停止并删除容器；
 docker exec -it qinglong bash
 ```
 
+## 查看端占用、关闭进程
+```shell
+netstat -ntlp   #查看当前所有tcp端口
+netstat -ntulp | grep 80   #查看所有80端口使用情况
+netstat -ntulp | grep 3306   #查看所有3306端口使用情况
+```
+
+```shell
+kill -9 1000 #关闭PID为1000的进程
+```
+
 ## MySQL5.7
 [MySQL5.7安装](https://blog.csdn.net/WYA1993/article/details//88890883)
 
