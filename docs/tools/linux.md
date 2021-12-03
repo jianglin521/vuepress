@@ -34,15 +34,17 @@ netstat -ntulp | grep 3306   // 查看所有3306端口使用情
 
 ```shell
 #tar 压缩文件夹
-tar -zcvf /ql.tar.gz /ql
-tar -zcvf 打包后生成的文件名全路径 要打包的目录 
-#例子：把/ql文件夹打包后生成一个/ql.tar.gz的文件
+tar -zcvf ./ql_back.tar.gz ./ql_back
+tar -zcvf ./elecv2p_back.tar.gz ./elecv2p_back
+#tar -zcvf 打包后生成的文件名全路径 要打包的目录 
+#例子：把./ql文件夹打包后生成一个./ql_back.tar.gz的文件
 
 #tar 解压文件夹
-tar -zxvf /ql.tar.gz -C /
-#把根目录下的ql.tar.gz解压到/ql下，前提要保证存在/ql这个目录 
+tar -zxvf ./ql_back.tar.gz -C ./
+tar -zcvf ./elecv2p_back.tar.gz -C ./
+#把根目录下的ql_back.tar.gz解压到./下
 #这个和cp命令有点不同，cp命令如果不存在这个目录就会自动创建这个目录
-#例子：把/ql.tar.gz文件解压到/文件夹-解压带ql目录
+#例子：把./ql_back.tar.gz文件解压到./文件夹-解压带ql_back目录
 ```
 
 ### docker-compose常用命令
