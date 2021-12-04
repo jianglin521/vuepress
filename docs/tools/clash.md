@@ -147,8 +147,8 @@ docker run -d \
 -p 6881:6881  \
 -p 6881:6881/udp  \
 -p 8050:8080  \
--v /docker/qbittorrent/config:/config  \
--v /docker/qbittorrent/downloads:/downloads  \
+-v /opt/qbittorrent/config:/config  \
+-v /opt/qbittorrent/downloads:/downloads  \
 --restart unless-stopped  \
 superng6/qbittorrent:latest
 ```
