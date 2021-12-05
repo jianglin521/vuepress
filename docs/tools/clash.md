@@ -87,15 +87,40 @@ docker run --restart=always \
 -p 8030:6080 \
 -v /docker/ccaa/download:/Down \
 moerats/ccaa:latest
+
+# AriaNg界面：http://ip:8030
+# 访问界面用户名密码分别为：admin、moerats
+# Aria2密匙：moerats
+# Filebrowser访问地址：http://ip:8030/admin，也可以通过AriaNg界面上方的文件管理按钮进入
+# 如果我们Web界面进不去，就需要开启防火墙
+```
+## 安装filebrowser
+```shell
+docker run -d \
+--name filebrowser \
+-p 8010:8080 \
+-v /opt/qbittorrent/download:/data  \
+-v /opt/filebrowser/config:/config \
+hurlenko/filebrowser
+
+# Filebrowser访问地址：http://ip:8010, 初始账号admin,密码admin
 ```
 
-## 大致信息如下
-```text
-AriaNg界面：http://ip:8030
-访问界面用户名密码分别为：admin、moerats
-Aria2密匙：moerats
-Filebrowser访问地址：http://ip:8030/admin，也可以通过AriaNg界面上方的文件管理按钮进入
-如果我们Web界面进不去，就需要开启防火墙
+## qbittorrent
+```shell
+docker run -d \
+--name=qbittorrent  \
+-e WEBUIPORT=8080  \
+-e PUID=0 \
+-e PGID=0 \
+-e TZ=Asia/Shanghai \
+-p 6881:6881  \
+-p 6881:6881/udp  \
+-p 8050:8080  \
+-v /opt/qbittorrent/config:/config  \
+-v /opt/qbittorrent/download:/downloads  \
+--restart unless-stopped  \
+superng6/qbittorrent:latest
 ```
 
 ## 安装nextcloud
@@ -134,23 +159,6 @@ docker run -d \
 --network host \
 --name frpc \
 snowdreamtech/frpc
-```
-
-## qbittorrent
-```shell
-docker run -d \
---name=qbittorrent  \
--e WEBUIPORT=8080  \
--e PUID=0 \
--e PGID=0 \
--e TZ=Asia/Shanghai \
--p 6881:6881  \
--p 6881:6881/udp  \
--p 8050:8080  \
--v /opt/qbittorrent/config:/config  \
--v /opt/qbittorrent/downloads:/downloads  \
---restart unless-stopped  \
-superng6/qbittorrent:latest
 ```
 
 ## cloudMusic
