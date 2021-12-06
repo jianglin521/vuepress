@@ -182,3 +182,13 @@ docker run -d -t \
 --restart unless-stopped  \
 1687219868/sillygirl:2.0
 ```
+## syncthing
+```shell
+docker run  -d --restart=always \
+--name syncthing \
+-p 8020:8384 \
+-p 22001:22000 \
+-v /docker/syncthing:/var/syncthing \
+syncthing/syncthing
+#win10客户端工具SyncTrayzor
+```
