@@ -36,6 +36,9 @@ vue add @vue/eslint
 ::: tip 提示
 vue add 的设计意图是为了安装和调用 Vue CLI 插件。这不意味着替换掉普通的 npm 包。对于这些普通的 npm 包，你仍然需要选用包管理器。
 :::
+### vue-cli2升级vue-cli4指南
+[升级教程](https://blog.liuyunzhuge.com/2019/12/19/vue-cli2%E7%9A%84%E9%A1%B9%E7%9B%AE%E5%8D%87%E7%BA%A7%E5%88%B0vue-cli4%E5%81%9A%E4%BA%86%E5%93%AA%E4%BA%9B%E4%BA%8B%E6%83%85/
+)
 
 ## webstom识别@
 vue-cli 3.0的文档中有说明，我们打开webstorm->setting->webpack配置中修改路径：
