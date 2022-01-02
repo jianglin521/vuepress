@@ -192,3 +192,5 @@ docker run  -d --restart=always \
 syncthing/syncthing
 #win10客户端工具SyncTrayzor
 ```
+## jadx
+[github地址](https://github.com/skylot/jadx/releases/tag/v1.3.1)
