@@ -17,7 +17,7 @@ cp -r docs/.vuepress/dist /nginx
 echo '-----复制文件完成------'
 
 # 重启容器
-docker restart nginx-dome
+docker restart nginx
 docker ps
 echo '-------部署完成--------'
 echo '访问地址: http://jianglin521.top'
