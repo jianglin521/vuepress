@@ -15,7 +15,7 @@ htpasswd -bc /etc/nginx/htpasswd.users admin password
 htpasswd -bc /etc/nginx/htpasswd.users root password
 
 #查看用户名
-cat /etc/nginx/htpasswd.users 
+cat /nginx/htpasswd.users 
 # admin:$apr1$9c2/hWtI$0CSGPb8xGTxbZ4CLOx2N3.
 # root:$apr1$9c2/fsadfasf1213xGTxbZ4fas12311.
 
