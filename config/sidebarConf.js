@@ -12,6 +12,7 @@ module.exports = {
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
+    'app升级总结',
     ['communication','vue组件通信'],
     ['vuex','vuex使用'],
     ['vueSlot','vue插槽'],
