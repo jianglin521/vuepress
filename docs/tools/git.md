@@ -33,6 +33,11 @@
 ```bash
   ssh git@github.com
 ```
+
+### git clone使用指定用户名和密码
+```shell
+git clone http://邮箱（或用户名）:密码@仓库地址
+```
 ## 配置多个github
 
 ### 生成两个新的SSH key
