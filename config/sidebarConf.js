@@ -13,6 +13,7 @@ module.exports = {
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
     'app升级总结',
+    'git提交规范',
     ['communication','vue组件通信'],
     ['vuex','vuex使用'],
     ['vueSlot','vue插槽'],
