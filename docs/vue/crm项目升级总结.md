@@ -1,12 +1,12 @@
 ## app升级总结
 ### vue-cli版本
-`"@vue/cli-service": "~4.5.0"`
+`"@vue/cli-service": "~5.0.0"`
 
 ### 常用命令
 ```shell
 npm install -g @vue/cli # 安装vue-cli
 npm update -g @vue/cli # 更新vue-cli
-vue -V # 查看vue-cli版本 @vue/cli-service@4.5.15
+vue -V # 查看vue-cli版本
 ```
 
 ## node多版本工具nvm
@@ -35,22 +35,40 @@ vant中babel配置
 ## 配置文件调整
 开发/生产环境文件调整
 
+## 问题 @vue/cli 5.0.1
+1. 启动报错`Invalid options in vue.config.js: "css.requireModuleExtension" is not allowed` 
+   >`@vue/cli-service` 该 `css.requireModuleExtension` 选项被删除。如果您确实需要去除 `.moduleCSS`
+   >[相关文档](https://next.cli.vuejs.org/migrations/migrate-from-v4.html#for-all-packages)
+2. 启动报错`Module not found: Error: Can't resolve 'script-loader'`
+   >`npm install script-loader --save-dev`
+3. 启动报错` Parsing error: Cannot find module 'babel-eslint'`   
+   >`npm install babel-eslint --save-dev`
+
+
+
+Module not found: Error: Can't resolve 'script-loader'
+
 ### 升级之前
-@vue/cli 4.1.0
-node v12.14.1
-"axios": "^0.18.0",
-"jquery": "^3.3.1",
+"@riophae/vue-treeselect": "^0.4.0",
+"@vue/composition-api": "^1.1.3",
+"axios": "^0.17.1",
+"babel-polyfill": "^6.26.0", 暂未添加
+"default-passive-events": "^2.0.0",
+"element-ui": "2.7.2",
+"file-saver": "^1.3.3",
+"jquery": "^3.4.1",
 "jquery-form": "^4.2.2",
 "js-base64": "^2.4.3",
 "js-md5": "^0.7.3",
-"mint-ui": "^2.2.13",
-"moment": "^2.22.2",
-"vant": "^2.12.22",
-"vue": "^3.0.15",
-"vue-baidu-map": "^0.21.20",
-"vue-router": "^3.0.1",
-"vue-scroller": "^2.2.4",
-"vuex": "^3.0.1"
+"moment": "^2.21.0",
+"v-viewer": "^1.5.1",
+"vue": "^2.5.2",
+"vue-calendar-component": "^2.8.2",
+"vue-qr": "^2.2.1",
+"vue-quill-editor": "^3.0.6",
+"vue-router": "3.0.1",
+"vuex": "^3.0.1",
+"xlsx": "^0.12.4"
 
 ### 升级之后
 @vue/cli 4.5.15

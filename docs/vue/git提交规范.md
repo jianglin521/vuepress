@@ -44,4 +44,8 @@ npm run cz  # git add . && git commit -m 'feat:(xxx): xxx'
 npm run log # 生成 CHANGELOG
 ```
 
+### 问题
+1. 提示 `warning: LF will be replaced by CRLF in CHANGELOG.md`
+   >`git config core.autocrlf false`
+
 
