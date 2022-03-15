@@ -1,11 +1,12 @@
 ## app升级总结
 ### vue-cli版本
-`"@vue/cli-service": "~5.0.0"`
+`"@vue/cli-service": "4.5.15"`
 
 ### 常用命令
 ```shell
 npm install -g @vue/cli # 安装vue-cli
 npm update -g @vue/cli # 更新vue-cli
+npm uninstall -g @vue/cli # 卸载vue-cli
 vue -V # 查看vue-cli版本
 ```
 
@@ -35,18 +36,16 @@ vant中babel配置
 ## 配置文件调整
 开发/生产环境文件调整
 
-## 问题 @vue/cli 5.0.1
-1. 启动报错`Invalid options in vue.config.js: "css.requireModuleExtension" is not allowed` 
-   >`@vue/cli-service` 该 `css.requireModuleExtension` 选项被删除。如果您确实需要去除 `.moduleCSS`
-   >[相关文档](https://next.cli.vuejs.org/migrations/migrate-from-v4.html#for-all-packages)
-2. 启动报错`Module not found: Error: Can't resolve 'script-loader'`
-   >`npm install script-loader --save-dev`
-3. 启动报错` Parsing error: Cannot find module 'babel-eslint'`   
-   >`npm install babel-eslint --save-dev`
-
-
-
-Module not found: Error: Can't resolve 'script-loader'
+## 问题
+1. ~~启动报错`Invalid options in vue.config.js: "css.requireModuleExtension" is not allowed` ~~
+   >~~`@vue/cli-service` 该 `css.requireModuleExtension` 选项被删除。如果您确实需要去除 `.moduleCSS`~~
+   >~~[相关文档](https://next.cli.vuejs.org/migrations/migrate-from-v4.html#for-all-packages)~~
+2. ~~启动报错` Parsing error: Cannot find module 'babel-eslint'`  ~~ 
+   >~~`npm install babel-eslint --save-dev`~~
+3. 启动报错 `Failed to resolve loader: script-loader`
+   > 项目excel导出的依赖包 `npm install script-loader --save-dev`
+4. 项目登录图标不显示图标
+   > 项目excel导出的依赖包 `npm install svg-sprite-loader --save-dev`
 
 ### 升级之前
 "@riophae/vue-treeselect": "^0.4.0",

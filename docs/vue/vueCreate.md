@@ -156,7 +156,7 @@ mockServer.js内容
 ## 去除.map
 `productionSourceMap: false` //去除.map文件
 
-## 去除打包后打印输出
+## 去除打包后打印输出-旧版
 在webpack.prod.config.js中修改为如下：
 ```js
   uglifyOptions: {
@@ -166,6 +166,23 @@ mockServer.js内容
           drop_console: true,//去除注释
         }
       }
+```
+
+## 去除打包后打印输出-vue-cli4
+安装包`babel-plugin-transform-remove-console`
+在babel.config中修改为如下：
+```js
+const plugins = []
+if (process.env.NODE_ENV === 'production') { // 关闭打包输出
+  plugins.push('transform-remove-console')
+}
+
+module.exports = {
+  presets: [
+    '@vue/cli-plugin-babel/preset'
+  ],
+  plugins
+}
 ```
 
 ## 打包路径错误
