@@ -1,8 +1,15 @@
-## vite项目搭建
+# vite项目搭建
+## 安装pnpm
+```shell
+npm install -g pnpm #通过npm全局安装
+pnpm config set registry http://registry.npm.taobao.org # 设置淘宝镜像
+```
+
 ## 安装
 ```shell
 pnpm create vite # 手动创建
-pnpm create vite my-vue-app -- --template vue-ts # 自动创建
+pnpm create vite my-vue-app -- --template vue # 自动创建vue
+pnpm create vite my-vue-app -- --template vue-ts # 自动创建vue-ts
 ```
 
 ## pnpm
