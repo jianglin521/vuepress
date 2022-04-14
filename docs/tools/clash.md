@@ -192,5 +192,17 @@ docker run  -d --restart=always \
 syncthing/syncthing
 #win10客户端工具SyncTrayzor
 ```
+
+## alist
+```shell
+docker run -d --restart=always \
+  --name=alist \
+  -p 8040:5244 \
+  -v /docker/alist:/opt/alist/data \
+  -v /docker/syncthing/音乐:/opt/alist/音乐 \
+  xhofe/alist:latest
+```
+
 ## jadx
 [github地址](https://github.com/skylot/jadx/releases/tag/v1.3.1)
+
