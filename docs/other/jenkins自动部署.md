@@ -10,7 +10,7 @@
 
 1. 点击前端项目
 
-   ![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210818170814.png)
+   ![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210818170814.png/)
 
 2. 点击分支开始构建
 

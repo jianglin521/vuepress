@@ -1,6 +1,6 @@
 # 修改Git提交记录
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151118.png)
+![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151118.png/)
 
 最近Github的服务不太稳定，感觉要凉的节奏？
 
@@ -18,7 +18,7 @@
 
 先来看一下开始的提交记录
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151211.png)
+![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151211.png/)
 
 先来把邮箱和名称配置一下
 
@@ -63,11 +63,11 @@ fi
 
 如果`commit`记录比较多的话执行的时间会比较长
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151234.png)
+![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151234.png/)
 
 再查看`git log`可以看到已经修改成功
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151302.png)
+![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151302.png/)
 
 如果执行失败的话，执行一下这段命令
 
