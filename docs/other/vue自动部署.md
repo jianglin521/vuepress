@@ -114,11 +114,11 @@ chmod 777 /jenkins_home
 　　**--name myjenkins 给容器起一个别名**
 
 ```shell
-docker run --restart=always \
-  -d --name myjenkins \
-  -p 10000:8080 \
-  -p 10001:50000 \
-  -v /jenkins_home:/var/jenkins_home \
+docker run --restart always \
+  -d --name jenkins \
+  -p 6006:8080 \
+  -p 50000:50000 \
+  -v $PWD/jenkins_home:/var/jenkins_home \
   -v /etc/localtime:/etc/localtime \
   jenkins/jenkins
 ```
