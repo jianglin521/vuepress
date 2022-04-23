@@ -204,6 +204,30 @@ docker run -d --restart=always \
   xhofe/alist:latest
 ```
 
-## jadx
-[github地址](https://github.com/skylot/jadx/releases/tag/v1.3.1)
+## 安装mysql5.7
+mkdir -p /docker/mysql/data /docker/mysql/logs /docker/mysql/conf
+```shell
+docker run -d --restart=always \
+  --name mysql \
+  -p 3306:3306 \
+  -v /docker/mysql/conf:/etc/mysql/conf.d \
+  -v /docker/mysql/logs:/logs \
+  -v /docker/mysql/data:/var/lib/mysql \
+  -e MYSQL_ROOT_PASSWORD=gzz925366 \
+  -m 500m \
+  mysql:5.7
+```
+
+## 安装chevereto
+```shell
+docker run -d --restart=always  \
+  --name=chevereto \
+  -e TZ=Asia/Shanghai \
+  -p 5000:80 \
+  -v /docker/chevereto/config:/config \
+  -v /docker/chevereto/data:/data \
+  -m 150m\
+  linuxserver/chevereto
+```
+
 
