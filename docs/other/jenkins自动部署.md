@@ -9,10 +9,9 @@
 ## 使用步骤
 
 1. 点击前端项目
+  ![](http://jianglin521.top:5000/images/2022/04/23/202204231147263.png)
 
-   ![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210818170814.png/)
+3. 点击分支开始构建
 
-2. 点击分支开始构建
-
-<img src="https://gitee.com/jianglin521/picgoImg/raw/master/img/20210818171053.png" style="zoom: 90%;" />
+<img src="http://jianglin521.top:5000/images/2022/04/23/202204231149315.png" style="zoom: 90%;" />
 

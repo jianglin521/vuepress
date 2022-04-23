@@ -1,6 +1,6 @@
 # python
 ## 数据类型
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20200324083829.png/)
+![](http://jianglin521.top:5000/images/2022/04/23/202204231200034.png)
 
 
 ## pip清华镜像
@@ -93,7 +93,7 @@ class MysqlPipeline(object):
 ## Scrapy框架
 [Scrapy介绍](https://www.jianshu.com/p/02cecfad9ef0)
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20200403090433.webp)
+![](http://jianglin521.top:5000/images/2022/04/23/202204231202024.webp)
 
 ## scrapy项目
 ### 创建项目

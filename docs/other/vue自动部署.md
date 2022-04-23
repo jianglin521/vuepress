@@ -171,11 +171,9 @@ chmod 777 ./docker-deploy.sh
 
 **示例图片**
 
-![图片1](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210922162057.png/)
+![图片2](http://jianglin521.top:5000/images/2022/04/23/202204231150640.png)
 
-![图片2](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210922162057.png/)
-
-![图片2](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210922162307.png/)
+![图片2](http://jianglin521.top:5000/images/2022/04/23/202204231158166.png)
 
 
 

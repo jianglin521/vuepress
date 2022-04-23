@@ -1,7 +1,6 @@
 # 修改Git提交记录
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151118.png/)
-
+![](http://jianglin521.top:5000/images/2022/04/23/202204231145157.png)
 最近Github的服务不太稳定，感觉要凉的节奏？
 
 这两天好不容易有空提交一下开源代码了，结果在公司提交的代码有记录，但是没有绿色，延迟？真的要凉
@@ -18,7 +17,7 @@
 
 先来看一下开始的提交记录
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151211.png/)
+![](http://jianglin521.top:5000/images/2022/04/23/202204231145642.png)
 
 先来把邮箱和名称配置一下
 
@@ -63,11 +62,11 @@ fi
 
 如果`commit`记录比较多的话执行的时间会比较长
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151234.png/)
+![](http://jianglin521.top:5000/images/2022/04/23/202204231158397.png)
 
 再查看`git log`可以看到已经修改成功
 
-![](https://gitee.com/jianglin521/picgoImg/raw/master/img/20210803151302.png/)
+![](http://jianglin521.top:5000/images/2022/04/23/202204231159849.png)
 
 如果执行失败的话，执行一下这段命令
 

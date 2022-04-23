@@ -205,7 +205,6 @@ docker run -d --restart=always \
 ```
 
 ## 安装mysql5.7
-mkdir -p /docker/mysql/data /docker/mysql/logs /docker/mysql/conf
 ```shell
 docker run -d --restart=always \
   --name mysql \
@@ -213,7 +212,7 @@ docker run -d --restart=always \
   -v /docker/mysql/conf:/etc/mysql/conf.d \
   -v /docker/mysql/logs:/logs \
   -v /docker/mysql/data:/var/lib/mysql \
-  -e MYSQL_ROOT_PASSWORD=gzz925366 \
+  -e MYSQL_ROOT_PASSWORD=123456 \
   -m 500m \
   mysql:5.7
 ```
