@@ -4,7 +4,7 @@
 
 ## 配置
 1. 自动创建配置文件
-```sh
+```shell
   tsc --init // 创建tsconfig.json 文件
 ```
 

@@ -86,7 +86,7 @@ kill -9 1000 #关闭PID为1000的进程
 [MySQL5.7安装](https://blog.csdn.net/WYA1993/article/details//88890883)
 
 ## java相关
-```sh
+```shell
 tail -f nohup.out  # 查看java日志
 jps # 查看java进程
 ```
