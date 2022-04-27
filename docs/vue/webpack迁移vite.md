@@ -44,7 +44,7 @@
 "babel-eslint": "^10.1.0", // remove
 "core-js": "^3.6.5", // remove
 ```
-随着babel-eslint现在取出我们需要删除它作为我们的一个解析器.eslintrc文件。
+随着`babel-eslint`现在取出我们需要删除它作为我们的一个解析器.eslintrc文件。
 ```js
 // .eslintrc
 // remove
@@ -106,6 +106,7 @@ export default defineConfig({
 同样在 index.html 中，您需要进行一些更改。
 首先，我们将<%= htmlWebpackPlugin.options.title %>占位符的实例更改为硬编码值。
 // index.html
+```html
 <!--remove-->
 <title><%= htmlWebpackPlugin.options.title %></title> 
 <!--add-->
@@ -115,6 +116,7 @@ export default defineConfig({
 <strong>We're sorry but <%= htmlWebpackPlugin.options.title %> doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
 <!--add-->
 <strong>We're sorry but this app doesn't work properly without JavaScript enabled. Please enable it to continue.</strong>
+```
 
 我们还需要用<%= BASE_URL %>绝对路径替换占位符。
 ```html
@@ -139,56 +141,3 @@ export default defineConfig({
 "build": "vite build",
 "serve": "vite preview"
 ```
-
-请注意，启动开发服务器的命令不再是serve. Vite 使用dev，serve用于在本地预览生产版本。
-此外，如果您启用了 linting，您应该更新 lint 脚本以直接运行 eslint。
-"lint": "eslint --ext .js,.vue --ignore-path .gitignore --fix src"
-复制代码
-第 6 步：更新环境变量
-环境变量在 Vite 中的工作方式与它们在 Vue CLI 中的工作方式之间存在很多交叉。例如，您的 .env 命名约定可以保持不变。
-.env                # loaded in all cases
-.env.local          # loaded in all cases, ignored by git
-.env.[mode]         # only loaded in specified mode
-.env.[mode].local   # only loaded in specified mode, ignored by git
-复制代码
-但是，您不能再访问变量上的环境process变量。相反，它们可以在 上找到import.meta.env。
-// router/index.js
-base: process.env.BASE_URL, //remove
-base: import.meta.env.BASE_URL,
-复制代码
-此外，VUE_APP_用于使声明客户端公开的环境变量更明显的前缀更改为VITE_，因此如果您有任何此类环境变量，则必须相应地更新它们。
-第 7 步：将 .vue 扩展名添加到 SFC 导入
-虽然我们新创建的 Vue CLI 项目已经这样做了，但我敢打赌，您现有的应用程序可能没有。因此，您必须确保单个文件组件的所有导入都以.vue扩展名结尾。
-// Home.vue
-import HelloWorld from "@/components/HelloWorld.vue"; // .vue is required
-复制代码
-如果这个过程由于你的代码库的大小而过于繁重，你可以配置 vite 以便这不是必需的。这是通过添加.vue到 中的resolve.extensions配置选项来实现的vite.config.js。确保您还手动包含所有默认扩展名，尽管此选项会覆盖默认值。
-// vite.config.js
-//...
-export default defineConfig({
-  plugins: [vue()],
-  resolve: {
-    extensions: ['.mjs', '.js', '.ts', '.jsx', '.tsx', '.json', '.vue'],
-    //...
-  },
-});
-复制代码
-虽然这有效，但应尽可能避免。为什么？因为根据 Vite 文档：“请注意，不建议省略自定义导入类型的扩展（例如.vue），因为它会干扰 IDE 和类型支持。”
-第 8 步：清理魔法评论
-最后，您可以删除所有用于命名动态导入的神奇注释，因为这些是特定于 webpack 的注释，对 Vite 没有任何意义。
-// router/index.js
-import(
-    /* webpackChunkName: "about" */  // remove
-    "../views/About.vue"
-),
-复制代码
-相反，Vite 会根据原始 .vue 文件名和缓存破坏哈希自动命名您的块，如下所示： About.37a9fa9f.js
-第 9 步：享受更快、更无缝的开发体验
-完成上面的步骤 1-8 后，您的应用程序应该可以开始使用 Vite 运行了！继续启动你的开发服务器，npm run dev看看 Vite 对你自己有多快。
-如果此时您有任何其他错误弹出，请在下面发表评论并与社区分享，以及您可能对他们有的任何解决方案！
-最后，请记住，您可以在此示例存储库中将所有这些更改视为差异，以帮助您进行迁移。
-
-作者：Invincible_
-链接：https://juejin.cn/post/7036572682342629383
-来源：稀土掘金
-著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。

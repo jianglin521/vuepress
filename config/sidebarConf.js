@@ -25,6 +25,7 @@ module.exports = {
   ],
   '/js/': [
     ['es6','es6使用手册'],
+    ['es11','es11使用手册'],
     ['async','js异步'],
     ['prototype','原型与原型链'],
     ['json','json使用'],
