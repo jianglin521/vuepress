@@ -119,7 +119,7 @@ docker run --restart always \
   -p 6006:8080 \
   -p 50000:50000 \
   -v $PWD/jenkins_home:/var/jenkins_home \
-  -v /etc/localtime:/etc/localtime \
+  -v /etc/timezone:/etc/timezone \
   jenkins/jenkins
 ```
 
@@ -133,6 +133,28 @@ docker ps -l
 
 ```
 docker logs myjenkins
+```
+
+## jenkins时区问题
+```shell
+# 查看系统的时区
+[root@note-53 ~]# cat /etc/timezone 
+Asia/Shanghai
+
+# 进入容器
+[root@note-53 ~]# docker exec -it -u root jenkins bash
+
+# 查看容器时区
+root@note-53:/# cat /etc/timezone 
+Etc/UTC
+
+#修改容器时区
+root@note-53:/# echo  'Asia/Shanghai' > /etc/timezone
+root@note-53:/# exit
+
+# 重启容器
+[root@note-53 ~]# docker restart jenkins
+
 ```
 
 ## jenkins项目配置
