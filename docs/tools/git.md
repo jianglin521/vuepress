@@ -38,6 +38,16 @@
 ```shell
 git clone http://邮箱（或用户名）:密码@仓库地址
 ```
+## git不同项目设置不同用户名
+每个git项目下都会有一个隐藏的.git文件夹，发现该目录下有个config文件，采用
+```shell
+# 添加如下配置
+[user]
+    name = XXX(自己的名称)
+    email = XXXX(邮箱)
+```
+
+
 ## 配置多个github
 
 ### 生成两个新的SSH key
