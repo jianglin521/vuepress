@@ -69,4 +69,43 @@ node v12.14.1
 "vue-scroller": "^2.2.4",
 "vuex": "^3.4.0"
 
+## 现有项目修改eslint配置
+```shell
+// 修改现有项目的eslint配置
+vue invoke eslint
+```
 
+## stylus转scss
+https://juejin.cn/post/7097491392854753287
+
+npm install -g stylus-converter
+stylus-conver -d yes -i src -o src-temp
+
+npm view stylus-converter versions
+
+## stylelint配置
+```json
+// scripts
+"lint:css": "stylelint **/*.{vue,css,scss} --fix",
+// devDependencies
+"stylelint": "^14.9.1",
+"stylelint-config-html": "^1.1.0",
+"stylelint-config-recommended-scss": "^7.0.0",
+"stylelint-config-recommended-vue": "^1.4.0",
+"stylelint-config-standard": "^26.0.0",
+"stylelint-config-standard-scss": "^5.0.0",
+"stylelint-order": "^5.0.0",
+"stylelint-webpack-plugin": "^2.4.0",
+```
+```js
+// vue.config.js
+const StylelintPlugin = require('stylelint-webpack-plugin')
+
+plugins: [
+  new StylelintPlugin({
+    files: '**/*.{vue,css,scss}',
+    fix: true,
+    failOnError: false
+  })
+]
+```
