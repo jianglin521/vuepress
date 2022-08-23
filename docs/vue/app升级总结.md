@@ -76,12 +76,15 @@ vue invoke eslint
 ```
 
 ## stylus转scss
+```shell
 https://juejin.cn/post/7097491392854753287
 
 npm install -g stylus-converter
 stylus-conver -d yes -i src -o src-temp
 
 npm view stylus-converter versions
+
+```
 
 ## stylelint配置
 ```json
