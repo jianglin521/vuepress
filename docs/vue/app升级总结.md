@@ -75,11 +75,50 @@ node v12.14.1
 vue invoke eslint
 ```
 
+## 添加prettier配置
+```json
+"@vue/eslint-config-prettier": "^6.0.0",
+"eslint-config-prettier": "^6.15.0",
+"eslint-plugin-prettier": "^3.3.1",
+"prettier": "^2.2.1",
+"stylelint-config-prettier": "^7.0.0",
+```
+```js
+// .eslintrc.js
+extends: [
+  ...
+  // '@vue/typescript/recommended',
+  '@vue/prettier',
+  'plugin:prettier/recommended',
+  // '@vue/prettier/@typescript-eslint',
+  'prettier'
+]
+
+// .stylelintrc.js
+extends: [
+  ...
+  'stylelint-config-prettier'
+]
+
+// .prettierrc.js
+module.exports = {
+  printWidth: 120, // 单行长度
+  tabWidth: 2, // 缩进长度
+  bracketSpacing: true, // 箭头函数括号
+  semi: false, // 句末使用分号
+  singleQuote: true, // 使用单引号
+  endOfLine: 'auto', // 结束行形式
+  trailingComma: 'none', // 尾随逗号
+  htmlWhitespaceSensitivity: 'strict'
+}
+```
+
 ## stylus转scss
 ```shell
-https://juejin.cn/post/7097491392854753287
+# https://juejin.cn/post/7097491392854753287
 
 npm install -g stylus-converter
+
 stylus-conver -d yes -i src -o src-temp
 
 npm view stylus-converter versions
@@ -91,6 +130,8 @@ npm view stylus-converter versions
 // scripts
 "lint:css": "stylelint **/*.{vue,css,scss} --fix",
 // devDependencies
+"postcss": "^8.4.14",
+"postcss-html": "^1.5.0",
 "stylelint": "^14.9.1",
 "stylelint-config-html": "^1.1.0",
 "stylelint-config-recommended-scss": "^7.0.0",
@@ -100,6 +141,7 @@ npm view stylus-converter versions
 "stylelint-order": "^5.0.0",
 "stylelint-webpack-plugin": "^2.4.0",
 ```
+
 ```js
 // vue.config.js
 const StylelintPlugin = require('stylelint-webpack-plugin')
