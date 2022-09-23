@@ -16,6 +16,13 @@ nvm install 12.14.1 # 安装
 nvm uninstall 12.14.1 # 卸载
 nvm use 12.14.1 # 使用
 ```
+settings.txt添加以下文件
+```txt
+# settings.txt
+node_mirror: https://npm.taobao.org/mirrors/node/
+npm_mirror: https://npm.taobao.org/mirrors/npm/
+```
+
 ### nvm安装node没有npm问题
 [下载对应版本node](https://nodejs.org/download/release/) 复制到 `D:\nvm\v12.14.1`
 
