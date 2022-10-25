@@ -200,6 +200,7 @@ docker run -d --restart=always \
   -p 8040:5244 \
   -v /docker/alist:/opt/alist/data \
   -v /docker/syncthing/音乐:/opt/alist/音乐 \
+  -v /docker/syncthing/文件同步/工作计划/周计划/小组共享/:/opt/alist/小组共享 \
   -v /docker/ccaa/download:/opt/alist/download \
   xhofe/alist:latest
 ```
