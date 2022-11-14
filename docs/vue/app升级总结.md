@@ -23,6 +23,17 @@ node_mirror: https://npm.taobao.org/mirrors/node/
 npm_mirror: https://npm.taobao.org/mirrors/npm/
 ```
 
+## 设置npm源
+设置npm的源，可以设置多个源，但是只有一个是生效的
+```shell
+#设置淘宝源
+npm config set registry https://registry.npm.taobao.org
+#设置公司的源
+npm config set registry http://127.0.0.1:4873
+#查看源，可以看到设置过的所有的源
+npm config get registry
+```
+
 ### nvm安装node没有npm问题
 [下载对应版本node](https://nodejs.org/download/release/) 复制到 `D:\nvm\v12.14.1`
 
