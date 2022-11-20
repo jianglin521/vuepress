@@ -1,4 +1,22 @@
 # JS数组、字符串常用方法
+## 判断是否数组
+```js
+Array.isArray(value) // value 要检查的值，若符合返回true，否则返回false
+```
+## 数组包含另一个数组
+```js
+let a = [2, 3, 4, 5, 6, 7, 8, 9, 10];
+let b = [2, 3];
+let c = [1];
+
+function includes(arr1: any[], arr2: any[]) {
+  return arr2.every(val => arr1.includes(val));
+}
+
+console.log(includes(a, b));
+console.log(includes(a, c));
+```
+
 ## array.some()和array.every()区别？
 some() 方法用于检测数组中的元素是否有满足指定条件的，若满足返回true，否则返回false
 
