@@ -2,6 +2,11 @@
 
 [教程地址](https://juejin.im/post/6869519303864123399)
 
+## git删除本地空目录
+```shell
+git clean -fd
+```
+
 ## 配置单个github
 ### 配置用户名和邮箱（如果已经配置，就跳过）
 ```bash
