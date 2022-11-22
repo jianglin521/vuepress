@@ -146,7 +146,7 @@ Figure 36. 通过合并操作来整合分叉的历史
 
 在这个例子中，你可以检出 `experiment` 分支，然后将它变基到 `master` 分支上：
 
-```console
+```shell
 $ git checkout experiment
 $ git rebase master
 First, rewinding head to replay your work on top of it...
@@ -161,7 +161,7 @@ Figure 37. 将 `C4` 中的修改变基到 `C3` 上
 
 现在回到 `master` 分支，进行一次快进合并。
 
-```console
+```shell
 $ git checkout master
 $ git merge experiment
 ```
