@@ -7,6 +7,18 @@
 git clean -fd
 ```
 
+## 解决vue-cli使用gitHooks失效问题
+### 关于 Git Hook 官方说明
+> yorkie 和 husky 两者的功能是一样的，都是生成一些 git hooks 文件，再读取项目中 package.json 的相关配置去执行一些命令
+
+### 问题原由
+后续由于手动误删了项目根目录下的 `.git` 目录，导致项目在 `commit` 时无法触发 `Git Hook`
+
+### 问题解决
+找到如下路径：`node_modules/yorkie/bin/install.js`
+再使用 `node` 执行此文件，重新生成 `.git` 目录中 `.git/hooks` 即可
+
+
 ## 配置单个github
 ### 配置用户名和邮箱（如果已经配置，就跳过）
 ```bash
