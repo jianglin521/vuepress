@@ -47,6 +47,20 @@ vant中babel配置
 4. 项目登录图标不显示图标
    > 项目excel导出的依赖包 `npm install svg-sprite-loader --save-dev`
 
+## stylelint配置
+```json
+// scripts
+"lint:css": "stylelint **/*.{vue,css,scss} --fix",
+// devDependencies
+"postcss-html": "^1.5.0",
+"stylelint": "^14.9.1",
+"stylelint-config-prettier": "^7.0.0",
+"stylelint-config-standard-scss": "^6.1.0",
+"stylelint-config-standard-vue": "^1.0.0",
+"stylelint-order": "^5.0.0",
+"stylelint-webpack-plugin": "^2.4.0",
+```
+
 ### 升级之前
 "@riophae/vue-treeselect": "^0.4.0",
 "@vue/composition-api": "^1.1.3",
