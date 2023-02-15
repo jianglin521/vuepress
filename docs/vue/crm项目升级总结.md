@@ -61,6 +61,15 @@ vant中babel配置
 "stylelint-webpack-plugin": "^2.4.0",
 ```
 
+```js
+// .stylelintrc.js
+extends: [
+   'stylelint-config-standard-scss',
+   'stylelint-config-standard-vue/scss',
+   'stylelint-config-prettier'
+]
+```
+
 ### 升级之前
 "@riophae/vue-treeselect": "^0.4.0",
 "@vue/composition-api": "^1.1.3",
