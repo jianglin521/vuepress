@@ -2,7 +2,7 @@
 home: true
 heroImage: ./img/hero.png
 actionText: 皮皮虾 我们走 →
-actionLink: /work/
+actionLink: /work/计划
 features:
 - title: 装逼
   details: 在这里，你可以看到 降临 在这里无限装逼，所以你可以尽情打脸。就算你懂，没关系，打了脸再说~

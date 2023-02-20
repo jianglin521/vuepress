@@ -27,7 +27,30 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
   npm init：按步骤创建 package.json
   npm init --yes：快速创建 package.json
 ```
+## 强制约束包管理器
+1. 此版本受npm版本限制
+```json
+"scripts": {
+    "preinstall": "npx only-allow npm" // 意思就是只允许使用npm管理
+}
+```
+2. vue3官网版本
+```json
+"scripts": {
+    "preinstall": "node ./scripts/preinstall.js"
+}
+```
 
+```js
+// preinstall.js 
+if (!/npm/.test(process.env.npm_execpath || '')) {
+  console.warn(
+    `\u001b[33mThis repository requires using pnpm as the package manager ` +
+      ` for scripts to work properly.\u001b[39m\n`
+  )
+  process.exit(1)
+}
+```
 ## 查看npm本地连接地址
 `npm config get registry`
 
