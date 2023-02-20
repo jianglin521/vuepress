@@ -4,8 +4,7 @@ module.exports = {
   '/work/': [
     '计划',
     '账号',
-    '加班',
-    '周报'
+    '加班'
   ],
   '/vue/': [
     // ['vueCreate','vue项目搭建'],
