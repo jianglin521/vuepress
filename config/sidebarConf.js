@@ -7,7 +7,7 @@ module.exports = {
     '加班'
   ],
   '/vue/': [
-    // ['vueCreate','vue项目搭建'],
+    'Vue3学习笔记',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
