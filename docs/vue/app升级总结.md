@@ -159,16 +159,3 @@ npm view stylus-converter versions
 "stylelint-order": "^5.0.0",
 "stylelint-webpack-plugin": "^2.4.0",
 ```
-
-```js
-// vue.config.js
-const StylelintPlugin = require('stylelint-webpack-plugin')
-
-plugins: [
-  new StylelintPlugin({
-    files: '**/*.{vue,css,scss}',
-    fix: true,
-    failOnError: false
-  })
-]
-```
