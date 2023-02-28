@@ -4,11 +4,10 @@ module.exports = {
   '/work/': [
     '计划',
     '账号',
-    '加班',
-    '周报'
+    '加班'
   ],
   '/vue/': [
-    // ['vueCreate','vue项目搭建'],
+    'Vue3学习笔记',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
@@ -69,11 +68,11 @@ module.exports = {
   '/other/': [
     '修改Git提交记录',
     'jenkins自动部署',
-    'typescript基础类型', 
+    'typescript基础类型',
     'typescript快速入门',
     'vue3项目搭建',
     'vue自动部署',
     'webpack教程',
-    'webpack起步'    
+    'webpack起步'
   ]
 }
