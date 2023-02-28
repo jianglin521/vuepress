@@ -230,35 +230,6 @@ docker run -d --restart=always  \
   linuxserver/chevereto
 ```
 
-## postgres
-```shell
-## 教程地址 https://zhuanlan.zhihu.com/p/430521274
-## 创建容器
-docker run -d --restart=always \
- --name postgresv \
-  -v /docker/postgres:/var/lib/postgresql/data \
-  -e POSTGRES_USER=guan \
-  -e POSTGRES_PASSWORD=password \
-  -p 5432:5432 \
-  postgres:latest
-
-
 ## 进入容器
-docker exec -it postgresv bash
+docker exec -it elecv2p bash
 
-## 新建数据库
-psql -U postgres
-CREATE USER root WITH PASSWORD 'password';
-CREATE DATABASE joplin OWNER root;
-GRANT ALL PRIVILEGES ON DATABASE joplin to root;
-\q
-```
-
-## joplin
-```shell
-docker run -d --restart=always \
- --name=joplin \
- --env-file /docker/joplin/.env \
- -p 22300:22300 \
- joplin/server:latest
-```
