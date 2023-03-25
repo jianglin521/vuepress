@@ -63,7 +63,8 @@ module.exports = {
     ['Webstorm','Webstorm'],
     ['VisualStudioCode','VisualStudioCode'],
     ['linux','linux'],
-    ['linux_common','linux常用命令']
+    ['linux_common','linux常用命令'],
+    '新手技巧'
   ],
   '/other/': [
     '修改Git提交记录',
