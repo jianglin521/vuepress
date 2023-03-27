@@ -1,5 +1,7 @@
 # css实现底部固定
+
 ## 方法一：footer高度固定+绝对定位
+
 ```html
   <div class="dui-container">
     <header>Header</header>
@@ -7,6 +9,7 @@
     <footer>Footer</footer>
   </div>
 ```
+
 ```css
   html,body{
     height:100%;
@@ -33,11 +36,13 @@
 ```
 
 ## 方法二：在主体content上的下边距增加一个负值等于底部高度
+
 ```html
   <header>Header</header>
   <main>Content</main>
   <footer>Footer</footer>
 ```
+
 ```css
   html,body{
     height:100%;
@@ -57,12 +62,15 @@
     background: yellow;
   }
 ```
+
 ## 方法三：将页脚的margin-top设为负数
+
 ```html
   <header>Header</header>
   <main>Content</main>
   <footer>Footer</footer>
 ```
+
 ```css
   html,body{
     height:100%;

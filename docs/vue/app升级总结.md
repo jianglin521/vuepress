@@ -63,37 +63,47 @@ npm view stylus-converter versions
 
 ```json
 {
-  "name": "hello-world",
+  "name": "app-test",
   "version": "0.1.0",
   "private": true,
   "scripts": {
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy:test": "deploy-cli-service deploy --mode test",
+    "deploy": "deploy-cli-service deploy --mode test",
+    "build:debug": "vue-cli-service build --debug",
+    "cz": "npm run log && git add . && git cz",
     "dev": "vue-cli-service serve",
+    "lint:css": "stylelint **/*.{vue,css,scss} --fix",
     "log": "conventional-changelog --config ./node_modules/vue-cli-plugin-commitlint/lib/log -i CHANGELOG.md -s -r 0",
     "prepare": "husky install"
   },
   "dependencies": {
+    "@vant/touch-emulator": "^1.3.2",
     "axios": "^0.26.0",
-    "core-js": "^3.6.5",
+    "core-js": "^3.8.3",
+    "jquery": "3.3.1",
+    "jquery-form": "4.2.2",
     "js-base64": "^3.7.2",
     "js-md5": "^0.7.3",
-    "pinia": "^2.0.28",
-    "vue": "^3.2.47",
-    "vue-router": "^4.0.0-0"
+    "moment": "^2.29.1",
+    "pinia": "^2.0.14",
+    "qrcode.vue": "^3.3.3",
+    "vant": "^3.4.9",
+    "vue": "^3.0.0",
+    "vue-class-component": "^8.0.0-0",
+    "vue-router": "^4.0.15"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^4.18.0",
     "@typescript-eslint/parser": "^4.18.0",
     "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.15",
+    "@vue/cli-plugin-eslint": "~4.5.0",
     "@vue/cli-plugin-router": "~4.5.0",
     "@vue/cli-plugin-typescript": "~4.5.15",
     "@vue/cli-plugin-vuex": "~4.5.0",
     "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
     "@vue/eslint-config-prettier": "^6.0.0",
+    "@vue/eslint-config-standard": "^5.1.2",
     "@vue/eslint-config-typescript": "^7.0.0",
     "babel-eslint": "^10.1.0",
     "babel-plugin-component": "^1.1.1",
@@ -102,8 +112,14 @@ npm view stylus-converter versions
     "commitlint": "^8.2.0",
     "conventional-changelog-cli": "^2.2.2",
     "eslint": "^6.7.2",
+    "eslint-plugin-import": "^2.20.2",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.3.1",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.0",
+    "eslint-plugin-vue": "^7.0.0",
     "husky": "^8.0.1",
-    "lint-staged": "^9.5.0",
+    "lint-staged": "^10.5.4",
     "prettier": "^2.2.1",
     "right-pad": "^1.0.1",
     "sass": "^1.54.0",
@@ -123,8 +139,9 @@ npm view stylus-converter versions
       "path": "./node_modules/vue-cli-plugin-commitlint/lib/cz"
     }
   },
-  "gitHooks": {
-    "pre-commit": "lint-staged"
+  "engines": {
+    "node": ">= 6.0.0",
+    "npm": ">= 3.0.0"
   },
   "husky": {
     "hooks": {
@@ -135,7 +152,7 @@ npm view stylus-converter versions
     "*.{scss,vue}": [
       "npx stylelint --fix"
     ],
-    "*.{js,jsx,vue,ts,tsx}": [
+    "*.{js,ts,vue}": [
       "vue-cli-service lint"
     ]
   }
@@ -234,6 +251,132 @@ module.exports = {
 # .prettierignore
 # Ignore artifacts:
 dist
+```
+
+### stylelint
+
+```js
+// .stylelintrc.js
+module.exports = {
+  extends: [
+    'stylelint-config-standard',
+    'stylelint-config-html/vue',
+    'stylelint-config-standard-scss',
+    'stylelint-config-recommended-vue/scss',
+    'stylelint-config-prettier'
+  ],
+  plugins: ['stylelint-order'],
+  rules: {
+    'selector-id-pattern': null,
+    'selector-class-pattern': null,
+    'no-descending-specificity': null,
+    // "declaration-block-trailing-semicolon": null,
+    // 每个样式规则前后都有空行，除了第一条规则与规则前有注释
+    'rule-empty-line-before': [
+      'always',
+      {
+        except: [ 'after-single-line-comment', 'first-nested' ]
+      }
+    ],
+    'order/order': [
+      'custom-properties',
+      'declarations'
+    ],
+    'order/properties-order': [
+      'position',
+      'top',
+      'right',
+      'bottom',
+      'left',
+      'z-index',
+      'display',
+      'justify-content',
+      'align-items',
+      'float',
+      'clear',
+      'overflow',
+      'overflow-x',
+      'overflow-y',
+      'margin',
+      'margin-top',
+      'margin-right',
+      'margin-bottom',
+      'margin-left',
+      'padding',
+      'padding-top',
+      'padding-right',
+      'padding-bottom',
+      'padding-left',
+      'width',
+      'min-width',
+      'max-width',
+      'height',
+      'min-height',
+      'max-height',
+      'font-size',
+      'font-family',
+      'font-weight',
+      'border',
+      'border-style',
+      'border-width',
+      'border-color',
+      'border-top',
+      'border-top-style',
+      'border-top-width',
+      'border-top-color',
+      'border-right',
+      'border-right-style',
+      'border-right-width',
+      'border-right-color',
+      'border-bottom',
+      'border-bottom-style',
+      'border-bottom-width',
+      'border-bottom-color',
+      'border-left',
+      'border-left-style',
+      'border-left-width',
+      'border-left-color',
+      'border-radius',
+      'text-align',
+      'text-justify',
+      'text-indent',
+      'text-overflow',
+      'text-decoration',
+      'white-space',
+      'color',
+      'background',
+      'background-position',
+      'background-repeat',
+      'background-size',
+      'background-color',
+      'background-clip',
+      'opacity',
+      'filter',
+      'list-style',
+      'outline',
+      'visibility',
+      'box-shadow',
+      'text-shadow',
+      'resize',
+      'transition'
+    ]
+  }
+}
+
+```
+
+```shell
+# stylelintignore
+
+# 其他类型文件
+*.js
+*.jpg
+*.woff
+
+# 测试和打包目录
+/dist/
+/public/
+
 ```
 
 ### 包依赖问题
