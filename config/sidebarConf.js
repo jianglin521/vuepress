@@ -8,6 +8,7 @@ module.exports = {
   ],
   '/vue/': [
     'Vue3学习笔记',
+    '小程序',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
