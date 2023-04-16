@@ -230,6 +230,14 @@ docker run -d --restart=always  \
   linuxserver/chevereto
 ```
 
-## 进入容器
-docker exec -it elecv2p bash
+## aliyundrive-subscribe
+```shell
+docker run -d --restart=always \
+  --name=aliyundrive-subscribe \
+  -p 8030:8002 \
+  -v /docker/aliyundrive-subscribe/conf:/app/conf \
+  looby/aliyundrive-subscribe:latest
+```
 
+## 进入容器
+docker exec -it aliyundrive-subscribe bash
