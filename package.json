@@ -2,8 +2,7 @@
   "scripts": {
     "dev": "vuepress dev docs",
     "build": "vuepress build docs",
-    "deploy": "bash deploy.sh",
-    "preinstall": "node ./scripts/preinstall.js"
+    "deploy": "bash deploy.sh"
   },
   "devDependencies": {
     "vuepress": "^1.9.8"
