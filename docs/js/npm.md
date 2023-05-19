@@ -21,7 +21,7 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
   --save/-S：安装在 package.json 中的 dependencies 中。dependencies 是需要发布在生成环境的。
   --save-dev/-D：安装在 package.json 中的 devDependencies 中。devDependencies 只在开发环境使用。
 ```
-  
+
 那么，这么多的 npm 包，我们通过什么管理呢？
 
 答案是 package.json
@@ -101,3 +101,54 @@ legacy-peer-deps=true
 `npm ls jquery` (查看某个项目安装的jQuery)，命令必须在某个项目下执行
 
 `npm ls jquery -g` (查看全局安装的jquery)
+
+## pnpm
+
+| 命令                                    | 解释                          |
+| --------------------------------------- | ----------------------------- |
+| pnpm -v                                 | 查看已安装的pnpm的版本        |
+| pnpm install xxx/pnpm i xxx             | 安装依赖                      |
+| pnpm run xxx                            | 运行package.json中scripts脚本 |
+| pnpm config get registry                | 查看源                        |
+| pnpm config set registry <淘宝源或私服> | 切换源                        |
+| pnpm add xxx                            | 安装依赖包到 dependencies     |
+| pnpm add -D xxx                         | 安装依赖包到devDependencies   |
+| pnpm update xxx/pnpm up xxx             | 更新依赖包                    |
+| pnpm remove xxx                         | 删除依赖包                    |
+
+```shell
+# 查看pnpm store全局存储目录的路径
+pnpm store path
+```
+
+### npm/yarn项目转pnpm
+
+删除node_modules
+
+```bash
+rm -rf node_modules
+```
+
+基于项目中lock文件生成pnpm-lock.yaml
+
+```shell
+pnpm import
+```
+
+安装依赖
+
+```shell
+pnpm install --frozen-lockfile
+```
+
+--frozen-lockfile相当于npm ci生成依赖，防止没有lock文件意外升级依赖包
+
+### 总结
+
+`pnpm`依赖文件通过三次寻址方式找到下载资源
+
+第一次通过`package.json`中安装依赖找到`node_modules`目录下依赖包，即`node_modules/antd`；
+
+第二次通过`node_modules/antd` 软链接 `node_modules/.pnpm/antd@4.23.1/node_modules/antd` 解决了代码重复引用的问题；
+
+第三次通过`node_modules/.pnpm/antd@4.23.1/node_modules/antd` 硬链接 `~/.pnpm-store/v3/files/00/xxx` 已经脱离当前项目路径，指向一个全局统一管理路径，这种方式符合 node_modules 默认寻址方式，节省了磁盘空间，也解决了幽灵依赖
