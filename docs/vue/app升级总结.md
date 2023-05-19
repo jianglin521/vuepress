@@ -13,24 +13,6 @@ vue -V # 查看vue-cli版本 @vue/cli-service@4.5.15
 vue create hello-world # 创建项目
 ```
 
-## node多版本工具nvm
-
-[nvm安装地址](https://github.com/coreybutler/nvm-windows/releases)
-
-```shell
-nvm install 12.14.1 # 安装
-nvm uninstall 12.14.1 # 卸载
-nvm use 12.14.1 # 使用
-```
-
-settings.txt添加以下文件
-
-```txt
-node_mirror: https://registry.npmmirror.com/
-npm_mirror: https://registry.npmmirror.com/
-node多版本工具nvm
-```
-
 ## 设置npm源
 
 设置npm的源，可以设置多个源，但是只有一个是生效的

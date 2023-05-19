@@ -13,20 +13,6 @@ npm uninstall -g @vue/cli # 卸载vue-cli
 vue -V # 查看vue-cli版本
 ```
 
-## node多版本工具nvm
-
-[nvm安装地址](https://github.com/coreybutler/nvm-windows/releases)
-
-```shell
-nvm install 12.14.1 # 安装
-nvm uninstall 12.14.1 # 卸载
-nvm use 12.14.1 # 使用
-```
-
-### nvm安装node没有npm问题
-
-[下载对应版本node](https://nodejs.org/download/release/) 复制到 `D:\nvm\v12.14.1`
-
 ### 创建项目
 
 ```shell

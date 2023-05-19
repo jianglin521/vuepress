@@ -52,6 +52,7 @@ module.exports = {
     ['smallProgram','小程序'],
   ],
   '/tools/': [
+    'nvm',
     ['MongoDB','MongoDB'],
     ['mysql','mysql入门'],
     ['python','python'],
