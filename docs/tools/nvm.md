@@ -17,7 +17,7 @@ nvm list available # 显示所有可以下载的版本
 
 settings.txt添加以下文件
 
-```t
+```txt
 node_mirror: https://registry.npmmirror.com/
 npm_mirror: https://registry.npmmirror.com/
 ```
