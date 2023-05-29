@@ -18,7 +18,7 @@ rpm -i gitlab-ce-8.0.0-ce.0.el7.x86_64.rpm
 ```shell
 vim /etc/gitlab/gitlab.rb
 ```
-![](http://jianglin521.top:5000/images/2022/04/23/202204231201580.png)
+![](http://43.143.190.137:5000/images/2022/04/23/202204231201580.png)
 
 
 
