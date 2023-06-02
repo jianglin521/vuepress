@@ -8,8 +8,7 @@ module.exports = {
   ],
   '/vue/': [
     'Vue3学习笔记',
-    '小程序',
-	'阿里矢量图标',
+	  '阿里矢量图标',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
@@ -50,10 +49,11 @@ module.exports = {
   '/mobile/': [
     ['rem','rem适配'],
     ['reset','去除默认样式'],
-    ['smallProgram','小程序'],
+    '小程序',
   ],
   '/tools/': [
     'nvm',
+    'vscode',
     ['MongoDB','MongoDB'],
     ['mysql','mysql入门'],
     ['python','python'],
@@ -64,7 +64,6 @@ module.exports = {
     ['WMware','WMware'],
     ['git','git使用'],
     ['Webstorm','Webstorm'],
-    ['VisualStudioCode','VisualStudioCode'],
     ['linux','linux'],
     ['linux_common','linux常用命令'],
     '新手技巧'
