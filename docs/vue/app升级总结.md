@@ -13,19 +13,6 @@ vue -V # 查看vue-cli版本 @vue/cli-service@4.5.15
 vue create hello-world # 创建项目
 ```
 
-## 设置npm源
-
-设置npm的源，可以设置多个源，但是只有一个是生效的
-
-```shell
-#设置淘宝源
-npm config set registry https://registry.npm.taobao.org
-#设置公司的源
-npm config set registry http://127.0.0.1:4873
-#查看源，可以看到设置过的所有的源
-npm config get registry
-```
-
 ## stylus转scss
 
 ```shell

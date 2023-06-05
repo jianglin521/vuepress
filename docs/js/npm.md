@@ -33,6 +33,19 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
   npm init --yes：快速创建 package.json
 ```
 
+## 设置npm源
+
+设置npm的源，可以设置多个源，但是只有一个是生效的
+
+```shell
+#设置淘宝源
+npm config set registry https://registry.npmmirror.com
+#设置公司的源
+npm config set registry http://127.0.0.1:4873
+#查看源，可以看到设置过的所有的源
+npm config get registry
+```
+
 ## 强制约束包管理器
 
 1. 此版本受npm版本限制
