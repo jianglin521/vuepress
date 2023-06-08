@@ -9,6 +9,7 @@ module.exports = {
   '/vue/': [
     'Vue3学习笔记',
 	  '阿里矢量图标',
+    '项目模板',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
