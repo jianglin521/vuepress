@@ -50,6 +50,7 @@ module.exports = {
   '/mobile/': [
     ['rem','rem适配'],
     ['reset','去除默认样式'],
+    'uniapp',
     '小程序',
   ],
   '/tools/': [
