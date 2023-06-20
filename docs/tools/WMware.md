@@ -18,7 +18,11 @@ YA18K-0WY8P-H85DY-L4NZG-X7RAD
 ```
 
 ## 安装CentOS7
+
 [安装教程](https://blog.csdn.net/babyxue/article/details/80970526)
 
 [CentOS镜像地址](https://www.centos.org/download)
 
+## 可视化面板
+
+[1Panel](https://github.com/1Panel-dev/1Panel)

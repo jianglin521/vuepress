@@ -1,4 +1,4 @@
-#  vue自动部署
+# vue自动部署
 
 ## docker安装
 
@@ -7,8 +7,6 @@
 ### 卸载旧版本
 
 旧版本的 Docker 称为 `docker` 或者 `docker-engine`，使用以下命令卸载旧版本：
-
-
 
 ```shell
 $ sudo yum remove docker \
@@ -27,17 +25,13 @@ $ sudo yum remove docker \
 
 执行以下命令安装依赖包：
 
-
-
 ```shell
-$ sudo yum install -y yum-utils
+sudo yum install -y yum-utils
 ```
 
 鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。
 
 执行下面的命令添加 `yum` 软件源：
-
-
 
 ```shell
 $ sudo yum-config-manager \
@@ -52,35 +46,54 @@ $ sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.r
 更新 `yum` 软件源缓存，并安装 `docker-ce`。
 
 ```
-$ sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
 ### 启动 Docker
 
 ```shell
-$ sudo systemctl enable docker
-$ sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl start docker
 ```
 
-##  建立 docker 用户组
+## 建立 docker 用户组
 
 默认情况下，`docker` 命令会使用 [Unix socket](https://en.wikipedia.org/wiki/Unix_domain_socket) 与 Docker 引擎通讯。而只有 `root` 用户和 `docker` 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 `root` 用户。因此，更好地做法是将需要使用 `docker` 的用户加入 `docker` 用户组。
 
 建立 `docker` 组：
 
 ```
-$ sudo groupadd docker
+sudo groupadd docker
 ```
 
 将当前用户加入 `docker` 组：
 
 ```
-$ sudo usermod -aG docker $USER
+sudo usermod -aG docker $USER
 ```
 
 退出当前终端并重新登录，进行如下测试。
 
+## 配置阿里云镜像
 
+1. 安装／升级Docker客户端
+推荐安装1.10.0以上版本的Docker客户端，参考文档docker-ce
+
+2. 配置镜像加速器
+针对Docker客户端版本大于 1.10.0 的用户
+
+您可以通过修改daemon配置文件`/etc/docker/daemon.json`来使用加速器
+
+```shell
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://eo1igvh7.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
 
 ## jenkins安装
 
@@ -136,6 +149,7 @@ docker logs myjenkins
 ```
 
 ## jenkins时区问题
+
 ```shell
 # 查看系统的时区
 [root@note-53 ~]# cat /etc/timezone 
@@ -164,8 +178,6 @@ root@note-53:/# exit
 1. Git Parameter - git参数化构建
 2. Publish Over SSH - 连接远程服务器
 
-
-
 **项目配置**
 
 1. 执行shell文件
@@ -189,15 +201,11 @@ chmod 777 ./docker-deploy.sh
 ./docker-deploy.sh 6001
 ```
 
-
-
 **示例图片**
 
 ![图片2](http://43.143.190.137:5000/images/2022/04/23/202204231150640.png)
 
 ![图片2](http://43.143.190.137:5000/images/2022/04/23/202204231158166.png)
-
-
 
 ## vue项目打包docker
 
@@ -249,12 +257,9 @@ sudo docker ps -a #查看所有容器
 sudo docker images #查看所有镜像
 ```
 
-
-
 ## Node.js实现热加载
 
 ```shell
 npm install -g nodemon 
 nodemon index.js
 ```
-
