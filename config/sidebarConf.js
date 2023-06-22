@@ -54,6 +54,7 @@ module.exports = {
   '/tools/': [
     'nvm',
     'vscode',
+    'R4S',
     ['MongoDB','MongoDB'],
     ['mysql','mysql入门'],
     ['python','python'],

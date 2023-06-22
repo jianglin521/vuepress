@@ -21,4 +21,3 @@ YA18K-0WY8P-H85DY-L4NZG-X7RAD
 [安装教程](https://blog.csdn.net/babyxue/article/details/80970526)
 
 [CentOS镜像地址](https://www.centos.org/download)
-

@@ -1,4 +1,4 @@
-#  vue自动部署
+# vue自动部署
 
 ## docker安装
 
@@ -7,8 +7,6 @@
 ### 卸载旧版本
 
 旧版本的 Docker 称为 `docker` 或者 `docker-engine`，使用以下命令卸载旧版本：
-
-
 
 ```shell
 $ sudo yum remove docker \
@@ -27,17 +25,13 @@ $ sudo yum remove docker \
 
 执行以下命令安装依赖包：
 
-
-
 ```shell
-$ sudo yum install -y yum-utils
+sudo yum install -y yum-utils
 ```
 
 鉴于国内网络问题，强烈建议使用国内源，官方源请在注释中查看。
 
 执行下面的命令添加 `yum` 软件源：
-
-
 
 ```shell
 $ sudo yum-config-manager \
@@ -52,35 +46,85 @@ $ sudo sed -i 's/download.docker.com/mirrors.aliyun.com\/docker-ce/g' /etc/yum.r
 更新 `yum` 软件源缓存，并安装 `docker-ce`。
 
 ```
-$ sudo yum install docker-ce docker-ce-cli containerd.io
+sudo yum install docker-ce docker-ce-cli containerd.io
 ```
 
 ### 启动 Docker
 
 ```shell
-$ sudo systemctl enable docker
-$ sudo systemctl start docker
+sudo systemctl enable docker
+sudo systemctl start docker
 ```
 
-##  建立 docker 用户组
+## 建立 docker 用户组
 
 默认情况下，`docker` 命令会使用 [Unix socket](https://en.wikipedia.org/wiki/Unix_domain_socket) 与 Docker 引擎通讯。而只有 `root` 用户和 `docker` 组的用户才可以访问 Docker 引擎的 Unix socket。出于安全考虑，一般 Linux 系统上不会直接使用 `root` 用户。因此，更好地做法是将需要使用 `docker` 的用户加入 `docker` 用户组。
 
 建立 `docker` 组：
 
 ```
-$ sudo groupadd docker
+sudo groupadd docker
 ```
 
 将当前用户加入 `docker` 组：
 
 ```
-$ sudo usermod -aG docker $USER
+sudo usermod -aG docker $USER
 ```
 
 退出当前终端并重新登录，进行如下测试。
 
+## 关闭系统防火墙
 
+```shell
+systemctl stop firewalld     # 关闭防火墙
+systemctl disable firewalld  # 关闭防火墙开机自启
+```
+
+## docker配置镜像源
+
+[docker配置镜像源](https://www.jianshu.com/p/11a9dc1f63a8)
+
+[阿里云镜像加速地址](https://cr.console.aliyun.com/cn-beijing/instances/mirrors)
+
+```shell
+sudo mkdir -p /etc/docker
+sudo tee /etc/docker/daemon.json <<-'EOF'
+{
+  "registry-mirrors": ["https://eo1igvh7.mirror.aliyuncs.com"]
+}
+EOF
+sudo systemctl daemon-reload
+sudo systemctl restart docker
+```
+
+## centos7固定ip
+
+[centos7固定ip](https://www.jianshu.com/p/a5319c48b6a0)
+
+修改后内容
+
+```shell
+_METHOD="none"
+BROWSER_ONLY="no"
+BOOTPROTO="static"
+DEFROUTE="yes"
+IPV4_FAILURE_FATAL="no"
+IPV6INIT="yes"
+IPV6_AUTOCONF="yes"
+IPV6_DEFROUTE="yes"
+IPV6_FAILURE_FATAL="no"
+IPV6_ADDR_GEN_MODE="stable-privacy"
+NAME="ens33"
+#UUID="7b38e285-d29a-4514-b930-93df8bce406b"
+DEVICE="ens33"
+ONBOOT="yes"
+GATEWAY="192.168.1.120"
+IPADDR="192.168.1.123"
+NETMASK="255.255.255.0"
+DNS1="192.168.1.120"
+DNS2="8.8.8.8"
+```
 
 ## jenkins安装
 
@@ -88,13 +132,13 @@ $ sudo usermod -aG docker $USER
 
 1.启动docker，下载Jenkins镜像文件
 
-```
+```shell
 docker pull jenkins/jenkins
 ```
 
  2.创建Jenkins挂载目录并授权权限
 
-```
+```shell
 mkdir -p /jenkins_home
 chmod 777 /jenkins_home
 ```
@@ -136,6 +180,7 @@ docker logs myjenkins
 ```
 
 ## jenkins时区问题
+
 ```shell
 # 查看系统的时区
 [root@note-53 ~]# cat /etc/timezone 
@@ -164,8 +209,6 @@ root@note-53:/# exit
 1. Git Parameter - git参数化构建
 2. Publish Over SSH - 连接远程服务器
 
-
-
 **项目配置**
 
 1. 执行shell文件
@@ -189,15 +232,11 @@ chmod 777 ./docker-deploy.sh
 ./docker-deploy.sh 6001
 ```
 
-
-
 **示例图片**
 
 ![图片2](http://43.143.190.137:5000/images/2022/04/23/202204231150640.png)
 
 ![图片2](http://43.143.190.137:5000/images/2022/04/23/202204231158166.png)
-
-
 
 ## vue项目打包docker
 
@@ -249,12 +288,9 @@ sudo docker ps -a #查看所有容器
 sudo docker images #查看所有镜像
 ```
 
-
-
 ## Node.js实现热加载
 
 ```shell
 npm install -g nodemon 
 nodemon index.js
 ```
-

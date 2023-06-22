@@ -239,5 +239,16 @@ docker run -d --restart=always \
   looby/aliyundrive-subscribe:latest
 ```
 
+## lx-music-sync-server
+```shell
+docker run -d --restart=always \
+  --name=lx-music-sync-server \
+  -p 23332:9527 \
+  -v /docker/lx-music-sync-server/data:/server/data \
+  -v /docker/lx-music-sync-server/logs:/server/logs \
+  -e LX_USER_user1=2018 \
+  wbsu2003/lx-music-sync-server:latest
+```
+
 ## 进入容器
 docker exec -it aliyundrive-subscribe bash
