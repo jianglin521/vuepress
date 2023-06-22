@@ -9,6 +9,7 @@ module.exports = {
   '/vue/': [
     'Vue3学习笔记',
 	  '阿里矢量图标',
+    '项目模板',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
@@ -49,6 +50,7 @@ module.exports = {
   '/mobile/': [
     ['rem','rem适配'],
     ['reset','去除默认样式'],
+    'uniapp',
     '小程序',
   ],
   '/tools/': [
