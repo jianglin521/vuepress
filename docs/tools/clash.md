@@ -1,11 +1,14 @@
 
-
 # clash
+
 ## 进入容器操作
+
 ```shell
   docker exec -it qinglong bash
 ```
+
 ## nginx权限验证
+
 ```shell
 #安装 `httpd-tools`
 yum install -y  httpd-tools 
@@ -25,9 +28,10 @@ auth_basic "Restricted Access"; # 验证
 auth_basic_user_file /etc/nginx/htpasswd.users;
 #也可以关闭
 auth_basic off; # 关闭验证
-``` 
+```
 
 ## nginx
+
 ```shell
 docker run --restart=always \
 -d --name nginx \
@@ -38,12 +42,15 @@ docker run --restart=always \
 -p 80:80 \
 nginx
 ```
+
 ## 查看所有容器ip
+
 ```shell
 docker inspect --format='{{.Name}} - {{range .NetworkSettings.Networks}}{{.IPAddress}}{{end}}' $(docker ps -aq)
 ```
 
 ## 安装clash
+
 ```shell
 docker run --restart=unless-stopped \
 -d --name clash \
@@ -53,6 +60,7 @@ dreamacro/clash
 ```
 
 ## clash-ui
+
 ```shell
 docker run --restart=always \
 -d --name clash-ui \
@@ -61,11 +69,13 @@ haishanh/yacd
 ```
 
 ## 设置系统代理
+
 ```sh
 vim /etc/profile
 source /etc/profile
 echo $http_proxy
 ```
+
 /etc/profile文件追加内容
 
 ```text
@@ -79,6 +89,7 @@ export no_proxy="127.0.0.1, localhost, 172.16.20.204"
 ```
 
 ## 安装Aria2+AriaNg+Filebrowser
+
 ```shell
 #由于我们可以直接在Filebrowser里进行删减文件，所以这里就暂时不把下载目录映射出来了
 docker run --restart=always \
@@ -94,7 +105,9 @@ moerats/ccaa:latest
 # Filebrowser访问地址：http://ip:8030/admin，也可以通过AriaNg界面上方的文件管理按钮进入
 # 如果我们Web界面进不去，就需要开启防火墙
 ```
+
 ## 安装filebrowser
+
 ```shell
 docker run -d \
 --name filebrowser \
@@ -107,6 +120,7 @@ hurlenko/filebrowser
 ```
 
 ## qbittorrent
+
 ```shell
 docker run -d \
 --name=qbittorrent  \
@@ -124,6 +138,7 @@ superng6/qbittorrent:latest
 ```
 
 ## 安装nextcloud
+
 ```shell
 docker run --restart=always \
 -d --name nextcloud \
@@ -133,16 +148,18 @@ nextcloud
 ```
 
 ## 安装aliyundrive
+
 ```shell
 docker run -d --name=aliyundrive --restart=unless-stopped -p 8060:8080 \
   -v /docker/aliyundrive/:/etc/aliyundrive-webdav/ \
-  -e REFRESH_TOKEN='your refresh token' \
+  -e REFRESH_TOKEN='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5OGYzYTJiNTNiYWY0YWVhYmY5YzQ1YzdjZjlmNDQ3YiIsImF1ZCI6IjczZTYxMTgzMWE3YzRkODdhYzQ5Yzg0ODFiZjlmMmM0IiwiZXhwIjoxNjk5OTUzNDc2LCJpYXQiOjE2OTIxNzc0NzYsImp0aSI6ImRlMGI3ZGQzNjllYzQ3NDY5NjgwNzY3OWU0ZWFjOTkzIn0.djavr3afT8lsA7_6jH7zfQYVaF5qd3U2mDDcRhOj_LD5lWf' \
   -e WEBDAV_AUTH_USER=guan \
   -e WEBDAV_AUTH_PASSWORD=gzz925366 \
   messense/aliyundrive-webdav
 ```
 
 ## frps
+
 ```shell
 docker run -d --restart always \
 -d --name frps \
@@ -152,6 +169,7 @@ snowdreamtech/frps
 ```
 
 ## frpc
+
 ```shell
 docker run -d \
 --restart=unless-stopped \
@@ -162,6 +180,7 @@ snowdreamtech/frpc
 ```
 
 ## cloudMusic
+
 ```shell
 docker run -d  \
 --name cloudMusic \
@@ -170,6 +189,7 @@ nondanee/unblockneteasemusic
 ```
 
 ## sillygirl
+
 ```shell
 docker run -d -t \
 --name sillygirl \
@@ -182,7 +202,9 @@ docker run -d -t \
 --restart unless-stopped  \
 1687219868/sillygirl:2.0
 ```
+
 ## syncthing
+
 ```shell
 docker run  -d --restart=always \
 --name syncthing \
@@ -194,6 +216,7 @@ syncthing/syncthing
 ```
 
 ## alist
+
 ```shell
 docker run -d --restart=always \
   --name=alist \
@@ -205,7 +228,12 @@ docker run -d --restart=always \
   xhofe/alist:latest
 ```
 
+::: warning 查看密码
+ :tada: 查看初始化密码`docker logs alist`
+:::
+
 ## 安装mysql5.7
+
 ```shell
 docker run -d --restart=always \
   --name mysql \
@@ -219,6 +247,7 @@ docker run -d --restart=always \
 ```
 
 ## 安装chevereto
+
 ```shell
 docker run -d --restart=always  \
   --name=chevereto \
@@ -231,6 +260,7 @@ docker run -d --restart=always  \
 ```
 
 ## aliyundrive-subscribe
+
 ```shell
 docker run -d --restart=always \
   --name=aliyundrive-subscribe \
@@ -240,6 +270,7 @@ docker run -d --restart=always \
 ```
 
 ## lx-music-sync-server
+
 ```shell
 docker run -d --restart=always \
   --name=lx-music-sync-server \
@@ -250,5 +281,46 @@ docker run -d --restart=always \
   wbsu2003/lx-music-sync-server:latest
 ```
 
+## 微力同步
+
+```shell
+docker run -d --name=verysync \
+ -p 8886:8886 \
+ -v /docker/verysync:/data \
+ jonnyan404/verysync
+```
+
+## homeassistant
+
+```shell
+docker run -d \
+  --name homeassistant \
+  --network=host \
+  --privileged \
+  --restart=unless-stopped \
+  -e TZ=Asia/Shanghai \
+  -v /docker/homeassistant:/config \
+  homeassistant/home-assistant
+```
+
+::: warning 访问端口
+ :tada: 访问端口 8123
+:::
+
+## 小雅
+
+```shell
+docker run -d \
+ -p 5678:80 \
+ -v /docker/xiaoya:/data \
+ --restart=always \
+ --name=xiaoya \
+ xiaoyaliu/alist:latest
+```
+
+mytoken.txt myopentoken.txt temp_transfer_folder_id.txt 后再重启容器
+
+
 ## 进入容器
+
 docker exec -it aliyundrive-subscribe bash
