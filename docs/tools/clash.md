@@ -262,6 +262,8 @@ docker run -d --restart=always  \
 ## aliyundrive-subscribe
 
 ```shell
+# https://github.com/adminpass/aliyundrive-subscribe/releases
+
 docker run -d --restart=always \
   --name=aliyundrive-subscribe \
   -p 8030:8002 \
@@ -320,6 +322,17 @@ docker run -d \
 
 mytoken.txt myopentoken.txt temp_transfer_folder_id.txt 后再重启容器
 
+docker logs -f --since 30m xiaoya 实时日志
+
+## 本地搭建chatgpt
+
+```shell
+docker run  -d \
+  -e PANDORA_CLOUD=cloud \
+  -e PANDORA_SERVER=0.0.0.0:8899 \
+  -p 8899:8899 \
+  pengzhile/pandora
+```
 
 ## 进入容器
 

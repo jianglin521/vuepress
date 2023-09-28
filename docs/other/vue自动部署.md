@@ -130,6 +130,12 @@ DNS1="192.168.1.120"
 DNS2="8.8.8.8"
 ```
 
+## linux配置代理
+
+```shell
+export http_proxy=http://172.16.20.198:7891
+```
+
 ## jenkins安装
 
 [jenkins安装教程](https://www.cnblogs.com/fuzongle/p/12834080.html)
