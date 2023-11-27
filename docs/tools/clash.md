@@ -43,6 +43,17 @@ docker run --restart=always \
 nginx
 ```
 
+```shell
+docker run --restart=always \
+-d --name much-more-design \
+-e TZ=Asia/Shanghai \
+-v /docker/much-more-design/htpasswd.users:/etc/nginx/htpasswd.users \
+-v /docker/much-more-design/default.conf:/etc/nginx/conf.d/default.conf \
+-v /docker/much-more-design:/usr/share/nginx \
+-p 8010:80 \
+nginx
+```
+
 ## 查看所有容器ip
 
 ```shell
@@ -161,11 +172,12 @@ docker run -d --name=aliyundrive --restart=unless-stopped -p 8060:8080 \
 ## frps
 
 ```shell
-docker run -d --restart always \
--d --name frps \
---network host \
--v /docker/frp/frps.ini:/etc/frp/frps.ini \
-snowdreamtech/frps
+docker run -d \
+  --restart always \
+  --name frps \
+  --network host \
+  -v /docker/frp/frps.ini:/etc/frp/frps.ini \
+  snowdreamtech/frps:0.44.0
 ```
 
 ## frpc
@@ -259,6 +271,14 @@ docker run -d --restart=always  \
   linuxserver/chevereto
 ```
 
+```shell
+docker exec -it chevereto bash
+# https://github.com/keven1024/chevereto-free-multi-language
+
+docker cp <本地文件夹路径> <容器名称或ID>:<容器目标路径>
+docker cp /docker/syncthing/文件同步/其它文件/chevereto-free-multi-language-master/ chevereto:/
+```
+
 ## aliyundrive-subscribe
 
 ```shell
@@ -309,6 +329,33 @@ docker run -d \
  :tada: 访问端口 8123
 :::
 
+## 本地搭建chatgpt
+
+```shell
+docker run  -d \
+  --name=chatgpt \
+  --restart=always \
+  -e PANDORA_CLOUD=cloud \
+  -e PANDORA_SERVER=0.0.0.0:8899 \
+  -p 8899:8899 \
+  pengzhile/pandora
+```
+
+## xTeVe
+
+```shell
+docker run -d \
+  --name=xteve  \
+  --net=host  \
+  --log-opt max-size=10m  \
+  --log-opt max-file=3  \
+  -e TZ="Asia/Shanghai"  \
+  -v /docker/xteve/:/root/.xteve:rw  \
+  -v /docker/xteve/_config/:/config:rw  \
+  -v /docker/xteve/_guide2go/:/guide2go:rw  \
+  alturismo/xteve_guide2go
+```
+
 ## 小雅
 
 ```shell
@@ -318,22 +365,50 @@ docker run -d \
  --restart=always \
  --name=xiaoya \
  xiaoyaliu/alist:latest
+
+# 必要文件
+# mytoken.txt myopentoken.txt temp_transfer_folder_id.txt
+
+# 定时重启
+# 0 6 * * * docker restart xiaoya
+
+# 实时日志
+# docker logs -f --since 30m xiaoya
+
+
+bash -c "$(curl -s http://docker.xiaoya.pro/update_new.sh)"
 ```
 
-mytoken.txt myopentoken.txt temp_transfer_folder_id.txt 后再重启容器
-
-docker logs -f --since 30m xiaoya 实时日志
-
-## 本地搭建chatgpt
+## xiaoyakeeper
 
 ```shell
-docker run  -d \
-  -e PANDORA_CLOUD=cloud \
-  -e PANDORA_SERVER=0.0.0.0:8899 \
-  -p 8899:8899 \
-  pengzhile/pandora
+# 模式3：创建一个名为 xiaoyakeeper 的docker定时运行小雅转存清理并升级小雅镜像
+bash -c "$(curl -s https://xiaoyahelper.zngle.cf/aliyun_clear.sh | tail -n +2)" -s 3 -tg
 ```
 
-## 进入容器
+## emby安装
 
+[教程地址](https://xiaoyaliu.notion.site/d353c9ceb15444d7b8e21ce6097ed739?v=145044ac8252470a9feef094ff1db520)
+
+```shell
+# lovechen上海解封版（包含 amd64. arm64/v8，armv7）
+# bash -c "$(curl http://docker.xiaoya.pro/emby_lovechen.sh)" -s /docker/emby /docker/xiaoya
+
+bash -c "$(curl http://docker.xiaoya.pro/emby_plus.sh)" -s /docker/emby /docker/xiaoya
+```
+
+## 常用命令
+
+```shell
+# 进入容器
 docker exec -it aliyundrive-subscribe bash
+
+# 查看文件夹大小
+du -sh ./* | sort -nr
+
+# 解压文件夹
+tar -zcvf ./docker_back.tar.gz ./docker
+
+# 查看容器占用内存
+docker stats
+```
