@@ -20,3 +20,17 @@
   resize2fs -f /dev/loop0
   tar -zxvf ./docker_back.tar.gz -C ./
 ```
+
+## 傻妞教程
+
+```shell
+docker run -itd \
+  --name=sillyplus \
+  --restart=always \
+  -p 8033:8080 \
+  -v /docker/sillyplus:/etc/sillyplus \
+  jackytj/sillyplus
+
+# set app name 傻妞
+# set app password gzz123456
+```

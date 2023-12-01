@@ -341,6 +341,19 @@ docker run  -d \
   pengzhile/pandora
 ```
 
+```shell
+docker pull pengzhile/pandora-next
+
+docker run -d \
+  --restart=always \
+  --name=chatgpt \
+  --net=bridge \
+  -p 8899:8181 \
+  -v /docker/pandoraNext/data:/data \
+  -v /docker/pandoraNext/sessions:/root/.cache/PandoraNext \
+  pengzhile/pandora-next
+```
+
 ## xTeVe
 
 ```shell
@@ -361,6 +374,8 @@ docker run -d \
 ```shell
 docker run -d \
  -p 5678:80 \
+ -p 2345:2345 \
+ -p 2346:2346 \
  -v /docker/xiaoya:/data \
  --restart=always \
  --name=xiaoya \
@@ -379,6 +394,18 @@ docker run -d \
 bash -c "$(curl -s http://docker.xiaoya.pro/update_new.sh)"
 ```
 
+## php-env
+
+```shell
+docker run -d  \
+  --restart unless-stopped \
+  --privileged=true \
+  --name php-env \
+  -p 5611:80 \
+  -v /docker/php-env:/var/www/html \
+  youshandefeiyang/php-env
+```
+
 ## xiaoyakeeper
 
 ```shell
@@ -395,6 +422,9 @@ bash -c "$(curl -s https://xiaoyahelper.zngle.cf/aliyun_clear.sh | tail -n +2)" 
 # bash -c "$(curl http://docker.xiaoya.pro/emby_lovechen.sh)" -s /docker/emby /docker/xiaoya
 
 bash -c "$(curl http://docker.xiaoya.pro/emby_plus.sh)" -s /docker/emby /docker/xiaoya
+
+# 如果自行下载元数据包，只需要解压和安装emby，那么执行
+# bash -c "$(curl http://docker.xiaoya.pro/emby_plus.unzip.sh)" -s /docker/emby /docker/xiaoya
 ```
 
 ## 常用命令
@@ -404,7 +434,8 @@ bash -c "$(curl http://docker.xiaoya.pro/emby_plus.sh)" -s /docker/emby /docker/
 docker exec -it aliyundrive-subscribe bash
 
 # 查看文件夹大小
-du -sh ./* | sort -nr
+du -sh ./* | sort -n
+du -h /backup/*
 
 # 解压文件夹
 tar -zcvf ./docker_back.tar.gz ./docker
