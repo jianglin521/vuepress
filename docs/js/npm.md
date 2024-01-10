@@ -4,12 +4,15 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
 在我们安装 Node 的时候，它默认会顺带给你安装 npm。
 
 ```shell
-  npm -v：查看 npm 版本。
-  npm list：查看当前目录下都安装了哪些 npm 包。
-  npm info 模块：查看该模块的版本及内容。
-  npm i 模块@版本号：安装该模块的指定版本。
-  npm root -g 查看全局安装包位置
-  npm list -g --depth=0 查看全局安装的npm包
+  npm -v 查看npm版本
+  npm init -y  初始化包,生成package文件
+  npm list  查看当前目录下都安装了哪些 npm 包。
+  npm info 模块  查看该模块的版本及内容。
+  npm i 模块@版本号  安装该模块的指定版本。
+  npm root -g  查看全局安装包位置
+  npm list -g --depth=0  查看全局安装的npm包
+  where node  查看node安装目录
+  npm i --legacy-peer-deps  处理npm install 因版本问题导致的报错
 ```
 
 在平时使用 npm 安装包的过程中，你可能需要知道一些 npm 基本知识：
@@ -41,9 +44,13 @@ npm 是世界上最大的开放源代码的生态系统。我们可以通过 npm
 #设置淘宝源
 npm config set registry https://registry.npmmirror.com
 #设置公司的源
-npm config set registry http://127.0.0.1:4873
+npm config set registry http://43.138.29.231:4873
 #查看源，可以看到设置过的所有的源
 npm config get registry
+## 发布node包
+npm publish --registry http://43.138.29.231:4873
+## 删除已经上传的包
+npm unpublish --force @jianglin/helloworld --registry http://43.138.29.231:4873
 ```
 
 ## 强制约束包管理器

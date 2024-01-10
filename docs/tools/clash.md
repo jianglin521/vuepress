@@ -332,13 +332,13 @@ docker run -d \
 ## 本地搭建chatgpt
 
 ```shell
-docker run  -d \
-  --name=chatgpt \
-  --restart=always \
-  -e PANDORA_CLOUD=cloud \
-  -e PANDORA_SERVER=0.0.0.0:8899 \
-  -p 8899:8899 \
-  pengzhile/pandora
+# docker run  -d \
+#   --name=chatgpt \
+#   --restart=always \
+#   -e PANDORA_CLOUD=cloud \
+#   -e PANDORA_SERVER=0.0.0.0:8899 \
+#   -p 8899:8899 \
+#   pengzhile/pandora
 ```
 
 ```shell
@@ -367,6 +367,19 @@ docker run -d \
   -v /docker/xteve/_config/:/config:rw  \
   -v /docker/xteve/_guide2go/:/guide2go:rw  \
   alturismo/xteve_guide2go
+```
+
+## verdaccio
+
+```shell
+# npm私服
+docker run -d \
+  -p 4873:4873 \
+  --name verdaccio \
+  -v /docker/verdaccio/conf:/verdaccio/conf  \
+  -v /docker/verdaccio/plugins:/verdaccio/plugins  \
+  -v /docker/verdaccio/storage:/verdaccio/storage  \
+  verdaccio/verdaccio
 ```
 
 ## 小雅
@@ -404,6 +417,15 @@ docker run -d  \
   -p 5611:80 \
   -v /docker/php-env:/var/www/html \
   youshandefeiyang/php-env
+```
+
+## iptvchecker
+
+```shell
+docker run -d \
+  -p 8085:8080 \
+  --name=myIp \
+  zmisgod/iptvchecker
 ```
 
 ## xiaoyakeeper
