@@ -394,6 +394,14 @@ docker run -d \
  --name=xiaoya \
  xiaoyaliu/alist:latest
 
+
+ docker run -d \
+ -p 5678:80 \
+ -v /docker/xiaoya:/data \
+ --restart=always \
+ --name=xiaoya \
+ xiaoyaliu/alist:latest
+
 # 必要文件
 # mytoken.txt myopentoken.txt temp_transfer_folder_id.txt
 
@@ -440,10 +448,10 @@ bash -c "$(curl -s https://xiaoyahelper.zngle.cf/aliyun_clear.sh | tail -n +2)" 
 [教程地址](https://xiaoyaliu.notion.site/d353c9ceb15444d7b8e21ce6097ed739?v=145044ac8252470a9feef094ff1db520)
 
 ```shell
-# lovechen上海解封版（包含 amd64. arm64/v8，armv7）
-# bash -c "$(curl http://docker.xiaoya.pro/emby_lovechen.sh)" -s /docker/emby /docker/xiaoya
 
-bash -c "$(curl http://docker.xiaoya.pro/emby_plus.sh)" -s /docker/emby /docker/xiaoya
+bash -c "$(curl http://docker.xiaoya.pro/emby.sh)" -s /docker/emby /docker/xiaoya
+
+bash -c "$(curl http://docker.xiaoya.pro/resilio.sh)" -s /docker/emby /docker/xiaoya
 
 # 如果自行下载元数据包，只需要解压和安装emby，那么执行
 # bash -c "$(curl http://docker.xiaoya.pro/emby_plus.unzip.sh)" -s /docker/emby /docker/xiaoya

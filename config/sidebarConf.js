@@ -10,6 +10,7 @@ module.exports = {
     'Vue3学习笔记',
 	  '阿里矢量图标',
     '项目模板',
+    'vue项目创建',
     'stylelint',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],

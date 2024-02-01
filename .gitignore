@@ -9,6 +9,7 @@ docs/.vuepress/dist
 # Editor directories and files
 .idea
 .vscode
+.obsidian
 *.suo
 *.ntvs*
 *.njsproj
