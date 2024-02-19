@@ -8,10 +8,12 @@ module.exports = {
   ],
   '/vue/': [
     'Vue3学习笔记',
+    'vite搭建vue3项目',
 	  '阿里矢量图标',
     '项目模板',
     'vue项目创建',
     'stylelint',
+    'pnpm使用',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],

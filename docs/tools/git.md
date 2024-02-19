@@ -16,6 +16,7 @@
 - `git remote remove origin`：删除关联的远程仓库
 - `git remote add origin xxx`：关联远程仓库
 - `git pull origin master --allow-unrelated-histories`：允许不相关历史提交，并强制合并。执行 Git 命令报错`fatal: refusing to merge unrelated histories`时使用，然后再解决冲突。
+- `git config --global init.defaultBranch main` 修改git本地init出来的默认master变为main。
 
 ## 项目开发中的 Git 规范
 
