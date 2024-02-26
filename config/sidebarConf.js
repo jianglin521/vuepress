@@ -7,13 +7,11 @@ module.exports = {
     '加班'
   ],
   '/vue/': [
-    'Vue3学习笔记',
     'vite搭建vue3项目',
-	  '阿里矢量图标',
-    '项目模板',
     'vue项目创建',
+    '项目模板',
     'stylelint',
-    'pnpm使用',
+    '阿里矢量图标',
     ['vueCreate','vue项目搭建'],
     ['vueSummary_one','vue总结1'],
     ['vueSummary_two','vue总结2'],
@@ -39,6 +37,7 @@ module.exports = {
     ['array','数组'],
     ['node','node使用'],
     ['npm','npm使用'],
+    'pnpm使用',
     ['typescript','typescript'],
   ],
   '/css/': [

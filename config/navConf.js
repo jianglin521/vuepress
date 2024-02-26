@@ -6,7 +6,7 @@ module.exports = [
   },
   {
     text: 'Vue',
-    link: '/vue/Vue3学习笔记'
+    link: '/vue/vite搭建vue3项目'
   },
   {
     text: 'js',
