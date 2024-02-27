@@ -1,5 +1,7 @@
 # eslint使用
+
 ## vue-cli2.0添加eslint
+
 ```json
   "babel-eslint": "^8.2.1",
   "eslint": "^4.15.0",
@@ -12,7 +14,9 @@
   "eslint-plugin-standard": "^3.0.1",
   "eslint-plugin-vue": "^4.0.0",
 ```
+
 ## eslint配置
+
 ```js
 // https://eslint.org/docs/user-guide/configuring
 module.exports = {
