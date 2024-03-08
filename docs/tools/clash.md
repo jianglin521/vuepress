@@ -332,26 +332,24 @@ docker run -d \
 ## 本地搭建chatgpt
 
 ```shell
-# docker run  -d \
-#   --name=chatgpt \
-#   --restart=always \
-#   -e PANDORA_CLOUD=cloud \
-#   -e PANDORA_SERVER=0.0.0.0:8899 \
-#   -p 8899:8899 \
-#   pengzhile/pandora
-```
+# docker pull pengzhile/pandora-next
 
-```shell
-docker pull pengzhile/pandora-next
+# docker run -d \
+#   --restart=always \
+#   --name=chatgpt \
+#   --net=bridge \
+#   -p 8899:8181 \
+#   -v /docker/pandoraNext/data:/data \
+#   -v /docker/pandoraNext/sessions:/root/.cache/PandoraNext \
+#   pengzhile/pandora-next
 
 docker run -d \
   --restart=always \
+  -p 8899:3000 \
+  -e OPENAI_API_KEY=xxx \
+  -e CODE=92xx66 \
   --name=chatgpt \
-  --net=bridge \
-  -p 8899:8181 \
-  -v /docker/pandoraNext/data:/data \
-  -v /docker/pandoraNext/sessions:/root/.cache/PandoraNext \
-  pengzhile/pandora-next
+  yidadaa/chatgpt-next-web
 ```
 
 ## xTeVe

@@ -4,6 +4,7 @@ module.exports = {
   '/work/': [
     '计划',
     '账号',
+    '健身',
     '加班'
   ],
   '/vue/': [
@@ -17,7 +18,6 @@ module.exports = {
     'eslint',
     'git提交规范',
     'vuex使用',
-    'vue项目搭建',
     'vue总结1',
     'vue总结2',
     'token刷新',
@@ -78,7 +78,6 @@ module.exports = {
     'jenkins自动部署',
     'typescript基础类型',
     'typescript快速入门',
-    'vue3项目搭建',
     'vue自动部署',
     'webpack教程',
     'webpack起步'
