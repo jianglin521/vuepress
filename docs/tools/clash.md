@@ -352,6 +352,18 @@ docker run -d \
   yidadaa/chatgpt-next-web
 ```
 
+## music_tag_web
+
+```shell
+docker run -d \
+  -p 8001:8002 \
+  -v /docker/syncthing/音乐:/app/media \
+  -v /docker/music_tag_web/config:/app/data \
+  --restart=always \
+  --name=music_tag_web  \
+  xhongc/music_tag_web:2.0.1
+```
+
 ## xTeVe
 
 ```shell

@@ -11,12 +11,30 @@
 - `git push`：代码提交到远程仓库
 - `git pull`：拉取远程仓库代码到本地
 - `git clone` ：克隆远程仓库代码到本地
-- `git branch -m master main`：本地代码分支重命名（master 重命名为 main）。本地分支和远程分支名称不同时，可以通过该命令来同步分支名称
 - `git remote -v`：查看本地仓库关联的远程仓库
 - `git remote remove origin`：删除关联的远程仓库
 - `git remote add origin xxx`：关联远程仓库
 - `git pull origin master --allow-unrelated-histories`：允许不相关历史提交，并强制合并。执行 Git 命令报错`fatal: refusing to merge unrelated histories`时使用，然后再解决冲突。
-- `git config --global init.defaultBranch main` 修改git本地init出来的默认master变为main。
+
+## git默认master变为main
+
+1. 仓库默认分支修改
+
+   ```shell
+   # 本地代码分支重命名master重命名为main
+   git branch -m master main
+   # 推送到远程
+   git push -u origin main
+   ```
+
+2. 全局默认分支修改
+
+   ```shell
+   # 设置全局默认分支名称
+   git config --global init.defaultBranch main
+   # 验证更改
+   git config --global --get init.defaultBranch
+   ```
 
 ## 项目开发中的 Git 规范
 
@@ -120,41 +138,32 @@ git clone http://邮箱（或用户名）:密码@仓库地址
 
 ## 配置多个github
 
-### 生成两个新的SSH key
+1. 生成两个新的SSH key
 
-```shell
- ssh-keygen -t rsa -C '176xxx@xx.xxx' // 账号一的注册邮箱
- ssh-keygen -t rsa -C '925xxx@xx.xxx' // 账号二的注册邮箱
-```
+   ```shell
+   ssh-keygen -t rsa -b 4096 -C "176xxx@xx.xxx" // 账号一的注册邮箱
+   ssh-keygen -t rsa -b 4096 -C "925xxx@xx.xxx" -f ./github_second // 账号二的注册邮箱
+   ```
 
-**注意**：重点的是**第二次**生成的文件到**第二步的时候不要回车-》要修改名字**，比如第一次时id_rsa第二次就是id_rsa_two，命名随意，但是要区分开，不然第二次生成的文件会覆盖第一次生成的文件。
-文件存放地址要注意，第一次和第二次存放地址要一致。
+2. 配置~/.ssh/config文件
 
-### 配置~/.ssh/config文件
+   > 创建`config`文件
 
-创建`config`文件
+   ```shell
+   # 该文件用于配置私钥对应的服务器
+   # 下面的配置中，github.com 是默认的 GitHub 主机，而 github2 是用于第二个 GitHub 账户的别名
+   # jianglin521
+   Host github.com
+      HostName github.com
+      User jianglin521
+      IdentityFile ~/.ssh/id_rsa
 
-```shell
-# 该文件用于配置私钥对应的服务器
-# jianglin521
-Host git@github.com
-HostName github.com
-User jianglin521
-IdentityFile ~/.ssh/id_rsa
-
-# jianglin2020
-Host jianglin2020.github.com
-HostName github.com
-User jianglin2020
-IdentityFile ~/.ssh/id_rsatwo
-```
-
-### 测试 ssh 链接
-
-```shell
-ssh -T git@github.com
-ssh -T git@jianglin2020.github.com
-```
+   # jianglin2020
+   Host github2
+      HostName github.com
+      User jianglin2020
+      IdentityFile ~/.ssh/github_second
+   ```
 
 ### github.com代理
 
