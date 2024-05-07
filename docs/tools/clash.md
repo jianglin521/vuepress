@@ -154,7 +154,7 @@ superng6/qbittorrent:latest
 docker run --restart=always \
 -d --name nextcloud \
 -v /docker/nextcloud:/var/www/html/data \
--p 8010:80 \
+-p 8012:80 \
 nextcloud
 ```
 
@@ -163,9 +163,9 @@ nextcloud
 ```shell
 docker run -d --name=aliyundrive --restart=unless-stopped -p 8060:8080 \
   -v /docker/aliyundrive/:/etc/aliyundrive-webdav/ \
-  -e REFRESH_TOKEN='eyJ0eXAiOiJKV1QiLCJhbGciOiJSUzI1NiJ9.eyJzdWIiOiI5OGYzYTJiNTNiYWY0YWVhYmY5YzQ1YzdjZjlmNDQ3YiIsImF1ZCI6IjczZTYxMTgzMWE3YzRkODdhYzQ5Yzg0ODFiZjlmMmM0IiwiZXhwIjoxNjk5OTUzNDc2LCJpYXQiOjE2OTIxNzc0NzYsImp0aSI6ImRlMGI3ZGQzNjllYzQ3NDY5NjgwNzY3OWU0ZWFjOTkzIn0.djavr3afT8lsA7_6jH7zfQYVaF5qd3U2mDDcRhOj_LD5lWf' \
+  -e REFRESH_TOKEN='阿里token' \
   -e WEBDAV_AUTH_USER=guan \
-  -e WEBDAV_AUTH_PASSWORD=gzz925366 \
+  -e WEBDAV_AUTH_PASSWORD=xxx \
   messense/aliyundrive-webdav
 ```
 
@@ -253,7 +253,7 @@ docker run -d --restart=always \
   -v /docker/mysql/conf:/etc/mysql/conf.d \
   -v /docker/mysql/logs:/logs \
   -v /docker/mysql/data:/var/lib/mysql \
-  -e MYSQL_ROOT_PASSWORD=123456 \
+  -e MYSQL_ROOT_PASSWORD=xxxxx \
   -m 500m \
   mysql:5.7
 ```
@@ -425,6 +425,28 @@ docker run -d \
 bash -c "$(curl -s http://docker.xiaoya.pro/update_new.sh)"
 ```
 
+## xiaoya-tvbox
+
+```shell
+# 内置小雅
+docker run -d \
+  -p 4567:4567 \
+  -p 5678:80 \
+  -e ALIST_PORT=5678 \
+  -v /docker/xiaoya-tvbox:/data \
+  --restart=always \
+  --name=xiaoya-tvbox \
+  haroldli/xiaoya-tvbox:latest
+
+# 纯净版
+docker run -d \
+  -p 4567:4567 \
+  -v /docker/alist-tvbox:/data \
+  --restart=always \
+  --name=alist-tvbox \
+  haroldli/alist-tvbox
+```
+
 ## php-env
 
 ```shell
@@ -444,6 +466,16 @@ docker run -d \
   -p 8085:8080 \
   --name=myIp \
   zmisgod/iptvchecker
+```
+
+## iptv-tool
+
+```shell
+docker run -d \
+  -p 50010:5000 \
+  -v /docker/iptv-tool/:/app/data \
+  --name iptv-tool \
+  wangao/iptv-tool:0.2
 ```
 
 ## xiaoyakeeper
@@ -467,6 +499,23 @@ bash -c "$(curl http://docker.xiaoya.pro/resilio.sh)" -s /docker/emby /docker/xi
 # bash -c "$(curl http://docker.xiaoya.pro/emby_plus.unzip.sh)" -s /docker/emby /docker/xiaoya
 ```
 
+## docker-compose
+
+```shell
+#拉取镜像
+docker-compose pull
+#创建容器运行
+docker-compose up -d
+#停止应用程序
+docker-compose down
+#查看应用程序日志
+docker-compose logs
+#重启应用程序
+docker-compose restart
+#查看运行中的容器
+docker-compose ps
+```
+
 ## 常用命令
 
 ```shell
@@ -482,4 +531,7 @@ tar -zcvf ./docker_back.tar.gz ./docker
 
 # 查看容器占用内存
 docker stats
+
+# 文件移动
+mv download/*  /docker/syncthing/文件同步/其它文件/
 ```

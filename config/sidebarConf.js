@@ -4,7 +4,6 @@ module.exports = {
   '/work/': [
     '计划',
     '账号',
-    '健身',
     '加班'
   ],
   '/vue/': [
@@ -59,6 +58,8 @@ module.exports = {
     'nvm',
     'vscode',
     'R4S',
+    'iStoreOS',
+    'clash',
     ['MongoDB','MongoDB'],
     ['mysql','mysql入门'],
     ['python','python'],
