@@ -535,3 +535,8 @@ docker stats
 # 文件移动
 mv download/*  /docker/syncthing/文件同步/其它文件/
 ```
+
+## rclone使用
+
+[教程地址](https://blog.csdn.net/qq_35385687/article/details/128845882
+)
