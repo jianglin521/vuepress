@@ -291,6 +291,18 @@ docker run -d --restart=always \
   looby/aliyundrive-subscribe:latest
 ```
 
+## 夸克订阅
+
+```shell
+docker run -d \
+  --name quark-auto-save \
+  -p 7010:5005 \
+  -v /docker/quark-auto-save/config:/app/config \
+  --network bridge \
+  --restart unless-stopped \
+  cp0204/quark-auto-save:latest
+```
+
 ## lx-music-sync-server
 
 ```shell
@@ -314,7 +326,7 @@ docker run -d --name=verysync \
 
 ## homeassistant
 
-```shell
+```shel
 docker run -d \
   --name homeassistant \
   --network=host \
@@ -520,7 +532,7 @@ docker-compose ps
 
 ```shell
 # 进入容器
-docker exec -it aliyundrive-subscribe bash
+docker exec -it quark-auto-save bash
 
 # 查看文件夹大小
 du -sh ./* | sort -n
