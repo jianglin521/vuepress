@@ -244,6 +244,19 @@ docker run -d --restart=always \
  :tada: 查看初始化密码`docker logs alist`
 :::
 
+## navidrome
+
+```shell
+docker run -d \
+  --name navidrome \
+  --restart=unless-stopped \
+  -v /docker/emby/music:/music \
+  -v /docker/navidrome:/data \
+  -p 4533:4533 \
+  -e ND_LOGLEVEL=info \
+  deluan/navidrome:latest
+```
+
 ## 安装mysql5.7
 
 ```shell
@@ -533,6 +546,9 @@ docker-compose ps
 ```shell
 # 进入容器
 docker exec -it quark-auto-save bash
+
+# 查看磁盘占用
+df -h
 
 # 查看文件夹大小
 du -sh ./* | sort -n

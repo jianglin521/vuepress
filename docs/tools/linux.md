@@ -1,5 +1,7 @@
 ## linux安装
+
 ### 必须分区
+
 一个为根分区，一个为交换分区。
 
 1，/，根分区，一般所有文件都放在根目录下。
@@ -23,6 +25,7 @@
 查看网关   `netstat -rn`
 
 ### 添加定时任务
+
 ```shell
 crontab -e
 10 18  * * 1-5 /bin/sh /home/projects/JD-Script/run.sh OpenCard  > /home/projects/log/log1.txt 2>&1 &
@@ -49,7 +52,9 @@ tar -zcvf ./elecv2p_back.tar.gz ./elecv2p_back
 # tar -zcvf 打包后生成的文件名全路径 要打包的目录 
 # 例子：把./ql文件夹打包后生成一个./ql_back.tar.gz的文件
 # 忽略某个目录
-tar -zcvf docker.tar.gz --exclude=docker/syncthing/文件同步 --exclude=docker/我的文件 ./docker
+tar -zcvf docker2.tar.gz --exclude=docker/syncthing/文件同步 --exclude=docker/syncthing/我的文件 /docker
+tar -zcvf nginx2.tar.gz /nginx
+tar -zcvf home2.tar.gz /home
 
 # tar 解压文件夹
 tar -zxvf ./ql_back.tar.gz -C ./
@@ -61,9 +66,12 @@ tar -zcvf ./elecv2p_back.tar.gz -C ./
 # 移动文件
 # -f: 如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件
 mv source_file(文件) dest_directory(目录)
+
+mv /nginx.tar.gz ./
 ```
 
 ### docker-compose常用命令
+
 ```shell
 docker-compose up -d # 启动（修改docker-compose.yml后需要使用此命令使更改生效）
 docker-compose logs # 打印日志；
@@ -74,11 +82,13 @@ docker-compose down # 停止并删除容器；
 ```
 
 ### 进入容器
+
 ```shell
 docker exec -it qinglong bash
 ```
 
 ## 查看端占用、关闭进程
+
 ```shell
 netstat -ntlp   #查看当前所有tcp端口
 netstat -ntulp | grep 80   #查看所有80端口使用情况
@@ -90,25 +100,12 @@ kill -9 1000 #关闭PID为1000的进程
 ```
 
 ## MySQL5.7
+
 [MySQL5.7安装](https://blog.csdn.net/WYA1993/article/details//88890883)
 
 ## java相关
+
 ```shell
 tail -f nohup.out  # 查看java日志
 jps # 查看java进程
 ```
-
-
-
-
-
-  
-
-
-
-
-
-
-
-
-
