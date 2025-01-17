@@ -316,6 +316,54 @@ docker run -d \
   cp0204/quark-auto-save:latest
 ```
 
+## doube-itv
+
+```shell
+# http://192.168.1.120:5077/Sub?type=m3u
+docker run -d \
+  --restart unless-stopped \
+  --name doube-itv \
+  -p 5077:5000 \
+  doubebly/doube-itv:latest
+```
+
+## allinone
+
+```shell
+# https://imgtool.v1.mk/allinone.html
+
+docker run -d \
+  --name allinone \
+  --restart always \
+  --net=host \
+  --privileged=true \
+  -p 35455:35455 \
+  youshandefeiyang/allinone \
+  -tv=true \
+  -aesKey=02moe4n95dqumxz68pyvc9l77jg1db0h \
+  -userid=xxx \
+  -token=xxx
+
+
+# 监视容器更新，一个小时检查一次
+docker run -d \
+  --name watchtower \
+  --restart always \
+  -v /var/run/docker.sock:/var/run/docker.sock \
+  containrrr/watchtower --interval 3600 allinone doube-itv
+```
+
+## alist-strm
+
+```shell
+docker run -d \
+  --name alist-strm \
+  -p 18080:5000 \
+  -v /docker/alist-strm/home:/home \
+  -v /docker/alist-strm/config:/config \
+  itefuir/alist-strm:latest
+```
+
 ## lx-music-sync-server
 
 ```shell
@@ -353,6 +401,16 @@ docker run -d \
 ::: warning 访问端口
  :tada: 访问端口 8123
 :::
+
+## 微信备份
+
+```shell
+docker run -d --restart=always \
+  --name=cloudbak \
+  -p 9527:9527 \
+  -v /docker/cloudbak:/app/data \
+  likeflyme/cloudbak
+```
 
 ## 本地搭建chatgpt
 
