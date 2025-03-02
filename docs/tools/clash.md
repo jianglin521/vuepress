@@ -250,8 +250,8 @@ docker run -d --restart=always \
 docker run -d \
   --name navidrome \
   --restart=unless-stopped \
-  -v /docker/emby/music:/music \
-  -v /docker/navidrome:/data \
+  -v /docker/syncthing/音乐:/music \
+  -v /docker/navidrome/:/data \
   -p 4533:4533 \
   -e ND_LOGLEVEL=info \
   deluan/navidrome:latest
@@ -325,6 +325,14 @@ docker run -d \
   --name doube-itv \
   -p 5077:5000 \
   doubebly/doube-itv:latest
+
+docker pull doubebly/doube-itv-plus:1.0.0
+
+docker run -d \
+  --restart=always \
+  --name=doube-itv-plus \
+  -p 5078:5000 \
+  doubebly/doube-itv-plus:1.0.0
 ```
 
 ## allinone
@@ -350,7 +358,7 @@ docker run -d \
   --name watchtower \
   --restart always \
   -v /var/run/docker.sock:/var/run/docker.sock \
-  containrrr/watchtower --interval 3600 allinone doube-itv
+  containrrr/watchtower --cleanup --interval 3600 allinone
 ```
 
 ## alist-strm

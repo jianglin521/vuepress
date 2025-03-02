@@ -49,6 +49,8 @@ netstat -tulpn | grep <端口号>
 # tar 压缩文件夹
 tar -zcvf ./ql_back.tar.gz ./ql_back
 tar -zcvf ./elecv2p_back.tar.gz ./elecv2p_back
+tar -zcvf ./navidrome.tar.gz ./navidrome
+
 # tar -zcvf 打包后生成的文件名全路径 要打包的目录 
 # 例子：把./ql文件夹打包后生成一个./ql_back.tar.gz的文件
 # 忽略某个目录
@@ -59,6 +61,7 @@ tar -zcvf home2.tar.gz /home
 # tar 解压文件夹
 tar -zxvf ./ql_back.tar.gz -C ./
 tar -zcvf ./elecv2p_back.tar.gz -C ./
+
 #把根目录下的ql_back.tar.gz解压到./下
 #这个和cp命令有点不同，cp命令如果不存在这个目录就会自动创建这个目录
 #例子：把./ql_back.tar.gz文件解压到./文件夹-解压带ql_back目录
