@@ -326,14 +326,15 @@ docker run -d \
   -p 5077:5000 \
   doubebly/doube-itv:latest
 
-docker pull doubebly/doube-itv-plus:1.0.0
-
 docker run -d \
   --restart=always \
   --name=doube-itv-plus \
   -p 5078:5000 \
-  doubebly/doube-itv-plus:1.0.0
+  -v /docker/doube-itv-plus/doubebly.json:/app/config/doubebly.json \
+  doubebly/doube-itv-plus:1.0.3
 ```
+
+docker cp doube-itv-plus:/app/config/. /docker/doube-itv-plus/
 
 ## allinone
 
@@ -359,6 +360,16 @@ docker run -d \
   --restart always \
   -v /var/run/docker.sock:/var/run/docker.sock \
   containrrr/watchtower --cleanup --interval 3600 allinone
+```
+
+## php-epg
+
+```shell
+docker run -d \
+  --name php-epg \
+  -p 5678:80 \
+  --restart always \
+  taksss/php-epg:latest
 ```
 
 ## alist-strm
@@ -548,25 +559,6 @@ docker run -d  \
   -p 5611:80 \
   -v /docker/php-env:/var/www/html \
   youshandefeiyang/php-env
-```
-
-## iptvchecker
-
-```shell
-docker run -d \
-  -p 8085:8080 \
-  --name=myIp \
-  zmisgod/iptvchecker
-```
-
-## iptv-tool
-
-```shell
-docker run -d \
-  -p 50010:5000 \
-  -v /docker/iptv-tool/:/app/data \
-  --name iptv-tool \
-  wangao/iptv-tool:0.2
 ```
 
 ## xiaoyakeeper
