@@ -326,15 +326,30 @@ docker run -d \
   -p 5077:5000 \
   doubebly/doube-itv:latest
 
+docker exec -it doube-itv sh
+
+docker exec -it doube-itv sed -i \
+  -e 's/ystenlive/FifastbLive/g' \
+  -e 's/bestzb/FifastbLive/g' \
+  -e 's/hnbblive/FifastbLive/g' \
+  -e 's/wasusyt/FifastbLive/g' \
+  /app/a.txt /app/b.txt
+
 docker run -d \
   --restart=always \
   --name=doube-itv-plus \
   -p 5078:5000 \
   -v /docker/doube-itv-plus/doubebly.json:/app/config/doubebly.json \
   doubebly/doube-itv-plus:1.0.3
-```
 
 docker cp doube-itv-plus:/app/config/. /docker/doube-itv-plus/
+
+curl -O https://json.doube.eu.org/doube_itv_plus.sh && bash doube_itv_plus.sh
+
+chmod +x /docker/doube-itv-plus/doube_itv_plus.sh
+
+0 2 * * * /docker/doube-itv-plus/doube_itv_plus.sh >> /docker/doube-itv-plus/doube_itv_plus.log 2>&1
+```
 
 ## allinone
 
@@ -360,6 +375,29 @@ docker run -d \
   --restart always \
   -v /var/run/docker.sock:/var/run/docker.sock \
   containrrr/watchtower --cleanup --interval 3600 allinone
+```
+
+## cloud189-auto-save
+
+```shell
+docker run -d \
+  --name cloud189 \
+  --restart unless-stopped \
+  -p 3000:3000 \
+  -e TZ=Asia/Shanghai \
+  -v /docker/cloud189/.env:/home/.env \
+  -v /docker/cloud189/data:/home/data \
+  -v /docker/cloud189/services:/home/src/services \
+  xia1307/cloud189-auto-save
+
+  docker exec -it cloud189 sh
+
+  docker cp /docker/cloud189/WeworkService.js cloud189:/home/src/services/message/
+  docker cp /docker/cloud189/task.js cloud189:/home/src/services/
+
+  docker exec -it cloud189 cat /home/src/services/message/WeworkService.js
+  docker exec -it cloud189 cat /home/src/services/task.js
+
 ```
 
 ## php-epg
