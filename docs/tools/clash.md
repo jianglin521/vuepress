@@ -433,6 +433,18 @@ docker run -d --restart=always \
   wbsu2003/lx-music-sync-server:latest
 ```
 
+## xiaomusic
+
+```shell
+docker run \
+  --name=xiaomusic \
+  -p 58090:8090 \
+  -e XIAOMUSIC_PUBLIC_PORT=58090 \
+  -v /share/音乐/:/app/music \
+  -v /docker/xiaomusic/conf:/app/conf \
+  hanxi/xiaomusic
+```
+
 ## 微力同步
 
 ```shell
