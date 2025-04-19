@@ -218,12 +218,13 @@ docker run -d -t \
 ## syncthing
 
 ```shell
-docker run  -d --restart=always \
---name syncthing \
--p 8020:8384 \
--p 22001:22000 \
--v /docker/syncthing:/var/syncthing \
-syncthing/syncthing
+docker run -d \
+  --restart=always \
+  --name syncthing \
+  -p 8020:8384 \
+  -p 22001:22000 \
+  -v /docker/syncthing:/var/syncthing \
+  syncthing/syncthing
 #win10客户端工具SyncTrayzor
 ```
 
@@ -243,6 +244,37 @@ docker run -d --restart=always \
 ::: warning 查看密码
  :tada: 查看初始化密码`docker logs alist`
 :::
+
+## tao-sync
+
+```shell
+# 网盘同步工具
+docker run -d \
+  --restart=always \
+  --name=taoSync \
+  -p 8023:8023 \
+  -v /docker/taoSync/data:/app/data \
+  dr34m/tao-sync:latest
+```
+
+## duplicati
+
+```shell
+# nas备份工具
+docker run -d \
+  --name=duplicati \
+  -e PUID=0 \
+  -e PGID=0 \
+  -e TZ=Asia/Shanghai \
+  -p 8200:8200 \
+  -e SETTINGS_ENCRYPTION_KEY=xxx \
+  -e DUPLICATI__WEBSERVICE_PASSWORD=xxx \
+  -v /docker/duplicati/config:/config \
+  -v /docker/duplicati/backups:/backups \
+  -v /share:/source \
+  --restart unless-stopped \
+  linuxserver/duplicati
+```
 
 ## navidrome
 
@@ -388,7 +420,8 @@ docker run -d \
   -v /docker/cloud189/.env:/home/.env \
   -v /docker/cloud189/data:/home/data \
   -v /docker/cloud189/services:/home/src/services \
-  xia1307/cloud189-auto-save
+  xia1307/cloud189-auto-save:latest
+  xia1307/cloud189-auto-save:v2.2.4
 
   docker exec -it cloud189 sh
 
@@ -398,6 +431,18 @@ docker run -d \
   docker exec -it cloud189 cat /home/src/services/message/WeworkService.js
   docker exec -it cloud189 cat /home/src/services/task.js
 
+```
+
+## cloudsaver
+
+```shell
+docker run -d \
+  --restart unless-stopped  \
+  -p 8818:8008 \
+  -v /docker/cloudSaver/data:/app/data \
+  -v /docker/cloudSaver/config:/app/config \
+  --name cloud-saver \
+  jiangrui1994/cloudsaver:latest
 ```
 
 ## php-epg
