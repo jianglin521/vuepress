@@ -289,6 +289,20 @@ docker run -d \
   deluan/navidrome:latest
 ```
 
+## homebox
+
+```shell
+# 衣服管理
+docker run -d \
+  --name homebox \
+  --restart unless-stopped \
+  -p 7745:7745 \
+  -v /docker/homebox/data:/data \
+  -e HBOX_LOG_LEVEL=info \
+  -e HBOX_DISABLE_TELEMETRY=true \
+  ghcr.io/hay-kot/homebox:latest
+```
+
 ## 安装mysql5.7
 
 ```shell
