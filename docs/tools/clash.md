@@ -282,7 +282,7 @@ docker run -d \
 docker run -d \
   --name navidrome \
   --restart=unless-stopped \
-  -v /docker/syncthing/音乐:/music \
+  -v /share/音乐:/music \
   -v /docker/navidrome/:/data \
   -p 4533:4533 \
   -e ND_LOGLEVEL=info \
@@ -359,7 +359,7 @@ docker run -d \
   -v /docker/quark-auto-save/config:/app/config \
   --network bridge \
   --restart unless-stopped \
-  cp0204/quark-auto-save:latest
+  cp0204/quark-auto-save:v0.6.2
 ```
 
 ## doube-itv
