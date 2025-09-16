@@ -34,24 +34,24 @@ auth_basic off; # 关闭验证
 
 ```shell
 docker run --restart=always \
--d --name nginx \
--e TZ=Asia/Shanghai \
--v /nginx/htpasswd.users:/etc/nginx/htpasswd.users \
--v /nginx/default.conf:/etc/nginx/conf.d/default.conf \
--v /nginx:/usr/share/nginx \
--p 80:80 \
-nginx
+  -d --name nginx \
+  -e TZ=Asia/Shanghai \
+  -v /nginx/htpasswd.users:/etc/nginx/htpasswd.users \
+  -v /nginx/default.conf:/etc/nginx/conf.d/default.conf \
+  -v /nginx:/usr/share/nginx \
+  -p 80:80 \
+  nginx
 ```
 
 ```shell
 docker run --restart=always \
--d --name much-more-design \
--e TZ=Asia/Shanghai \
--v /docker/much-more-design/htpasswd.users:/etc/nginx/htpasswd.users \
--v /docker/much-more-design/default.conf:/etc/nginx/conf.d/default.conf \
--v /docker/much-more-design:/usr/share/nginx \
--p 8010:80 \
-nginx
+  -d --name much-more-design \
+  -e TZ=Asia/Shanghai \
+  -v /docker/much-more-design/htpasswd.users:/etc/nginx/htpasswd.users \
+  -v /docker/much-more-design/default.conf:/etc/nginx/conf.d/default.conf \
+  -v /docker/much-more-design:/usr/share/nginx \
+  -p 8010:80 \
+  nginx
 ```
 
 ## 查看所有容器ip
@@ -408,12 +408,7 @@ docker run -d \
   --net=host \
   --privileged=true \
   -p 35455:35455 \
-  youshandefeiyang/allinone \
-  -tv=true \
-  -aesKey=02moe4n95dqumxz68pyvc9l77jg1db0h \
-  -userid=xxx \
-  -token=xxx
-
+  youshandefeiyang/allinone
 
 # 监视容器更新，一个小时检查一次
 docker run -d \
