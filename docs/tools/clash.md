@@ -356,10 +356,12 @@ docker run -d --restart=always \
 docker run -d \
   --name quark-auto-save \
   -p 7010:5005 \
+  -e PLUGIN_FLAGS="-auto_unarchive,-alist_sync,-fnv"\
+  -e WEBUI_USERNAME=admin \
   -v /docker/quark-auto-save/config:/app/config \
-  --network bridge \
+  -v /docker/quark-auto-save/app:/app/app \
   --restart unless-stopped \
-  cp0204/quark-auto-save:v0.6.2
+  cp0204/quark-auto-save:latest
 ```
 
 ## doube-itv
@@ -440,6 +442,15 @@ docker run -d \
   docker exec -it cloud189 cat /home/src/services/message/WeworkService.js
   docker exec -it cloud189 cat /home/src/services/task.js
 
+
+  docker run -d \
+    -v /docker/my-cloud189/data:/home/data \
+    -p 3000:3000 \
+    --restart unless-stopped \
+    --name my-cloud189 \
+    -e PUID=0 \
+    -e PGID=0 \
+    ghcr.io/ymting/my-cloud189-auto-save:latest
 ```
 
 ## cloudsaver

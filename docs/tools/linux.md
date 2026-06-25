@@ -54,13 +54,19 @@ tar -zcvf ./navidrome.tar.gz ./navidrome
 # tar -zcvf 打包后生成的文件名全路径 要打包的目录 
 # 例子：把./ql文件夹打包后生成一个./ql_back.tar.gz的文件
 # 忽略某个目录
-tar -zcvf docker2.tar.gz --exclude=docker/syncthing/文件同步 --exclude=docker/syncthing/我的文件 /docker
-tar -zcvf nginx2.tar.gz /nginx
-tar -zcvf home2.tar.gz /home
+tar -zcvf docker3.tar.gz --exclude=docker/syncthing/文件同步 --exclude=docker/syncthing/我的文件 /docker
+tar -zcvf nginx3.tar.gz /nginx
+tar -zcvf home3.tar.gz /home
+tar -zcvf mypython.tar.gz /docker/mypython
 
 # tar 解压文件夹
 tar -zxvf ./ql_back.tar.gz -C ./
 tar -zcvf ./elecv2p_back.tar.gz -C ./
+
+tar -zxvf ./docker3.tar.gz -C ./
+tar -zxvf ./nginx3.tar.gz -C ./
+tar -zxvf ./home3.tar.gz -C ./
+tar -zxvf ./mypython.tar.gz -C ./
 
 #把根目录下的ql_back.tar.gz解压到./下
 #这个和cp命令有点不同，cp命令如果不存在这个目录就会自动创建这个目录
@@ -70,7 +76,9 @@ tar -zcvf ./elecv2p_back.tar.gz -C ./
 # -f: 如果指定移动的源目录或文件与目标的目录或文件同名，不会询问，直接覆盖旧文件
 mv source_file(文件) dest_directory(目录)
 
-mv /nginx.tar.gz ./
+mv /docker3.tar.gz ./
+mv /nginx3.tar.gz ./
+mv /home3.tar.gz ./
 ```
 
 ### docker-compose常用命令
